@@ -1,0 +1,5350 @@
+{
+ "config": {
+  "bench": "mms",
+  "region": "lv",
+  "brats_slices": "tumour",
+  "source": "centre2",
+  "method": "erm",
+  "seed": 2,
+  "iters": 8000,
+  "bs": 8,
+  "lr": 0.01,
+  "base": 32,
+  "norm": "bn",
+  "backbone": "scratch",
+  "freeze": 0,
+  "pretrained": 1,
+  "gt": "r1",
+  "slices": "fg",
+  "val_every": 500,
+  "amp": 0,
+  "deterministic": 1,
+  "tag_suffix": "",
+  "adv_lr": 0.1,
+  "tau": 0.7,
+  "efdr_band": 12,
+  "ada_static": "noise_contrast",
+  "ada_pct": 67.0,
+  "ada_alpha": 0.5,
+  "ada_grad": "abs",
+  "ada_no_bezier": false,
+  "ada_no_shift": false,
+  "ada_no_weaken": false,
+  "out": "/projectoutputs/sdg_mms",
+  "ckpt_dir": "/projectscratch/ckpt_mms"
+ },
+ "best_source_val": 0.9329,
+ "history": [
+  {
+   "iter": 500,
+   "val": 0.906,
+   "lv": 0.906,
+   "loss": 0.1086
+  },
+  {
+   "iter": 1000,
+   "val": 0.8991,
+   "lv": 0.8991,
+   "loss": 0.209
+  },
+  {
+   "iter": 1500,
+   "val": 0.8956,
+   "lv": 0.8956,
+   "loss": 0.1576
+  },
+  {
+   "iter": 2000,
+   "val": 0.9267,
+   "lv": 0.9267,
+   "loss": 0.0829
+  },
+  {
+   "iter": 2500,
+   "val": 0.9216,
+   "lv": 0.9216,
+   "loss": 0.1136
+  },
+  {
+   "iter": 3000,
+   "val": 0.9297,
+   "lv": 0.9297,
+   "loss": 0.0947
+  },
+  {
+   "iter": 3500,
+   "val": 0.9287,
+   "lv": 0.9287,
+   "loss": 0.0909
+  },
+  {
+   "iter": 4000,
+   "val": 0.9329,
+   "lv": 0.9329,
+   "loss": 0.0504
+  },
+  {
+   "iter": 4500,
+   "val": 0.9042,
+   "lv": 0.9042,
+   "loss": 0.1214
+  },
+  {
+   "iter": 5000,
+   "val": 0.9134,
+   "lv": 0.9134,
+   "loss": 0.0801
+  },
+  {
+   "iter": 5500,
+   "val": 0.923,
+   "lv": 0.923,
+   "loss": 0.0764
+  },
+  {
+   "iter": 6000,
+   "val": 0.9176,
+   "lv": 0.9176,
+   "loss": 0.1082
+  },
+  {
+   "iter": 6500,
+   "val": 0.9276,
+   "lv": 0.9276,
+   "loss": 0.1079
+  },
+  {
+   "iter": 7000,
+   "val": 0.9289,
+   "lv": 0.9289,
+   "loss": 0.0597
+  },
+  {
+   "iter": 7500,
+   "val": 0.9312,
+   "lv": 0.9312,
+   "loss": 0.0595
+  },
+  {
+   "iter": 8000,
+   "val": 0.9308,
+   "lv": 0.9308,
+   "loss": 0.084
+  }
+ ],
+ "train_slices": 869,
+ "val_units": 36,
+ "train_cases": [],
+ "val_cases": [
+  "A2H5K9_t29",
+  "A2H5K9_t8",
+  "B0N3W8_t15",
+  "B0N3W8_t28",
+  "C2L5P7_t12",
+  "C2L5P7_t28",
+  "D6E9U8_t0",
+  "D6E9U8_t12",
+  "E3T0Z2_t10",
+  "E3T0Z2_t29",
+  "E4W8Z7_t10",
+  "E4W8Z7_t29",
+  "E5E6O8_t10",
+  "E5E6O8_t29",
+  "E6J4N8_t11",
+  "E6J4N8_t29",
+  "F1F3I6_t28",
+  "F1F3I6_t8",
+  "F5I9Q2_t11",
+  "F5I9Q2_t29",
+  "H1J5W8_t15",
+  "H1J5W8_t3",
+  "H7N4V9_t0",
+  "H7N4V9_t12",
+  "I2K2Y8_t29",
+  "I2K2Y8_t8",
+  "K2S1U6_t12",
+  "K2S1U6_t29",
+  "K9N0W0_t12",
+  "K9N0W0_t29",
+  "L1Q1Z5_t0",
+  "L1Q1Z5_t15",
+  "M4T4V6_t12",
+  "M4T4V6_t29",
+  "O4T6Y7_t0",
+  "O4T6Y7_t13"
+ ],
+ "minutes": 10.0,
+ "torch": "2.6.0+cu124",
+ "gpu": "NVIDIA A100-SXM4-40GB",
+ "cudnn": true,
+ "efdr_mean_strength": {},
+ "per_domain": {
+  "centre2": {
+   "n": 148,
+   "dice_mean": 0.934,
+   "dice_std": 0.0339,
+   "precision_mean": 0.931,
+   "recall_mean": 0.9399,
+   "per_case": {
+    "A1D0Q7_t0": {
+     "dice": 0.9499,
+     "precision": 0.9379,
+     "recall": 0.9622,
+     "pred_vox": 8376.0,
+     "gt_vox": 8165.0,
+     "vol_ratio": 1.0258
+    },
+    "A1D0Q7_t9": {
+     "dice": 0.9197,
+     "precision": 0.9224,
+     "recall": 0.917,
+     "pred_vox": 2216.0,
+     "gt_vox": 2229.0,
+     "vol_ratio": 0.9942
+    },
+    "A2H5K9_t29": {
+     "dice": 0.9524,
+     "precision": 0.977,
+     "recall": 0.9291,
+     "pred_vox": 10958.0,
+     "gt_vox": 11523.0,
+     "vol_ratio": 0.951
+    },
+    "A2H5K9_t8": {
+     "dice": 0.8493,
+     "precision": 0.877,
+     "recall": 0.8234,
+     "pred_vox": 2073.0,
+     "gt_vox": 2208.0,
+     "vol_ratio": 0.9389
+    },
+    "A3B7E5_t12": {
+     "dice": 0.8974,
+     "precision": 0.9495,
+     "recall": 0.8507,
+     "pred_vox": 1801.0,
+     "gt_vox": 2010.0,
+     "vol_ratio": 0.896
+    },
+    "A3B7E5_t29": {
+     "dice": 0.9643,
+     "precision": 0.9855,
+     "recall": 0.944,
+     "pred_vox": 5729.0,
+     "gt_vox": 5981.0,
+     "vol_ratio": 0.9579
+    },
+    "A5D0G0_t0": {
+     "dice": 0.9438,
+     "precision": 0.9511,
+     "recall": 0.9365,
+     "pred_vox": 9026.0,
+     "gt_vox": 9167.0,
+     "vol_ratio": 0.9846
+    },
+    "A5D0G0_t10": {
+     "dice": 0.839,
+     "precision": 0.7733,
+     "recall": 0.9168,
+     "pred_vox": 3322.0,
+     "gt_vox": 2802.0,
+     "vol_ratio": 1.1856
+    },
+    "A6J0Y2_t13": {
+     "dice": 0.908,
+     "precision": 0.9022,
+     "recall": 0.914,
+     "pred_vox": 4509.0,
+     "gt_vox": 4451.0,
+     "vol_ratio": 1.013
+    },
+    "A6J0Y2_t27": {
+     "dice": 0.9395,
+     "precision": 0.9723,
+     "recall": 0.9088,
+     "pred_vox": 12313.0,
+     "gt_vox": 13174.0,
+     "vol_ratio": 0.9346
+    },
+    "A6M1Q7_t11": {
+     "dice": 0.9148,
+     "precision": 0.9261,
+     "recall": 0.9037,
+     "pred_vox": 3343.0,
+     "gt_vox": 3426.0,
+     "vol_ratio": 0.9758
+    },
+    "A6M1Q7_t29": {
+     "dice": 0.965,
+     "precision": 0.9636,
+     "recall": 0.9664,
+     "pred_vox": 9307.0,
+     "gt_vox": 9280.0,
+     "vol_ratio": 1.0029
+    },
+    "A7G0P5_t28": {
+     "dice": 0.9642,
+     "precision": 0.9528,
+     "recall": 0.9759,
+     "pred_vox": 11630.0,
+     "gt_vox": 11355.0,
+     "vol_ratio": 1.0242
+    },
+    "A7G0P5_t9": {
+     "dice": 0.9209,
+     "precision": 0.9465,
+     "recall": 0.8967,
+     "pred_vox": 3723.0,
+     "gt_vox": 3930.0,
+     "vol_ratio": 0.9473
+    },
+    "A8C9U8_t28": {
+     "dice": 0.9624,
+     "precision": 0.9636,
+     "recall": 0.9613,
+     "pred_vox": 13322.0,
+     "gt_vox": 13354.0,
+     "vol_ratio": 0.9976
+    },
+    "A8C9U8_t9": {
+     "dice": 0.9004,
+     "precision": 0.9018,
+     "recall": 0.899,
+     "pred_vox": 4818.0,
+     "gt_vox": 4833.0,
+     "vol_ratio": 0.9969
+    },
+    "A9C5P4_t29": {
+     "dice": 0.9449,
+     "precision": 0.919,
+     "recall": 0.9722,
+     "pred_vox": 5408.0,
+     "gt_vox": 5112.0,
+     "vol_ratio": 1.0579
+    },
+    "A9C5P4_t8": {
+     "dice": 0.8784,
+     "precision": 0.8238,
+     "recall": 0.9407,
+     "pred_vox": 2100.0,
+     "gt_vox": 1839.0,
+     "vol_ratio": 1.1419
+    },
+    "A9J8W7_t10": {
+     "dice": 0.9222,
+     "precision": 0.8903,
+     "recall": 0.9565,
+     "pred_vox": 4623.0,
+     "gt_vox": 4303.0,
+     "vol_ratio": 1.0744
+    },
+    "A9J8W7_t29": {
+     "dice": 0.9679,
+     "precision": 0.9853,
+     "recall": 0.9511,
+     "pred_vox": 12824.0,
+     "gt_vox": 13285.0,
+     "vol_ratio": 0.9653
+    },
+    "B0N3W8_t15": {
+     "dice": 0.9026,
+     "precision": 0.8816,
+     "recall": 0.9246,
+     "pred_vox": 2171.0,
+     "gt_vox": 2070.0,
+     "vol_ratio": 1.0488
+    },
+    "B0N3W8_t28": {
+     "dice": 0.9452,
+     "precision": 0.9622,
+     "recall": 0.9287,
+     "pred_vox": 4953.0,
+     "gt_vox": 5132.0,
+     "vol_ratio": 0.9651
+    },
+    "B1G9J3_t10": {
+     "dice": 0.9307,
+     "precision": 0.9684,
+     "recall": 0.8958,
+     "pred_vox": 3639.0,
+     "gt_vox": 3934.0,
+     "vol_ratio": 0.925
+    },
+    "B1G9J3_t29": {
+     "dice": 0.96,
+     "precision": 0.986,
+     "recall": 0.9355,
+     "pred_vox": 9615.0,
+     "gt_vox": 10134.0,
+     "vol_ratio": 0.9488
+    },
+    "B2D9O2_t13": {
+     "dice": 0.8288,
+     "precision": 0.7815,
+     "recall": 0.8822,
+     "pred_vox": 3478.0,
+     "gt_vox": 3081.0,
+     "vol_ratio": 1.1289
+    },
+    "B2D9O2_t29": {
+     "dice": 0.9083,
+     "precision": 0.8938,
+     "recall": 0.9232,
+     "pred_vox": 7683.0,
+     "gt_vox": 7438.0,
+     "vol_ratio": 1.0329
+    },
+    "B2F4K5_t10": {
+     "dice": 0.8797,
+     "precision": 0.951,
+     "recall": 0.8183,
+     "pred_vox": 3022.0,
+     "gt_vox": 3512.0,
+     "vol_ratio": 0.8605
+    },
+    "B2F4K5_t29": {
+     "dice": 0.967,
+     "precision": 0.9656,
+     "recall": 0.9684,
+     "pred_vox": 9420.0,
+     "gt_vox": 9393.0,
+     "vol_ratio": 1.0029
+    },
+    "B3S2Z4_t11": {
+     "dice": 0.9141,
+     "precision": 0.9649,
+     "recall": 0.8684,
+     "pred_vox": 3188.0,
+     "gt_vox": 3542.0,
+     "vol_ratio": 0.9001
+    },
+    "B3S2Z4_t28": {
+     "dice": 0.9389,
+     "precision": 0.9836,
+     "recall": 0.8981,
+     "pred_vox": 7572.0,
+     "gt_vox": 8293.0,
+     "vol_ratio": 0.9131
+    },
+    "B4S1Y2_t10": {
+     "dice": 0.9354,
+     "precision": 0.9173,
+     "recall": 0.9543,
+     "pred_vox": 4824.0,
+     "gt_vox": 4637.0,
+     "vol_ratio": 1.0403
+    },
+    "B4S1Y2_t29": {
+     "dice": 0.9696,
+     "precision": 0.9695,
+     "recall": 0.9697,
+     "pred_vox": 11141.0,
+     "gt_vox": 11139.0,
+     "vol_ratio": 1.0002
+    },
+    "B6D0U7_t29": {
+     "dice": 0.9618,
+     "precision": 0.9639,
+     "recall": 0.9598,
+     "pred_vox": 6837.0,
+     "gt_vox": 6866.0,
+     "vol_ratio": 0.9958
+    },
+    "B6D0U7_t9": {
+     "dice": 0.9255,
+     "precision": 0.9062,
+     "recall": 0.9455,
+     "pred_vox": 2240.0,
+     "gt_vox": 2147.0,
+     "vol_ratio": 1.0433
+    },
+    "B9O1Q0_t11": {
+     "dice": 0.9368,
+     "precision": 0.9139,
+     "recall": 0.9609,
+     "pred_vox": 5518.0,
+     "gt_vox": 5248.0,
+     "vol_ratio": 1.0514
+    },
+    "B9O1Q0_t29": {
+     "dice": 0.9659,
+     "precision": 0.9875,
+     "recall": 0.9451,
+     "pred_vox": 11391.0,
+     "gt_vox": 11902.0,
+     "vol_ratio": 0.9571
+    },
+    "C2L5P7_t12": {
+     "dice": 0.9147,
+     "precision": 0.8527,
+     "recall": 0.9864,
+     "pred_vox": 4854.0,
+     "gt_vox": 4196.0,
+     "vol_ratio": 1.1568
+    },
+    "C2L5P7_t28": {
+     "dice": 0.9602,
+     "precision": 0.9399,
+     "recall": 0.9815,
+     "pred_vox": 12173.0,
+     "gt_vox": 11657.0,
+     "vol_ratio": 1.0443
+    },
+    "C3I2K3_t11": {
+     "dice": 0.9229,
+     "precision": 0.9355,
+     "recall": 0.9107,
+     "pred_vox": 3891.0,
+     "gt_vox": 3997.0,
+     "vol_ratio": 0.9735
+    },
+    "C3I2K3_t29": {
+     "dice": 0.9744,
+     "precision": 0.964,
+     "recall": 0.985,
+     "pred_vox": 10311.0,
+     "gt_vox": 10091.0,
+     "vol_ratio": 1.0218
+    },
+    "C4R8T7_t28": {
+     "dice": 0.9535,
+     "precision": 0.9304,
+     "recall": 0.9777,
+     "pred_vox": 10013.0,
+     "gt_vox": 9528.0,
+     "vol_ratio": 1.0509
+    },
+    "C4R8T7_t8": {
+     "dice": 0.8849,
+     "precision": 0.8033,
+     "recall": 0.985,
+     "pred_vox": 4093.0,
+     "gt_vox": 3338.0,
+     "vol_ratio": 1.2262
+    },
+    "C7L8Z8_t29": {
+     "dice": 0.9442,
+     "precision": 0.9949,
+     "recall": 0.8984,
+     "pred_vox": 15616.0,
+     "gt_vox": 17294.0,
+     "vol_ratio": 0.903
+    },
+    "C7L8Z8_t9": {
+     "dice": 0.9127,
+     "precision": 0.9289,
+     "recall": 0.8971,
+     "pred_vox": 4925.0,
+     "gt_vox": 5100.0,
+     "vol_ratio": 0.9657
+    },
+    "C8I7P7_t11": {
+     "dice": 0.9441,
+     "precision": 0.931,
+     "recall": 0.9576,
+     "pred_vox": 3538.0,
+     "gt_vox": 3440.0,
+     "vol_ratio": 1.0285
+    },
+    "C8I7P7_t29": {
+     "dice": 0.9703,
+     "precision": 0.9781,
+     "recall": 0.9626,
+     "pred_vox": 8813.0,
+     "gt_vox": 8955.0,
+     "vol_ratio": 0.9841
+    },
+    "D0H9I4_t0": {
+     "dice": 0.9483,
+     "precision": 0.9158,
+     "recall": 0.9831,
+     "pred_vox": 7386.0,
+     "gt_vox": 6880.0,
+     "vol_ratio": 1.0735
+    },
+    "D0H9I4_t10": {
+     "dice": 0.8751,
+     "precision": 0.8315,
+     "recall": 0.9235,
+     "pred_vox": 2700.0,
+     "gt_vox": 2431.0,
+     "vol_ratio": 1.1107
+    },
+    "D1L4Q9_t10": {
+     "dice": 0.9337,
+     "precision": 0.9166,
+     "recall": 0.9514,
+     "pred_vox": 5577.0,
+     "gt_vox": 5373.0,
+     "vol_ratio": 1.038
+    },
+    "D1L4Q9_t29": {
+     "dice": 0.9692,
+     "precision": 0.9621,
+     "recall": 0.9765,
+     "pred_vox": 11595.0,
+     "gt_vox": 11424.0,
+     "vol_ratio": 1.015
+    },
+    "D6E9U8_t0": {
+     "dice": 0.9634,
+     "precision": 0.9846,
+     "recall": 0.9431,
+     "pred_vox": 9023.0,
+     "gt_vox": 9420.0,
+     "vol_ratio": 0.9579
+    },
+    "D6E9U8_t12": {
+     "dice": 0.9461,
+     "precision": 0.9405,
+     "recall": 0.9518,
+     "pred_vox": 3965.0,
+     "gt_vox": 3918.0,
+     "vol_ratio": 1.012
+    },
+    "D6H6O2_t29": {
+     "dice": 0.967,
+     "precision": 0.971,
+     "recall": 0.9631,
+     "pred_vox": 7660.0,
+     "gt_vox": 7723.0,
+     "vol_ratio": 0.9918
+    },
+    "D6H6O2_t9": {
+     "dice": 0.9375,
+     "precision": 0.9013,
+     "recall": 0.9767,
+     "pred_vox": 2694.0,
+     "gt_vox": 2486.0,
+     "vol_ratio": 1.0837
+    },
+    "E3T0Z2_t10": {
+     "dice": 0.9305,
+     "precision": 0.953,
+     "recall": 0.909,
+     "pred_vox": 3322.0,
+     "gt_vox": 3483.0,
+     "vol_ratio": 0.9538
+    },
+    "E3T0Z2_t29": {
+     "dice": 0.9613,
+     "precision": 0.9518,
+     "recall": 0.971,
+     "pred_vox": 9889.0,
+     "gt_vox": 9693.0,
+     "vol_ratio": 1.0202
+    },
+    "E4O8P3_t12": {
+     "dice": 0.9234,
+     "precision": 0.9565,
+     "recall": 0.8925,
+     "pred_vox": 2943.0,
+     "gt_vox": 3154.0,
+     "vol_ratio": 0.9331
+    },
+    "E4O8P3_t29": {
+     "dice": 0.973,
+     "precision": 0.9782,
+     "recall": 0.9679,
+     "pred_vox": 10866.0,
+     "gt_vox": 10982.0,
+     "vol_ratio": 0.9894
+    },
+    "E4W8Z7_t10": {
+     "dice": 0.9365,
+     "precision": 0.9108,
+     "recall": 0.9636,
+     "pred_vox": 6167.0,
+     "gt_vox": 5829.0,
+     "vol_ratio": 1.058
+    },
+    "E4W8Z7_t29": {
+     "dice": 0.9594,
+     "precision": 0.9686,
+     "recall": 0.9503,
+     "pred_vox": 12811.0,
+     "gt_vox": 13058.0,
+     "vol_ratio": 0.9811
+    },
+    "E5E6O8_t10": {
+     "dice": 0.9233,
+     "precision": 0.9577,
+     "recall": 0.8914,
+     "pred_vox": 3849.0,
+     "gt_vox": 4135.0,
+     "vol_ratio": 0.9308
+    },
+    "E5E6O8_t29": {
+     "dice": 0.9508,
+     "precision": 0.9726,
+     "recall": 0.9299,
+     "pred_vox": 10330.0,
+     "gt_vox": 10804.0,
+     "vol_ratio": 0.9561
+    },
+    "E5S7W7_t12": {
+     "dice": 0.9256,
+     "precision": 0.9547,
+     "recall": 0.8982,
+     "pred_vox": 2254.0,
+     "gt_vox": 2396.0,
+     "vol_ratio": 0.9407
+    },
+    "E5S7W7_t28": {
+     "dice": 0.9609,
+     "precision": 0.9934,
+     "recall": 0.9304,
+     "pred_vox": 8542.0,
+     "gt_vox": 9121.0,
+     "vol_ratio": 0.9365
+    },
+    "E6J4N8_t11": {
+     "dice": 0.8772,
+     "precision": 0.9545,
+     "recall": 0.8115,
+     "pred_vox": 1935.0,
+     "gt_vox": 2276.0,
+     "vol_ratio": 0.8502
+    },
+    "E6J4N8_t29": {
+     "dice": 0.954,
+     "precision": 0.9345,
+     "recall": 0.9744,
+     "pred_vox": 9098.0,
+     "gt_vox": 8725.0,
+     "vol_ratio": 1.0428
+    },
+    "E9H2K7_t11": {
+     "dice": 0.8386,
+     "precision": 0.7261,
+     "recall": 0.9924,
+     "pred_vox": 4491.0,
+     "gt_vox": 3286.0,
+     "vol_ratio": 1.3667
+    },
+    "E9H2K7_t29": {
+     "dice": 0.956,
+     "precision": 0.9407,
+     "recall": 0.9718,
+     "pred_vox": 10161.0,
+     "gt_vox": 9835.0,
+     "vol_ratio": 1.0331
+    },
+    "F0J2R8_t29": {
+     "dice": 0.9468,
+     "precision": 0.9332,
+     "recall": 0.9608,
+     "pred_vox": 6126.0,
+     "gt_vox": 5950.0,
+     "vol_ratio": 1.0296
+    },
+    "F0J2R8_t9": {
+     "dice": 0.8857,
+     "precision": 0.8343,
+     "recall": 0.9438,
+     "pred_vox": 2094.0,
+     "gt_vox": 1851.0,
+     "vol_ratio": 1.1313
+    },
+    "F1F3I6_t28": {
+     "dice": 0.9517,
+     "precision": 0.929,
+     "recall": 0.9755,
+     "pred_vox": 8837.0,
+     "gt_vox": 8416.0,
+     "vol_ratio": 1.05
+    },
+    "F1F3I6_t8": {
+     "dice": 0.8775,
+     "precision": 0.7979,
+     "recall": 0.9747,
+     "pred_vox": 3523.0,
+     "gt_vox": 2884.0,
+     "vol_ratio": 1.2216
+    },
+    "F5I9Q2_t11": {
+     "dice": 0.9259,
+     "precision": 0.9487,
+     "recall": 0.9042,
+     "pred_vox": 3313.0,
+     "gt_vox": 3476.0,
+     "vol_ratio": 0.9531
+    },
+    "F5I9Q2_t29": {
+     "dice": 0.9819,
+     "precision": 0.982,
+     "recall": 0.9817,
+     "pred_vox": 9025.0,
+     "gt_vox": 9028.0,
+     "vol_ratio": 0.9997
+    },
+    "G0H4J3_t10": {
+     "dice": 0.9246,
+     "precision": 0.9147,
+     "recall": 0.9347,
+     "pred_vox": 5993.0,
+     "gt_vox": 5865.0,
+     "vol_ratio": 1.0218
+    },
+    "G0H4J3_t29": {
+     "dice": 0.9741,
+     "precision": 0.9729,
+     "recall": 0.9752,
+     "pred_vox": 13008.0,
+     "gt_vox": 12978.0,
+     "vol_ratio": 1.0023
+    },
+    "G1K1V3_t11": {
+     "dice": 0.9308,
+     "precision": 0.9636,
+     "recall": 0.9001,
+     "pred_vox": 4731.0,
+     "gt_vox": 5065.0,
+     "vol_ratio": 0.9341
+    },
+    "G1K1V3_t29": {
+     "dice": 0.9671,
+     "precision": 0.9739,
+     "recall": 0.9604,
+     "pred_vox": 11205.0,
+     "gt_vox": 11363.0,
+     "vol_ratio": 0.9861
+    },
+    "G1N6S7_t0": {
+     "dice": 0.9601,
+     "precision": 0.9479,
+     "recall": 0.9727,
+     "pred_vox": 9198.0,
+     "gt_vox": 8964.0,
+     "vol_ratio": 1.0261
+    },
+    "G1N6S7_t12": {
+     "dice": 0.861,
+     "precision": 0.7729,
+     "recall": 0.9719,
+     "pred_vox": 3355.0,
+     "gt_vox": 2668.0,
+     "vol_ratio": 1.2575
+    },
+    "G2J1M5_t29": {
+     "dice": 0.8999,
+     "precision": 0.8684,
+     "recall": 0.9338,
+     "pred_vox": 6773.0,
+     "gt_vox": 6299.0,
+     "vol_ratio": 1.0753
+    },
+    "G2J1M5_t9": {
+     "dice": 0.8909,
+     "precision": 0.9538,
+     "recall": 0.8358,
+     "pred_vox": 2230.0,
+     "gt_vox": 2545.0,
+     "vol_ratio": 0.8762
+    },
+    "G2O2S6_t10": {
+     "dice": 0.9405,
+     "precision": 0.9378,
+     "recall": 0.9433,
+     "pred_vox": 4133.0,
+     "gt_vox": 4109.0,
+     "vol_ratio": 1.0058
+    },
+    "G2O2S6_t29": {
+     "dice": 0.9578,
+     "precision": 0.9477,
+     "recall": 0.9681,
+     "pred_vox": 9403.0,
+     "gt_vox": 9205.0,
+     "vol_ratio": 1.0215
+    },
+    "G4L8Z7_t29": {
+     "dice": 0.9788,
+     "precision": 0.9742,
+     "recall": 0.9836,
+     "pred_vox": 11613.0,
+     "gt_vox": 11502.0,
+     "vol_ratio": 1.0097
+    },
+    "G4L8Z7_t8": {
+     "dice": 0.939,
+     "precision": 0.9255,
+     "recall": 0.953,
+     "pred_vox": 4161.0,
+     "gt_vox": 4041.0,
+     "vol_ratio": 1.0297
+    },
+    "G7N8R7_t28": {
+     "dice": 0.9264,
+     "precision": 0.9704,
+     "recall": 0.8862,
+     "pred_vox": 8589.0,
+     "gt_vox": 9405.0,
+     "vol_ratio": 0.9132
+    },
+    "G7N8R7_t9": {
+     "dice": 0.901,
+     "precision": 0.8855,
+     "recall": 0.917,
+     "pred_vox": 2734.0,
+     "gt_vox": 2640.0,
+     "vol_ratio": 1.0356
+    },
+    "G7Q2W0_t0": {
+     "dice": 0.976,
+     "precision": 0.9767,
+     "recall": 0.9753,
+     "pred_vox": 10077.0,
+     "gt_vox": 10091.0,
+     "vol_ratio": 0.9986
+    },
+    "G7Q2W0_t8": {
+     "dice": 0.9315,
+     "precision": 0.9204,
+     "recall": 0.9428,
+     "pred_vox": 4009.0,
+     "gt_vox": 3914.0,
+     "vol_ratio": 1.0243
+    },
+    "G9L0O9_t10": {
+     "dice": 0.9402,
+     "precision": 0.9415,
+     "recall": 0.9388,
+     "pred_vox": 3554.0,
+     "gt_vox": 3564.0,
+     "vol_ratio": 0.9972
+    },
+    "G9L0O9_t29": {
+     "dice": 0.9809,
+     "precision": 0.9777,
+     "recall": 0.9841,
+     "pred_vox": 9668.0,
+     "gt_vox": 9605.0,
+     "vol_ratio": 1.0066
+    },
+    "H1J5W8_t15": {
+     "dice": 0.9374,
+     "precision": 0.8973,
+     "recall": 0.9813,
+     "pred_vox": 4615.0,
+     "gt_vox": 4220.0,
+     "vol_ratio": 1.0936
+    },
+    "H1J5W8_t3": {
+     "dice": 0.9639,
+     "precision": 0.9502,
+     "recall": 0.978,
+     "pred_vox": 9210.0,
+     "gt_vox": 8948.0,
+     "vol_ratio": 1.0293
+    },
+    "H1M5Y6_t29": {
+     "dice": 0.9718,
+     "precision": 0.9702,
+     "recall": 0.9734,
+     "pred_vox": 12464.0,
+     "gt_vox": 12424.0,
+     "vol_ratio": 1.0032
+    },
+    "H1M5Y6_t8": {
+     "dice": 0.9303,
+     "precision": 0.9381,
+     "recall": 0.9227,
+     "pred_vox": 5396.0,
+     "gt_vox": 5486.0,
+     "vol_ratio": 0.9836
+    },
+    "H1W2Y1_t10": {
+     "dice": 0.8972,
+     "precision": 0.9718,
+     "recall": 0.8332,
+     "pred_vox": 2694.0,
+     "gt_vox": 3142.0,
+     "vol_ratio": 0.8574
+    },
+    "H1W2Y1_t29": {
+     "dice": 0.968,
+     "precision": 0.9832,
+     "recall": 0.9533,
+     "pred_vox": 9365.0,
+     "gt_vox": 9659.0,
+     "vol_ratio": 0.9696
+    },
+    "H6I0I6_t10": {
+     "dice": 0.9277,
+     "precision": 0.9151,
+     "recall": 0.9407,
+     "pred_vox": 3450.0,
+     "gt_vox": 3356.0,
+     "vol_ratio": 1.028
+    },
+    "H6I0I6_t28": {
+     "dice": 0.9633,
+     "precision": 0.9666,
+     "recall": 0.9601,
+     "pred_vox": 9573.0,
+     "gt_vox": 9638.0,
+     "vol_ratio": 0.9933
+    },
+    "H7N4V9_t0": {
+     "dice": 0.9532,
+     "precision": 0.965,
+     "recall": 0.9416,
+     "pred_vox": 11849.0,
+     "gt_vox": 12143.0,
+     "vol_ratio": 0.9758
+    },
+    "H7N4V9_t12": {
+     "dice": 0.914,
+     "precision": 0.9273,
+     "recall": 0.9011,
+     "pred_vox": 5157.0,
+     "gt_vox": 5307.0,
+     "vol_ratio": 0.9717
+    },
+    "I0I2J8_t21": {
+     "dice": 0.9337,
+     "precision": 0.9303,
+     "recall": 0.9372,
+     "pred_vox": 13257.0,
+     "gt_vox": 13160.0,
+     "vol_ratio": 1.0074
+    },
+    "I0I2J8_t7": {
+     "dice": 0.9007,
+     "precision": 0.8673,
+     "recall": 0.9368,
+     "pred_vox": 4889.0,
+     "gt_vox": 4526.0,
+     "vol_ratio": 1.0802
+    },
+    "I0J5U3_t10": {
+     "dice": 0.8521,
+     "precision": 0.7538,
+     "recall": 0.9798,
+     "pred_vox": 3408.0,
+     "gt_vox": 2622.0,
+     "vol_ratio": 1.2998
+    },
+    "I0J5U3_t28": {
+     "dice": 0.944,
+     "precision": 0.9055,
+     "recall": 0.986,
+     "pred_vox": 8764.0,
+     "gt_vox": 8049.0,
+     "vol_ratio": 1.0888
+    },
+    "I2K2Y8_t29": {
+     "dice": 0.9738,
+     "precision": 0.9643,
+     "recall": 0.9835,
+     "pred_vox": 12134.0,
+     "gt_vox": 11897.0,
+     "vol_ratio": 1.0199
+    },
+    "I2K2Y8_t8": {
+     "dice": 0.9135,
+     "precision": 0.854,
+     "recall": 0.9818,
+     "pred_vox": 4727.0,
+     "gt_vox": 4112.0,
+     "vol_ratio": 1.1496
+    },
+    "I6N3P3_t10": {
+     "dice": 0.9388,
+     "precision": 0.9473,
+     "recall": 0.9306,
+     "pred_vox": 2617.0,
+     "gt_vox": 2664.0,
+     "vol_ratio": 0.9824
+    },
+    "I6N3P3_t29": {
+     "dice": 0.9655,
+     "precision": 0.9744,
+     "recall": 0.9567,
+     "pred_vox": 5902.0,
+     "gt_vox": 6011.0,
+     "vol_ratio": 0.9819
+    },
+    "I6T4W8_t12": {
+     "dice": 0.9575,
+     "precision": 0.9795,
+     "recall": 0.9364,
+     "pred_vox": 4932.0,
+     "gt_vox": 5159.0,
+     "vol_ratio": 0.956
+    },
+    "I6T4W8_t28": {
+     "dice": 0.9452,
+     "precision": 0.9945,
+     "recall": 0.9005,
+     "pred_vox": 9255.0,
+     "gt_vox": 10221.0,
+     "vol_ratio": 0.9055
+    },
+    "I7W4Y8_t10": {
+     "dice": 0.8529,
+     "precision": 0.8468,
+     "recall": 0.8591,
+     "pred_vox": 1462.0,
+     "gt_vox": 1441.0,
+     "vol_ratio": 1.0146
+    },
+    "I7W4Y8_t27": {
+     "dice": 0.9288,
+     "precision": 0.9702,
+     "recall": 0.8908,
+     "pred_vox": 5770.0,
+     "gt_vox": 6284.0,
+     "vol_ratio": 0.9182
+    },
+    "J4J9W6_t11": {
+     "dice": 0.8862,
+     "precision": 0.9651,
+     "recall": 0.8192,
+     "pred_vox": 2033.0,
+     "gt_vox": 2395.0,
+     "vol_ratio": 0.8489
+    },
+    "J4J9W6_t29": {
+     "dice": 0.9624,
+     "precision": 0.9769,
+     "recall": 0.9483,
+     "pred_vox": 7153.0,
+     "gt_vox": 7369.0,
+     "vol_ratio": 0.9707
+    },
+    "J9L6N9_t29": {
+     "dice": 0.9691,
+     "precision": 0.9565,
+     "recall": 0.982,
+     "pred_vox": 14584.0,
+     "gt_vox": 14205.0,
+     "vol_ratio": 1.0267
+    },
+    "J9L6N9_t9": {
+     "dice": 0.9107,
+     "precision": 0.8773,
+     "recall": 0.9468,
+     "pred_vox": 5134.0,
+     "gt_vox": 4757.0,
+     "vol_ratio": 1.0793
+    },
+    "K2S1U6_t12": {
+     "dice": 0.8535,
+     "precision": 0.76,
+     "recall": 0.9732,
+     "pred_vox": 4254.0,
+     "gt_vox": 3322.0,
+     "vol_ratio": 1.2806
+    },
+    "K2S1U6_t29": {
+     "dice": 0.9429,
+     "precision": 0.9235,
+     "recall": 0.963,
+     "pred_vox": 8406.0,
+     "gt_vox": 8061.0,
+     "vol_ratio": 1.0428
+    },
+    "K7L2Y6_t10": {
+     "dice": 0.9319,
+     "precision": 0.9602,
+     "recall": 0.9052,
+     "pred_vox": 2058.0,
+     "gt_vox": 2183.0,
+     "vol_ratio": 0.9427
+    },
+    "K7L2Y6_t29": {
+     "dice": 0.9545,
+     "precision": 0.9728,
+     "recall": 0.9368,
+     "pred_vox": 8239.0,
+     "gt_vox": 8556.0,
+     "vol_ratio": 0.9629
+    },
+    "K9N0W0_t12": {
+     "dice": 0.9496,
+     "precision": 0.9446,
+     "recall": 0.9546,
+     "pred_vox": 3808.0,
+     "gt_vox": 3768.0,
+     "vol_ratio": 1.0106
+    },
+    "K9N0W0_t29": {
+     "dice": 0.9735,
+     "precision": 0.9786,
+     "recall": 0.9684,
+     "pred_vox": 9821.0,
+     "gt_vox": 9925.0,
+     "vol_ratio": 0.9895
+    },
+    "L1Q1Z5_t0": {
+     "dice": 0.9592,
+     "precision": 0.951,
+     "recall": 0.9677,
+     "pred_vox": 7772.0,
+     "gt_vox": 7638.0,
+     "vol_ratio": 1.0175
+    },
+    "L1Q1Z5_t15": {
+     "dice": 0.8542,
+     "precision": 0.7677,
+     "recall": 0.9627,
+     "pred_vox": 3030.0,
+     "gt_vox": 2416.0,
+     "vol_ratio": 1.2541
+    },
+    "L5Q6T7_t11": {
+     "dice": 0.9341,
+     "precision": 0.9094,
+     "recall": 0.9602,
+     "pred_vox": 4987.0,
+     "gt_vox": 4723.0,
+     "vol_ratio": 1.0559
+    },
+    "L5Q6T7_t28": {
+     "dice": 0.9603,
+     "precision": 0.9809,
+     "recall": 0.9406,
+     "pred_vox": 10818.0,
+     "gt_vox": 11281.0,
+     "vol_ratio": 0.959
+    },
+    "L7Y7Z2_t0": {
+     "dice": 0.9715,
+     "precision": 0.9916,
+     "recall": 0.9522,
+     "pred_vox": 11011.0,
+     "gt_vox": 11467.0,
+     "vol_ratio": 0.9602
+    },
+    "L7Y7Z2_t11": {
+     "dice": 0.9435,
+     "precision": 0.9116,
+     "recall": 0.9776,
+     "pred_vox": 3837.0,
+     "gt_vox": 3578.0,
+     "vol_ratio": 1.0724
+    },
+    "M4P7Q6_t13": {
+     "dice": 0.9094,
+     "precision": 0.9209,
+     "recall": 0.8981,
+     "pred_vox": 8329.0,
+     "gt_vox": 8540.0,
+     "vol_ratio": 0.9753
+    },
+    "M4P7Q6_t2": {
+     "dice": 0.9466,
+     "precision": 0.9482,
+     "recall": 0.945,
+     "pred_vox": 12747.0,
+     "gt_vox": 12790.0,
+     "vol_ratio": 0.9966
+    },
+    "M4T4V6_t12": {
+     "dice": 0.8955,
+     "precision": 0.8657,
+     "recall": 0.9274,
+     "pred_vox": 1683.0,
+     "gt_vox": 1571.0,
+     "vol_ratio": 1.0713
+    },
+    "M4T4V6_t29": {
+     "dice": 0.958,
+     "precision": 0.9674,
+     "recall": 0.9488,
+     "pred_vox": 6807.0,
+     "gt_vox": 6940.0,
+     "vol_ratio": 0.9808
+    },
+    "N1P8Q9_t10": {
+     "dice": 0.9208,
+     "precision": 0.8789,
+     "recall": 0.9669,
+     "pred_vox": 2428.0,
+     "gt_vox": 2207.0,
+     "vol_ratio": 1.1001
+    },
+    "N1P8Q9_t29": {
+     "dice": 0.9772,
+     "precision": 0.9673,
+     "recall": 0.9872,
+     "pred_vox": 5905.0,
+     "gt_vox": 5786.0,
+     "vol_ratio": 1.0206
+    },
+    "O3R8Y5_t0": {
+     "dice": 0.9679,
+     "precision": 0.9776,
+     "recall": 0.9584,
+     "pred_vox": 5001.0,
+     "gt_vox": 5101.0,
+     "vol_ratio": 0.9804
+    },
+    "O3R8Y5_t8": {
+     "dice": 0.9231,
+     "precision": 0.9801,
+     "recall": 0.8724,
+     "pred_vox": 1605.0,
+     "gt_vox": 1803.0,
+     "vol_ratio": 0.8902
+    },
+    "O4T6Y7_t0": {
+     "dice": 0.9682,
+     "precision": 0.9759,
+     "recall": 0.9606,
+     "pred_vox": 9890.0,
+     "gt_vox": 10048.0,
+     "vol_ratio": 0.9843
+    },
+    "O4T6Y7_t13": {
+     "dice": 0.9107,
+     "precision": 0.8943,
+     "recall": 0.9277,
+     "pred_vox": 3972.0,
+     "gt_vox": 3829.0,
+     "vol_ratio": 1.0373
+    },
+    "O9V8W5_t12": {
+     "dice": 0.9476,
+     "precision": 0.9805,
+     "recall": 0.9167,
+     "pred_vox": 2414.0,
+     "gt_vox": 2582.0,
+     "vol_ratio": 0.9349
+    },
+    "O9V8W5_t29": {
+     "dice": 0.9673,
+     "precision": 0.9868,
+     "recall": 0.9485,
+     "pred_vox": 8493.0,
+     "gt_vox": 8836.0,
+     "vol_ratio": 0.9612
+    },
+    "P6U0Y0_t10": {
+     "dice": 0.9275,
+     "precision": 0.9456,
+     "recall": 0.91,
+     "pred_vox": 2685.0,
+     "gt_vox": 2790.0,
+     "vol_ratio": 0.9624
+    },
+    "P6U0Y0_t29": {
+     "dice": 0.9671,
+     "precision": 0.9596,
+     "recall": 0.9747,
+     "pred_vox": 8150.0,
+     "gt_vox": 8024.0,
+     "vol_ratio": 1.0157
+    },
+    "Q7V1Y5_t0": {
+     "dice": 0.9544,
+     "precision": 0.9277,
+     "recall": 0.9828,
+     "pred_vox": 7838.0,
+     "gt_vox": 7398.0,
+     "vol_ratio": 1.0595
+    },
+    "Q7V1Y5_t11": {
+     "dice": 0.9108,
+     "precision": 0.8804,
+     "recall": 0.9433,
+     "pred_vox": 3211.0,
+     "gt_vox": 2997.0,
+     "vol_ratio": 1.0714
+    },
+    "W5Z4Z8_t11": {
+     "dice": 0.9165,
+     "precision": 0.866,
+     "recall": 0.9732,
+     "pred_vox": 3307.0,
+     "gt_vox": 2943.0,
+     "vol_ratio": 1.1237
+    },
+    "W5Z4Z8_t29": {
+     "dice": 0.9624,
+     "precision": 0.9653,
+     "recall": 0.9595,
+     "pred_vox": 9226.0,
+     "gt_vox": 9282.0,
+     "vol_ratio": 0.994
+    }
+   }
+  },
+  "centre1": {
+   "n": 190,
+   "dice_mean": 0.7357,
+   "dice_std": 0.2347,
+   "precision_mean": 0.9705,
+   "recall_mean": 0.6356,
+   "per_case": {
+    "A0S9V9_t0": {
+     "dice": 0.8652,
+     "precision": 0.9949,
+     "recall": 0.7655,
+     "pred_vox": 13584.0,
+     "gt_vox": 17656.0,
+     "vol_ratio": 0.7694
+    },
+    "A0S9V9_t9": {
+     "dice": 0.8813,
+     "precision": 0.9865,
+     "recall": 0.7964,
+     "pred_vox": 9953.0,
+     "gt_vox": 12329.0,
+     "vol_ratio": 0.8073
+    },
+    "A1D9Z7_t11": {
+     "dice": 0.7482,
+     "precision": 0.9449,
+     "recall": 0.6192,
+     "pred_vox": 5191.0,
+     "gt_vox": 7921.0,
+     "vol_ratio": 0.6553
+    },
+    "A1D9Z7_t22": {
+     "dice": 0.8164,
+     "precision": 0.9189,
+     "recall": 0.7344,
+     "pred_vox": 9731.0,
+     "gt_vox": 12176.0,
+     "vol_ratio": 0.7992
+    },
+    "A1E9Q1_t0": {
+     "dice": 0.6985,
+     "precision": 0.9958,
+     "recall": 0.5379,
+     "pred_vox": 11869.0,
+     "gt_vox": 21973.0,
+     "vol_ratio": 0.5402
+    },
+    "A1E9Q1_t9": {
+     "dice": 0.8385,
+     "precision": 0.9948,
+     "recall": 0.7246,
+     "pred_vox": 10352.0,
+     "gt_vox": 14211.0,
+     "vol_ratio": 0.7284
+    },
+    "A2C0I1_t0": {
+     "dice": 0.9036,
+     "precision": 0.9948,
+     "recall": 0.8277,
+     "pred_vox": 9114.0,
+     "gt_vox": 10955.0,
+     "vol_ratio": 0.8319
+    },
+    "A2C0I1_t7": {
+     "dice": 0.7995,
+     "precision": 0.9935,
+     "recall": 0.6689,
+     "pred_vox": 3076.0,
+     "gt_vox": 4569.0,
+     "vol_ratio": 0.6732
+    },
+    "A2L1N6_t0": {
+     "dice": 0.6126,
+     "precision": 1.0,
+     "recall": 0.4415,
+     "pred_vox": 4134.0,
+     "gt_vox": 9363.0,
+     "vol_ratio": 0.4415
+    },
+    "A2L1N6_t12": {
+     "dice": 0.4222,
+     "precision": 1.0,
+     "recall": 0.2676,
+     "pred_vox": 1570.0,
+     "gt_vox": 5867.0,
+     "vol_ratio": 0.2676
+    },
+    "A2N8V0_t0": {
+     "dice": 0.9191,
+     "precision": 0.9917,
+     "recall": 0.8563,
+     "pred_vox": 4723.0,
+     "gt_vox": 5470.0,
+     "vol_ratio": 0.8634
+    },
+    "A2N8V0_t9": {
+     "dice": 0.8564,
+     "precision": 0.9908,
+     "recall": 0.7541,
+     "pred_vox": 1857.0,
+     "gt_vox": 2440.0,
+     "vol_ratio": 0.7611
+    },
+    "A3H1O5_t0": {
+     "dice": 0.8146,
+     "precision": 0.9948,
+     "recall": 0.6896,
+     "pred_vox": 5030.0,
+     "gt_vox": 7256.0,
+     "vol_ratio": 0.6932
+    },
+    "A3H1O5_t12": {
+     "dice": 0.7467,
+     "precision": 0.9758,
+     "recall": 0.6048,
+     "pred_vox": 2023.0,
+     "gt_vox": 3264.0,
+     "vol_ratio": 0.6198
+    },
+    "A4B5U4_t0": {
+     "dice": 0.8173,
+     "precision": 0.9949,
+     "recall": 0.6935,
+     "pred_vox": 26274.0,
+     "gt_vox": 37696.0,
+     "vol_ratio": 0.697
+    },
+    "A4B5U4_t10": {
+     "dice": 0.8134,
+     "precision": 0.9912,
+     "recall": 0.6896,
+     "pred_vox": 24871.0,
+     "gt_vox": 35746.0,
+     "vol_ratio": 0.6958
+    },
+    "A4J4S4_t0": {
+     "dice": 0.7919,
+     "precision": 0.9993,
+     "recall": 0.6558,
+     "pred_vox": 6938.0,
+     "gt_vox": 10572.0,
+     "vol_ratio": 0.6563
+    },
+    "A4J4S4_t7": {
+     "dice": 0.8434,
+     "precision": 0.9916,
+     "recall": 0.7338,
+     "pred_vox": 3094.0,
+     "gt_vox": 4181.0,
+     "vol_ratio": 0.74
+    },
+    "A4U9V5_t0": {
+     "dice": 0.9178,
+     "precision": 0.9937,
+     "recall": 0.8527,
+     "pred_vox": 7330.0,
+     "gt_vox": 8542.0,
+     "vol_ratio": 0.8581
+    },
+    "A4U9V5_t8": {
+     "dice": 0.9419,
+     "precision": 0.9834,
+     "recall": 0.9037,
+     "pred_vox": 3558.0,
+     "gt_vox": 3872.0,
+     "vol_ratio": 0.9189
+    },
+    "A6B5G9_t0": {
+     "dice": 0.8899,
+     "precision": 0.9839,
+     "recall": 0.8122,
+     "pred_vox": 3847.0,
+     "gt_vox": 4660.0,
+     "vol_ratio": 0.8255
+    },
+    "A6B5G9_t11": {
+     "dice": 0.8562,
+     "precision": 0.988,
+     "recall": 0.7555,
+     "pred_vox": 1920.0,
+     "gt_vox": 2511.0,
+     "vol_ratio": 0.7646
+    },
+    "A6D5F9_t0": {
+     "dice": 0.8237,
+     "precision": 0.9936,
+     "recall": 0.7034,
+     "pred_vox": 16029.0,
+     "gt_vox": 22642.0,
+     "vol_ratio": 0.7079
+    },
+    "A6D5F9_t11": {
+     "dice": 0.7978,
+     "precision": 0.9836,
+     "recall": 0.6711,
+     "pred_vox": 13308.0,
+     "gt_vox": 19506.0,
+     "vol_ratio": 0.6823
+    },
+    "A7D9L8_t0": {
+     "dice": 0.9027,
+     "precision": 0.9845,
+     "recall": 0.8334,
+     "pred_vox": 6661.0,
+     "gt_vox": 7869.0,
+     "vol_ratio": 0.8465
+    },
+    "A7D9L8_t11": {
+     "dice": 0.8407,
+     "precision": 0.9865,
+     "recall": 0.7324,
+     "pred_vox": 2217.0,
+     "gt_vox": 2986.0,
+     "vol_ratio": 0.7425
+    },
+    "A7M7P8_t0": {
+     "dice": 0.7956,
+     "precision": 0.9912,
+     "recall": 0.6644,
+     "pred_vox": 8526.0,
+     "gt_vox": 12719.0,
+     "vol_ratio": 0.6703
+    },
+    "A7M7P8_t9": {
+     "dice": 0.6166,
+     "precision": 0.9989,
+     "recall": 0.4459,
+     "pred_vox": 1807.0,
+     "gt_vox": 4048.0,
+     "vol_ratio": 0.4464
+    },
+    "A7O4T6_t0": {
+     "dice": 0.7846,
+     "precision": 0.988,
+     "recall": 0.6507,
+     "pred_vox": 5922.0,
+     "gt_vox": 8992.0,
+     "vol_ratio": 0.6586
+    },
+    "A7O4T6_t10": {
+     "dice": 0.7933,
+     "precision": 0.9806,
+     "recall": 0.6661,
+     "pred_vox": 4062.0,
+     "gt_vox": 5980.0,
+     "vol_ratio": 0.6793
+    },
+    "B0H7V0_t0": {
+     "dice": 0.8351,
+     "precision": 0.9963,
+     "recall": 0.7188,
+     "pred_vox": 10324.0,
+     "gt_vox": 14310.0,
+     "vol_ratio": 0.7215
+    },
+    "B0H7V0_t9": {
+     "dice": 0.8389,
+     "precision": 0.9903,
+     "recall": 0.7276,
+     "pred_vox": 6909.0,
+     "gt_vox": 9403.0,
+     "vol_ratio": 0.7348
+    },
+    "B0I2Z0_t0": {
+     "dice": 0.0179,
+     "precision": 0.7761,
+     "recall": 0.009,
+     "pred_vox": 67.0,
+     "gt_vox": 5749.0,
+     "vol_ratio": 0.0117
+    },
+    "B0I2Z0_t8": {
+     "dice": 0.0455,
+     "precision": 1.0,
+     "recall": 0.0233,
+     "pred_vox": 58.0,
+     "gt_vox": 2494.0,
+     "vol_ratio": 0.0233
+    },
+    "B2C2Z7_t0": {
+     "dice": 0.8826,
+     "precision": 0.9894,
+     "recall": 0.7967,
+     "pred_vox": 12443.0,
+     "gt_vox": 15453.0,
+     "vol_ratio": 0.8052
+    },
+    "B2C2Z7_t8": {
+     "dice": 0.8592,
+     "precision": 0.9936,
+     "recall": 0.7568,
+     "pred_vox": 6075.0,
+     "gt_vox": 7976.0,
+     "vol_ratio": 0.7617
+    },
+    "B2D9M2_t0": {
+     "dice": 0.1123,
+     "precision": 0.9881,
+     "recall": 0.0595,
+     "pred_vox": 505.0,
+     "gt_vox": 8384.0,
+     "vol_ratio": 0.0602
+    },
+    "B2D9M2_t8": {
+     "dice": 0.002,
+     "precision": 1.0,
+     "recall": 0.001,
+     "pred_vox": 4.0,
+     "gt_vox": 3960.0,
+     "vol_ratio": 0.001
+    },
+    "B2G5R2_t0": {
+     "dice": 0.821,
+     "precision": 0.997,
+     "recall": 0.6978,
+     "pred_vox": 6591.0,
+     "gt_vox": 9417.0,
+     "vol_ratio": 0.6999
+    },
+    "B2G5R2_t7": {
+     "dice": 0.6776,
+     "precision": 0.9963,
+     "recall": 0.5134,
+     "pred_vox": 2731.0,
+     "gt_vox": 5300.0,
+     "vol_ratio": 0.5153
+    },
+    "B3F0V9_t0": {
+     "dice": 0.8443,
+     "precision": 0.9978,
+     "recall": 0.7317,
+     "pred_vox": 9517.0,
+     "gt_vox": 12978.0,
+     "vol_ratio": 0.7333
+    },
+    "B3F0V9_t12": {
+     "dice": 0.8442,
+     "precision": 0.9955,
+     "recall": 0.7328,
+     "pred_vox": 6289.0,
+     "gt_vox": 8544.0,
+     "vol_ratio": 0.7361
+    },
+    "B3O1S0_t0": {
+     "dice": 0.9205,
+     "precision": 0.9837,
+     "recall": 0.8649,
+     "pred_vox": 7369.0,
+     "gt_vox": 8381.0,
+     "vol_ratio": 0.8793
+    },
+    "B3O1S0_t8": {
+     "dice": 0.8471,
+     "precision": 0.9938,
+     "recall": 0.7381,
+     "pred_vox": 3080.0,
+     "gt_vox": 4147.0,
+     "vol_ratio": 0.7427
+    },
+    "B3P3R1_t0": {
+     "dice": 0.9332,
+     "precision": 0.9959,
+     "recall": 0.8779,
+     "pred_vox": 4910.0,
+     "gt_vox": 5570.0,
+     "vol_ratio": 0.8815
+    },
+    "B3P3R1_t11": {
+     "dice": 0.8108,
+     "precision": 0.99,
+     "recall": 0.6866,
+     "pred_vox": 1195.0,
+     "gt_vox": 1723.0,
+     "vol_ratio": 0.6936
+    },
+    "B4O3V3_t0": {
+     "dice": 0.4991,
+     "precision": 0.9261,
+     "recall": 0.3416,
+     "pred_vox": 3746.0,
+     "gt_vox": 10155.0,
+     "vol_ratio": 0.3689
+    },
+    "B4O3V3_t6": {
+     "dice": 0.4229,
+     "precision": 0.7932,
+     "recall": 0.2883,
+     "pred_vox": 1422.0,
+     "gt_vox": 3912.0,
+     "vol_ratio": 0.3635
+    },
+    "B5F8L9_t0": {
+     "dice": 0.921,
+     "precision": 0.9852,
+     "recall": 0.8648,
+     "pred_vox": 9710.0,
+     "gt_vox": 11062.0,
+     "vol_ratio": 0.8778
+    },
+    "B5F8L9_t8": {
+     "dice": 0.901,
+     "precision": 0.9749,
+     "recall": 0.8375,
+     "pred_vox": 3940.0,
+     "gt_vox": 4586.0,
+     "vol_ratio": 0.8591
+    },
+    "B8H5H6_t24": {
+     "dice": 0.7859,
+     "precision": 0.995,
+     "recall": 0.6495,
+     "pred_vox": 8952.0,
+     "gt_vox": 13714.0,
+     "vol_ratio": 0.6528
+    },
+    "B8H5H6_t8": {
+     "dice": 0.7496,
+     "precision": 0.986,
+     "recall": 0.6047,
+     "pred_vox": 6441.0,
+     "gt_vox": 10503.0,
+     "vol_ratio": 0.6133
+    },
+    "B8J7R4_t0": {
+     "dice": 0.7789,
+     "precision": 0.9977,
+     "recall": 0.6388,
+     "pred_vox": 5578.0,
+     "gt_vox": 8712.0,
+     "vol_ratio": 0.6403
+    },
+    "B8J7R4_t12": {
+     "dice": 0.5746,
+     "precision": 0.9932,
+     "recall": 0.4043,
+     "pred_vox": 2211.0,
+     "gt_vox": 5432.0,
+     "vol_ratio": 0.407
+    },
+    "B9E0Q1_t0": {
+     "dice": 0.792,
+     "precision": 0.9911,
+     "recall": 0.6595,
+     "pred_vox": 6764.0,
+     "gt_vox": 10166.0,
+     "vol_ratio": 0.6654
+    },
+    "B9E0Q1_t11": {
+     "dice": 0.7352,
+     "precision": 0.9907,
+     "recall": 0.5845,
+     "pred_vox": 3218.0,
+     "gt_vox": 5454.0,
+     "vol_ratio": 0.59
+    },
+    "B9H8N8_t0": {
+     "dice": 0.9009,
+     "precision": 0.9888,
+     "recall": 0.8273,
+     "pred_vox": 4922.0,
+     "gt_vox": 5883.0,
+     "vol_ratio": 0.8366
+    },
+    "B9H8N8_t10": {
+     "dice": 0.8543,
+     "precision": 0.9747,
+     "recall": 0.7604,
+     "pred_vox": 2334.0,
+     "gt_vox": 2992.0,
+     "vol_ratio": 0.7801
+    },
+    "C0K1P0_t0": {
+     "dice": 0.8018,
+     "precision": 0.9978,
+     "recall": 0.6701,
+     "pred_vox": 4964.0,
+     "gt_vox": 7391.0,
+     "vol_ratio": 0.6716
+    },
+    "C0K1P0_t9": {
+     "dice": 0.7746,
+     "precision": 0.9918,
+     "recall": 0.6355,
+     "pred_vox": 2814.0,
+     "gt_vox": 4392.0,
+     "vol_ratio": 0.6407
+    },
+    "C1K8P5_t0": {
+     "dice": 0.8622,
+     "precision": 0.9831,
+     "recall": 0.7678,
+     "pred_vox": 5566.0,
+     "gt_vox": 7127.0,
+     "vol_ratio": 0.781
+    },
+    "C1K8P5_t8": {
+     "dice": 0.9012,
+     "precision": 0.9664,
+     "recall": 0.8442,
+     "pred_vox": 2618.0,
+     "gt_vox": 2997.0,
+     "vol_ratio": 0.8735
+    },
+    "C2J0K3_t0": {
+     "dice": 0.3751,
+     "precision": 0.9772,
+     "recall": 0.2321,
+     "pred_vox": 2896.0,
+     "gt_vox": 12192.0,
+     "vol_ratio": 0.2375
+    },
+    "C2J0K3_t9": {
+     "dice": 0.2389,
+     "precision": 0.9875,
+     "recall": 0.1359,
+     "pred_vox": 641.0,
+     "gt_vox": 4659.0,
+     "vol_ratio": 0.1376
+    },
+    "C4E9I1_t0": {
+     "dice": 0.5326,
+     "precision": 0.9905,
+     "recall": 0.3642,
+     "pred_vox": 4112.0,
+     "gt_vox": 11182.0,
+     "vol_ratio": 0.3677
+    },
+    "C4E9I1_t8": {
+     "dice": 0.0444,
+     "precision": 0.8036,
+     "recall": 0.0228,
+     "pred_vox": 112.0,
+     "gt_vox": 3946.0,
+     "vol_ratio": 0.0284
+    },
+    "C5M4S2_t0": {
+     "dice": 0.8382,
+     "precision": 0.9903,
+     "recall": 0.7266,
+     "pred_vox": 6283.0,
+     "gt_vox": 8563.0,
+     "vol_ratio": 0.7337
+    },
+    "C5M4S2_t9": {
+     "dice": 0.8966,
+     "precision": 0.9787,
+     "recall": 0.8272,
+     "pred_vox": 2484.0,
+     "gt_vox": 2939.0,
+     "vol_ratio": 0.8452
+    },
+    "C6E0F9_t0": {
+     "dice": 0.8398,
+     "precision": 0.9975,
+     "recall": 0.7251,
+     "pred_vox": 4873.0,
+     "gt_vox": 6704.0,
+     "vol_ratio": 0.7269
+    },
+    "C6E0F9_t8": {
+     "dice": 0.8512,
+     "precision": 0.9953,
+     "recall": 0.7435,
+     "pred_vox": 2143.0,
+     "gt_vox": 2869.0,
+     "vol_ratio": 0.747
+    },
+    "C6J5P1_t0": {
+     "dice": 0.9419,
+     "precision": 0.9881,
+     "recall": 0.8998,
+     "pred_vox": 10909.0,
+     "gt_vox": 11979.0,
+     "vol_ratio": 0.9107
+    },
+    "C6J5P1_t10": {
+     "dice": 0.9481,
+     "precision": 0.9689,
+     "recall": 0.9281,
+     "pred_vox": 9889.0,
+     "gt_vox": 10323.0,
+     "vol_ratio": 0.958
+    },
+    "C6U4W8_t0": {
+     "dice": 0.4271,
+     "precision": 1.0,
+     "recall": 0.2715,
+     "pred_vox": 2577.0,
+     "gt_vox": 9491.0,
+     "vol_ratio": 0.2715
+    },
+    "C6U4W8_t9": {
+     "dice": 0.4752,
+     "precision": 0.9957,
+     "recall": 0.3121,
+     "pred_vox": 1634.0,
+     "gt_vox": 5213.0,
+     "vol_ratio": 0.3134
+    },
+    "C8P3S7_t0": {
+     "dice": 0.8375,
+     "precision": 0.9828,
+     "recall": 0.7295,
+     "pred_vox": 4773.0,
+     "gt_vox": 6430.0,
+     "vol_ratio": 0.7423
+    },
+    "C8P3S7_t8": {
+     "dice": 0.6335,
+     "precision": 1.0,
+     "recall": 0.4636,
+     "pred_vox": 821.0,
+     "gt_vox": 1771.0,
+     "vol_ratio": 0.4636
+    },
+    "D0R0R9_t0": {
+     "dice": 0.8899,
+     "precision": 0.9762,
+     "recall": 0.8175,
+     "pred_vox": 5135.0,
+     "gt_vox": 6132.0,
+     "vol_ratio": 0.8374
+    },
+    "D0R0R9_t11": {
+     "dice": 0.5935,
+     "precision": 0.9775,
+     "recall": 0.4261,
+     "pred_vox": 1112.0,
+     "gt_vox": 2551.0,
+     "vol_ratio": 0.4359
+    },
+    "D1H6U2_t0": {
+     "dice": 0.0231,
+     "precision": 1.0,
+     "recall": 0.0117,
+     "pred_vox": 128.0,
+     "gt_vox": 10959.0,
+     "vol_ratio": 0.0117
+    },
+    "D1H6U2_t8": {
+     "dice": 0.3855,
+     "precision": 1.0,
+     "recall": 0.2388,
+     "pred_vox": 890.0,
+     "gt_vox": 3727.0,
+     "vol_ratio": 0.2388
+    },
+    "D1J5P6_t0": {
+     "dice": 0.6349,
+     "precision": 0.982,
+     "recall": 0.4691,
+     "pred_vox": 6207.0,
+     "gt_vox": 12993.0,
+     "vol_ratio": 0.4777
+    },
+    "D1J5P6_t13": {
+     "dice": 0.7085,
+     "precision": 0.988,
+     "recall": 0.5523,
+     "pred_vox": 4666.0,
+     "gt_vox": 8347.0,
+     "vol_ratio": 0.559
+    },
+    "D1M1S6_t0": {
+     "dice": 0.2425,
+     "precision": 0.9872,
+     "recall": 0.1382,
+     "pred_vox": 1639.0,
+     "gt_vox": 11706.0,
+     "vol_ratio": 0.14
+    },
+    "D1M1S6_t10": {
+     "dice": 0.179,
+     "precision": 0.9535,
+     "recall": 0.0987,
+     "pred_vox": 774.0,
+     "gt_vox": 7474.0,
+     "vol_ratio": 0.1036
+    },
+    "D3D4Y5_t0": {
+     "dice": 0.552,
+     "precision": 0.9691,
+     "recall": 0.3859,
+     "pred_vox": 3264.0,
+     "gt_vox": 8196.0,
+     "vol_ratio": 0.3982
+    },
+    "D3D4Y5_t9": {
+     "dice": 0.7027,
+     "precision": 0.9899,
+     "recall": 0.5447,
+     "pred_vox": 1976.0,
+     "gt_vox": 3591.0,
+     "vol_ratio": 0.5503
+    },
+    "D3F3O5_t10": {
+     "dice": 0.7864,
+     "precision": 0.99,
+     "recall": 0.6523,
+     "pred_vox": 5321.0,
+     "gt_vox": 8076.0,
+     "vol_ratio": 0.6589
+    },
+    "D3F3O5_t24": {
+     "dice": 0.8926,
+     "precision": 0.9982,
+     "recall": 0.8072,
+     "pred_vox": 9686.0,
+     "gt_vox": 11979.0,
+     "vol_ratio": 0.8086
+    },
+    "D3F9H9_t24": {
+     "dice": 0.3646,
+     "precision": 1.0,
+     "recall": 0.2229,
+     "pred_vox": 1645.0,
+     "gt_vox": 7379.0,
+     "vol_ratio": 0.2229
+    },
+    "D3F9H9_t8": {
+     "dice": 0.0664,
+     "precision": 1.0,
+     "recall": 0.0343,
+     "pred_vox": 90.0,
+     "gt_vox": 2621.0,
+     "vol_ratio": 0.0343
+    },
+    "D3O9U9_t0": {
+     "dice": 0.5832,
+     "precision": 0.9632,
+     "recall": 0.4182,
+     "pred_vox": 2256.0,
+     "gt_vox": 5196.0,
+     "vol_ratio": 0.4342
+    },
+    "D3O9U9_t10": {
+     "dice": 0.4047,
+     "precision": 0.7169,
+     "recall": 0.2819,
+     "pred_vox": 385.0,
+     "gt_vox": 979.0,
+     "vol_ratio": 0.3933
+    },
+    "D4M3Q2_t0": {
+     "dice": 0.7471,
+     "precision": 0.9881,
+     "recall": 0.6006,
+     "pred_vox": 8547.0,
+     "gt_vox": 14061.0,
+     "vol_ratio": 0.6079
+    },
+    "D4M3Q2_t9": {
+     "dice": 0.8324,
+     "precision": 0.9895,
+     "recall": 0.7184,
+     "pred_vox": 5047.0,
+     "gt_vox": 6952.0,
+     "vol_ratio": 0.726
+    },
+    "D4N6W6_t0": {
+     "dice": 0.9216,
+     "precision": 0.9875,
+     "recall": 0.8639,
+     "pred_vox": 6815.0,
+     "gt_vox": 7790.0,
+     "vol_ratio": 0.8748
+    },
+    "D4N6W6_t10": {
+     "dice": 0.8905,
+     "precision": 0.9828,
+     "recall": 0.814,
+     "pred_vox": 3905.0,
+     "gt_vox": 4715.0,
+     "vol_ratio": 0.8282
+    },
+    "D8E4F4_t0": {
+     "dice": 0.9088,
+     "precision": 0.9813,
+     "recall": 0.8463,
+     "pred_vox": 6538.0,
+     "gt_vox": 7581.0,
+     "vol_ratio": 0.8624
+    },
+    "D8E4F4_t10": {
+     "dice": 0.8515,
+     "precision": 0.9718,
+     "recall": 0.7577,
+     "pred_vox": 2378.0,
+     "gt_vox": 3050.0,
+     "vol_ratio": 0.7797
+    },
+    "D9F5P1_t0": {
+     "dice": 0.5737,
+     "precision": 0.9898,
+     "recall": 0.4039,
+     "pred_vox": 5183.0,
+     "gt_vox": 12702.0,
+     "vol_ratio": 0.408
+    },
+    "D9F5P1_t10": {
+     "dice": 0.5292,
+     "precision": 0.9899,
+     "recall": 0.3611,
+     "pred_vox": 2672.0,
+     "gt_vox": 7325.0,
+     "vol_ratio": 0.3648
+    },
+    "D9L1Z3_t0": {
+     "dice": 0.9085,
+     "precision": 0.9878,
+     "recall": 0.841,
+     "pred_vox": 8796.0,
+     "gt_vox": 10332.0,
+     "vol_ratio": 0.8513
+    },
+    "D9L1Z3_t12": {
+     "dice": 0.8697,
+     "precision": 0.9824,
+     "recall": 0.7802,
+     "pred_vox": 5725.0,
+     "gt_vox": 7208.0,
+     "vol_ratio": 0.7943
+    },
+    "E0J7L9_t0": {
+     "dice": 0.8439,
+     "precision": 0.9905,
+     "recall": 0.7351,
+     "pred_vox": 9113.0,
+     "gt_vox": 12278.0,
+     "vol_ratio": 0.7422
+    },
+    "E0J7L9_t9": {
+     "dice": 0.857,
+     "precision": 0.9815,
+     "recall": 0.7605,
+     "pred_vox": 6016.0,
+     "gt_vox": 7765.0,
+     "vol_ratio": 0.7748
+    },
+    "E0M3U7_t0": {
+     "dice": 0.4763,
+     "precision": 0.9971,
+     "recall": 0.3129,
+     "pred_vox": 2774.0,
+     "gt_vox": 8840.0,
+     "vol_ratio": 0.3138
+    },
+    "E0M3U7_t9": {
+     "dice": 0.5484,
+     "precision": 0.9888,
+     "recall": 0.3794,
+     "pred_vox": 2053.0,
+     "gt_vox": 5350.0,
+     "vol_ratio": 0.3837
+    },
+    "E0O0S0_t0": {
+     "dice": 0.407,
+     "precision": 1.0,
+     "recall": 0.2555,
+     "pred_vox": 3856.0,
+     "gt_vox": 15094.0,
+     "vol_ratio": 0.2555
+    },
+    "E0O0S0_t11": {
+     "dice": 0.3452,
+     "precision": 0.986,
+     "recall": 0.2092,
+     "pred_vox": 2007.0,
+     "gt_vox": 9460.0,
+     "vol_ratio": 0.2122
+    },
+    "E9H1U4_t0": {
+     "dice": 0.7266,
+     "precision": 0.989,
+     "recall": 0.5742,
+     "pred_vox": 3713.0,
+     "gt_vox": 6395.0,
+     "vol_ratio": 0.5806
+    },
+    "E9H1U4_t10": {
+     "dice": 0.8996,
+     "precision": 0.9926,
+     "recall": 0.8225,
+     "pred_vox": 2017.0,
+     "gt_vox": 2434.0,
+     "vol_ratio": 0.8287
+    },
+    "E9V4Z8_t0": {
+     "dice": 0.8606,
+     "precision": 0.9908,
+     "recall": 0.7606,
+     "pred_vox": 7081.0,
+     "gt_vox": 9224.0,
+     "vol_ratio": 0.7677
+    },
+    "E9V4Z8_t8": {
+     "dice": 0.8399,
+     "precision": 0.9775,
+     "recall": 0.7362,
+     "pred_vox": 2664.0,
+     "gt_vox": 3537.0,
+     "vol_ratio": 0.7532
+    },
+    "F0K4T6_t0": {
+     "dice": 0.7651,
+     "precision": 0.9978,
+     "recall": 0.6204,
+     "pred_vox": 7591.0,
+     "gt_vox": 12209.0,
+     "vol_ratio": 0.6218
+    },
+    "F0K4T6_t8": {
+     "dice": 0.7646,
+     "precision": 0.9972,
+     "recall": 0.6199,
+     "pred_vox": 5065.0,
+     "gt_vox": 8148.0,
+     "vol_ratio": 0.6216
+    },
+    "F2H5S1_t10": {
+     "dice": 0.6082,
+     "precision": 0.9757,
+     "recall": 0.4417,
+     "pred_vox": 1399.0,
+     "gt_vox": 3090.0,
+     "vol_ratio": 0.4528
+    },
+    "F2H5S1_t24": {
+     "dice": 0.8405,
+     "precision": 1.0,
+     "recall": 0.7248,
+     "pred_vox": 4910.0,
+     "gt_vox": 6774.0,
+     "vol_ratio": 0.7248
+    },
+    "F3G5K5_t12": {
+     "dice": 0.9244,
+     "precision": 0.9882,
+     "recall": 0.8683,
+     "pred_vox": 14756.0,
+     "gt_vox": 16793.0,
+     "vol_ratio": 0.8787
+    },
+    "F3G5K5_t24": {
+     "dice": 0.9311,
+     "precision": 0.9871,
+     "recall": 0.8812,
+     "pred_vox": 16961.0,
+     "gt_vox": 19001.0,
+     "vol_ratio": 0.8926
+    },
+    "G4S9U3_t0": {
+     "dice": 0.8357,
+     "precision": 0.9967,
+     "recall": 0.7194,
+     "pred_vox": 7002.0,
+     "gt_vox": 9701.0,
+     "vol_ratio": 0.7218
+    },
+    "G4S9U3_t11": {
+     "dice": 0.8992,
+     "precision": 0.9898,
+     "recall": 0.8238,
+     "pred_vox": 4601.0,
+     "gt_vox": 5528.0,
+     "vol_ratio": 0.8323
+    },
+    "G5P4U3_t0": {
+     "dice": 0.7524,
+     "precision": 0.9931,
+     "recall": 0.6057,
+     "pred_vox": 4035.0,
+     "gt_vox": 6616.0,
+     "vol_ratio": 0.6099
+    },
+    "G5P4U3_t9": {
+     "dice": 0.8222,
+     "precision": 0.984,
+     "recall": 0.7061,
+     "pred_vox": 1558.0,
+     "gt_vox": 2171.0,
+     "vol_ratio": 0.7176
+    },
+    "G7I5V7_t0": {
+     "dice": 0.8845,
+     "precision": 0.9942,
+     "recall": 0.7966,
+     "pred_vox": 7211.0,
+     "gt_vox": 8999.0,
+     "vol_ratio": 0.8013
+    },
+    "G7I5V7_t10": {
+     "dice": 0.7865,
+     "precision": 0.9931,
+     "recall": 0.651,
+     "pred_vox": 2741.0,
+     "gt_vox": 4181.0,
+     "vol_ratio": 0.6556
+    },
+    "G7S6V0_t0": {
+     "dice": 0.8558,
+     "precision": 0.9787,
+     "recall": 0.7603,
+     "pred_vox": 12533.0,
+     "gt_vox": 16133.0,
+     "vol_ratio": 0.7769
+    },
+    "G7S6V0_t8": {
+     "dice": 0.8162,
+     "precision": 0.965,
+     "recall": 0.7071,
+     "pred_vox": 7024.0,
+     "gt_vox": 9585.0,
+     "vol_ratio": 0.7328
+    },
+    "G9N5V9_t0": {
+     "dice": 0.5639,
+     "precision": 0.9852,
+     "recall": 0.395,
+     "pred_vox": 7957.0,
+     "gt_vox": 19845.0,
+     "vol_ratio": 0.401
+    },
+    "G9N5V9_t11": {
+     "dice": 0.3844,
+     "precision": 0.9807,
+     "recall": 0.239,
+     "pred_vox": 4565.0,
+     "gt_vox": 18730.0,
+     "vol_ratio": 0.2437
+    },
+    "H1I3W0_t0": {
+     "dice": 0.803,
+     "precision": 0.9251,
+     "recall": 0.7094,
+     "pred_vox": 4137.0,
+     "gt_vox": 5395.0,
+     "vol_ratio": 0.7668
+    },
+    "H1I3W0_t9": {
+     "dice": 0.7962,
+     "precision": 0.8024,
+     "recall": 0.79,
+     "pred_vox": 1397.0,
+     "gt_vox": 1419.0,
+     "vol_ratio": 0.9845
+    },
+    "H1N8S6_t0": {
+     "dice": 0.901,
+     "precision": 0.9835,
+     "recall": 0.8313,
+     "pred_vox": 4730.0,
+     "gt_vox": 5596.0,
+     "vol_ratio": 0.8452
+    },
+    "H1N8S6_t10": {
+     "dice": 0.8805,
+     "precision": 0.9744,
+     "recall": 0.8031,
+     "pred_vox": 1955.0,
+     "gt_vox": 2372.0,
+     "vol_ratio": 0.8242
+    },
+    "H5N0P0_t0": {
+     "dice": 0.7102,
+     "precision": 0.9959,
+     "recall": 0.5519,
+     "pred_vox": 7291.0,
+     "gt_vox": 13157.0,
+     "vol_ratio": 0.5542
+    },
+    "H5N0P0_t8": {
+     "dice": 0.7171,
+     "precision": 0.9918,
+     "recall": 0.5616,
+     "pred_vox": 5495.0,
+     "gt_vox": 9705.0,
+     "vol_ratio": 0.5662
+    },
+    "I2J6Z6_t0": {
+     "dice": 0.8911,
+     "precision": 0.9625,
+     "recall": 0.8296,
+     "pred_vox": 6961.0,
+     "gt_vox": 8076.0,
+     "vol_ratio": 0.8619
+    },
+    "I2J6Z6_t7": {
+     "dice": 0.8861,
+     "precision": 0.9722,
+     "recall": 0.8141,
+     "pred_vox": 2874.0,
+     "gt_vox": 3432.0,
+     "vol_ratio": 0.8374
+    },
+    "I5L3S2_t0": {
+     "dice": 0.8883,
+     "precision": 0.9837,
+     "recall": 0.8099,
+     "pred_vox": 5694.0,
+     "gt_vox": 6916.0,
+     "vol_ratio": 0.8233
+    },
+    "I5L3S2_t10": {
+     "dice": 0.8769,
+     "precision": 0.9555,
+     "recall": 0.8103,
+     "pred_vox": 2271.0,
+     "gt_vox": 2678.0,
+     "vol_ratio": 0.848
+    },
+    "I7T3U1_t0": {
+     "dice": 0.8619,
+     "precision": 0.9717,
+     "recall": 0.7745,
+     "pred_vox": 6104.0,
+     "gt_vox": 7658.0,
+     "vol_ratio": 0.7971
+    },
+    "I7T3U1_t13": {
+     "dice": 0.9155,
+     "precision": 0.9518,
+     "recall": 0.8819,
+     "pred_vox": 3962.0,
+     "gt_vox": 4276.0,
+     "vol_ratio": 0.9266
+    },
+    "J1T9Y1_t0": {
+     "dice": 0.1766,
+     "precision": 0.9922,
+     "recall": 0.0969,
+     "pred_vox": 1284.0,
+     "gt_vox": 13142.0,
+     "vol_ratio": 0.0977
+    },
+    "J1T9Y1_t12": {
+     "dice": 0.0308,
+     "precision": 0.7193,
+     "recall": 0.0157,
+     "pred_vox": 228.0,
+     "gt_vox": 10416.0,
+     "vol_ratio": 0.0219
+    },
+    "J4J8Q3_t0": {
+     "dice": 0.9578,
+     "precision": 0.9773,
+     "recall": 0.9391,
+     "pred_vox": 7505.0,
+     "gt_vox": 7811.0,
+     "vol_ratio": 0.9608
+    },
+    "J4J8Q3_t8": {
+     "dice": 0.925,
+     "precision": 0.9576,
+     "recall": 0.8945,
+     "pred_vox": 2781.0,
+     "gt_vox": 2977.0,
+     "vol_ratio": 0.9342
+    },
+    "J6K6P5_t0": {
+     "dice": 0.8703,
+     "precision": 0.9529,
+     "recall": 0.8008,
+     "pred_vox": 7670.0,
+     "gt_vox": 9127.0,
+     "vol_ratio": 0.8404
+    },
+    "J6K6P5_t9": {
+     "dice": 0.9278,
+     "precision": 0.9296,
+     "recall": 0.9261,
+     "pred_vox": 3665.0,
+     "gt_vox": 3679.0,
+     "vol_ratio": 0.9962
+    },
+    "J6P5T8_t0": {
+     "dice": 0.8391,
+     "precision": 0.9977,
+     "recall": 0.7241,
+     "pred_vox": 7281.0,
+     "gt_vox": 10032.0,
+     "vol_ratio": 0.7258
+    },
+    "J6P5T8_t9": {
+     "dice": 0.8118,
+     "precision": 0.993,
+     "recall": 0.6866,
+     "pred_vox": 4558.0,
+     "gt_vox": 6592.0,
+     "vol_ratio": 0.6914
+    },
+    "J8R5W2_t0": {
+     "dice": 0.9165,
+     "precision": 0.9856,
+     "recall": 0.8565,
+     "pred_vox": 8886.0,
+     "gt_vox": 10225.0,
+     "vol_ratio": 0.869
+    },
+    "J8R5W2_t9": {
+     "dice": 0.9361,
+     "precision": 0.9482,
+     "recall": 0.9244,
+     "pred_vox": 4552.0,
+     "gt_vox": 4669.0,
+     "vol_ratio": 0.9749
+    },
+    "K4T7Y0_t12": {
+     "dice": 0.6578,
+     "precision": 0.9845,
+     "recall": 0.494,
+     "pred_vox": 2575.0,
+     "gt_vox": 5132.0,
+     "vol_ratio": 0.5018
+    },
+    "K4T7Y0_t24": {
+     "dice": 0.7239,
+     "precision": 0.9971,
+     "recall": 0.5682,
+     "pred_vox": 5177.0,
+     "gt_vox": 9085.0,
+     "vol_ratio": 0.5698
+    },
+    "K5L2U3_t0": {
+     "dice": 0.134,
+     "precision": 0.9237,
+     "recall": 0.0722,
+     "pred_vox": 655.0,
+     "gt_vox": 8376.0,
+     "vol_ratio": 0.0782
+    },
+    "K5L2U3_t7": {
+     "dice": 0.0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "pred_vox": 13.0,
+     "gt_vox": 3603.0,
+     "vol_ratio": 0.0036
+    },
+    "K5P0Y1_t0": {
+     "dice": 0.869,
+     "precision": 0.9863,
+     "recall": 0.7767,
+     "pred_vox": 12848.0,
+     "gt_vox": 16316.0,
+     "vol_ratio": 0.7874
+    },
+    "K5P0Y1_t9": {
+     "dice": 0.8816,
+     "precision": 0.9889,
+     "recall": 0.7952,
+     "pred_vox": 11393.0,
+     "gt_vox": 14168.0,
+     "vol_ratio": 0.8041
+    },
+    "K6N4N7_t0": {
+     "dice": 0.9566,
+     "precision": 0.9918,
+     "recall": 0.9239,
+     "pred_vox": 16894.0,
+     "gt_vox": 18135.0,
+     "vol_ratio": 0.9316
+    },
+    "K6N4N7_t8": {
+     "dice": 0.9528,
+     "precision": 0.9961,
+     "recall": 0.9132,
+     "pred_vox": 8732.0,
+     "gt_vox": 9525.0,
+     "vol_ratio": 0.9167
+    },
+    "L1Q9V8_t0": {
+     "dice": 0.5667,
+     "precision": 0.9906,
+     "recall": 0.3969,
+     "pred_vox": 2884.0,
+     "gt_vox": 7199.0,
+     "vol_ratio": 0.4006
+    },
+    "L1Q9V8_t10": {
+     "dice": 0.4972,
+     "precision": 0.9923,
+     "recall": 0.3317,
+     "pred_vox": 1043.0,
+     "gt_vox": 3120.0,
+     "vol_ratio": 0.3343
+    },
+    "L4Q2U3_t0": {
+     "dice": 0.9241,
+     "precision": 0.9833,
+     "recall": 0.8717,
+     "pred_vox": 7484.0,
+     "gt_vox": 8442.0,
+     "vol_ratio": 0.8865
+    },
+    "L4Q2U3_t8": {
+     "dice": 0.8873,
+     "precision": 0.9659,
+     "recall": 0.8205,
+     "pred_vox": 3252.0,
+     "gt_vox": 3828.0,
+     "vol_ratio": 0.8495
+    },
+    "M1R4S1_t0": {
+     "dice": 0.9443,
+     "precision": 0.9618,
+     "recall": 0.9274,
+     "pred_vox": 7884.0,
+     "gt_vox": 8177.0,
+     "vol_ratio": 0.9642
+    },
+    "M1R4S1_t9": {
+     "dice": 0.8117,
+     "precision": 0.9561,
+     "recall": 0.7051,
+     "pred_vox": 1981.0,
+     "gt_vox": 2686.0,
+     "vol_ratio": 0.7375
+    },
+    "M2P1R1_t0": {
+     "dice": 0.9037,
+     "precision": 0.9933,
+     "recall": 0.8289,
+     "pred_vox": 5808.0,
+     "gt_vox": 6960.0,
+     "vol_ratio": 0.8345
+    },
+    "M2P1R1_t10": {
+     "dice": 0.8606,
+     "precision": 0.9908,
+     "recall": 0.7606,
+     "pred_vox": 1741.0,
+     "gt_vox": 2268.0,
+     "vol_ratio": 0.7676
+    },
+    "N5S7Y1_t0": {
+     "dice": 0.8758,
+     "precision": 0.9969,
+     "recall": 0.7809,
+     "pred_vox": 7830.0,
+     "gt_vox": 9996.0,
+     "vol_ratio": 0.7833
+    },
+    "N5S7Y1_t9": {
+     "dice": 0.8383,
+     "precision": 0.9974,
+     "recall": 0.7229,
+     "pred_vox": 5059.0,
+     "gt_vox": 6980.0,
+     "vol_ratio": 0.7248
+    },
+    "N8N9U0_t0": {
+     "dice": 0.8591,
+     "precision": 0.9642,
+     "recall": 0.7746,
+     "pred_vox": 9866.0,
+     "gt_vox": 12281.0,
+     "vol_ratio": 0.8034
+    },
+    "N8N9U0_t11": {
+     "dice": 0.9074,
+     "precision": 0.9836,
+     "recall": 0.8422,
+     "pred_vox": 6777.0,
+     "gt_vox": 7915.0,
+     "vol_ratio": 0.8562
+    },
+    "O0S9V7_t0": {
+     "dice": 0.9282,
+     "precision": 0.9913,
+     "recall": 0.8728,
+     "pred_vox": 8346.0,
+     "gt_vox": 9479.0,
+     "vol_ratio": 0.8805
+    },
+    "O0S9V7_t9": {
+     "dice": 0.8233,
+     "precision": 0.9626,
+     "recall": 0.7192,
+     "pred_vox": 3530.0,
+     "gt_vox": 4725.0,
+     "vol_ratio": 0.7471
+    },
+    "P0S5Y0_t0": {
+     "dice": 0.8902,
+     "precision": 0.9621,
+     "recall": 0.8282,
+     "pred_vox": 9838.0,
+     "gt_vox": 11428.0,
+     "vol_ratio": 0.8609
+    },
+    "P0S5Y0_t10": {
+     "dice": 0.7813,
+     "precision": 0.9546,
+     "recall": 0.6612,
+     "pred_vox": 3545.0,
+     "gt_vox": 5118.0,
+     "vol_ratio": 0.6927
+    },
+    "P3P9S5_t0": {
+     "dice": 0.9177,
+     "precision": 0.978,
+     "recall": 0.8643,
+     "pred_vox": 8774.0,
+     "gt_vox": 9928.0,
+     "vol_ratio": 0.8838
+    },
+    "P3P9S5_t10": {
+     "dice": 0.8965,
+     "precision": 0.9686,
+     "recall": 0.8345,
+     "pred_vox": 4357.0,
+     "gt_vox": 5057.0,
+     "vol_ratio": 0.8616
+    },
+    "P5R1Y4_t0": {
+     "dice": 0.2919,
+     "precision": 0.9919,
+     "recall": 0.1711,
+     "pred_vox": 2338.0,
+     "gt_vox": 13550.0,
+     "vol_ratio": 0.1725
+    },
+    "P5R1Y4_t9": {
+     "dice": 0.4146,
+     "precision": 1.0,
+     "recall": 0.2615,
+     "pred_vox": 1626.0,
+     "gt_vox": 6218.0,
+     "vol_ratio": 0.2615
+    },
+    "Q0U0V5_t0": {
+     "dice": 0.9405,
+     "precision": 0.9851,
+     "recall": 0.8998,
+     "pred_vox": 16029.0,
+     "gt_vox": 17548.0,
+     "vol_ratio": 0.9134
+    },
+    "Q0U0V5_t10": {
+     "dice": 0.9343,
+     "precision": 0.9757,
+     "recall": 0.8963,
+     "pred_vox": 12744.0,
+     "gt_vox": 13872.0,
+     "vol_ratio": 0.9187
+    },
+    "Q3R9W7_t0": {
+     "dice": 0.8219,
+     "precision": 0.9929,
+     "recall": 0.7011,
+     "pred_vox": 6871.0,
+     "gt_vox": 9730.0,
+     "vol_ratio": 0.7062
+    },
+    "Q3R9W7_t10": {
+     "dice": 0.8442,
+     "precision": 0.9762,
+     "recall": 0.7437,
+     "pred_vox": 4081.0,
+     "gt_vox": 5357.0,
+     "vol_ratio": 0.7618
+    },
+    "R4Y1Z9_t24": {
+     "dice": 0.8958,
+     "precision": 0.9796,
+     "recall": 0.8252,
+     "pred_vox": 8228.0,
+     "gt_vox": 9767.0,
+     "vol_ratio": 0.8424
+    },
+    "R4Y1Z9_t7": {
+     "dice": 0.8554,
+     "precision": 0.9694,
+     "recall": 0.7654,
+     "pred_vox": 3400.0,
+     "gt_vox": 4306.0,
+     "vol_ratio": 0.7896
+    },
+    "S1S3Z7_t0": {
+     "dice": 0.8763,
+     "precision": 0.9891,
+     "recall": 0.7865,
+     "pred_vox": 10580.0,
+     "gt_vox": 13305.0,
+     "vol_ratio": 0.7952
+    },
+    "S1S3Z7_t9": {
+     "dice": 0.9114,
+     "precision": 0.97,
+     "recall": 0.8594,
+     "pred_vox": 8232.0,
+     "gt_vox": 9291.0,
+     "vol_ratio": 0.886
+    },
+    "T2T9Z9_t0": {
+     "dice": 0.8224,
+     "precision": 0.9742,
+     "recall": 0.7115,
+     "pred_vox": 9359.0,
+     "gt_vox": 12815.0,
+     "vol_ratio": 0.7303
+    },
+    "T2T9Z9_t13": {
+     "dice": 0.9019,
+     "precision": 0.9814,
+     "recall": 0.8344,
+     "pred_vox": 7889.0,
+     "gt_vox": 9279.0,
+     "vol_ratio": 0.8502
+    },
+    "T9U9W2_t0": {
+     "dice": 0.9288,
+     "precision": 0.9428,
+     "recall": 0.9151,
+     "pred_vox": 10476.0,
+     "gt_vox": 10793.0,
+     "vol_ratio": 0.9706
+    },
+    "T9U9W2_t10": {
+     "dice": 0.6857,
+     "precision": 0.746,
+     "recall": 0.6344,
+     "pred_vox": 4055.0,
+     "gt_vox": 4768.0,
+     "vol_ratio": 0.8505
+    }
+   }
+  },
+  "centre3": {
+   "n": 102,
+   "dice_mean": 0.9338,
+   "dice_std": 0.0391,
+   "precision_mean": 0.9466,
+   "recall_mean": 0.9271,
+   "per_case": {
+    "A1O8Z3_t10": {
+     "dice": 0.9612,
+     "precision": 0.9575,
+     "recall": 0.9648,
+     "pred_vox": 2779.0,
+     "gt_vox": 2758.0,
+     "vol_ratio": 1.0076
+    },
+    "A1O8Z3_t23": {
+     "dice": 0.9738,
+     "precision": 0.9928,
+     "recall": 0.9555,
+     "pred_vox": 6382.0,
+     "gt_vox": 6631.0,
+     "vol_ratio": 0.9624
+    },
+    "A4A8V9_t0": {
+     "dice": 0.9537,
+     "precision": 0.9874,
+     "recall": 0.9223,
+     "pred_vox": 7669.0,
+     "gt_vox": 8210.0,
+     "vol_ratio": 0.9341
+    },
+    "A4A8V9_t10": {
+     "dice": 0.8503,
+     "precision": 0.8362,
+     "recall": 0.8648,
+     "pred_vox": 2027.0,
+     "gt_vox": 1960.0,
+     "vol_ratio": 1.0342
+    },
+    "A5C2D2_t24": {
+     "dice": 0.9594,
+     "precision": 0.9962,
+     "recall": 0.9252,
+     "pred_vox": 5819.0,
+     "gt_vox": 6266.0,
+     "vol_ratio": 0.9287
+    },
+    "A5C2D2_t9": {
+     "dice": 0.9505,
+     "precision": 0.9463,
+     "recall": 0.9548,
+     "pred_vox": 2587.0,
+     "gt_vox": 2564.0,
+     "vol_ratio": 1.009
+    },
+    "A5E0T8_t24": {
+     "dice": 0.9639,
+     "precision": 0.9782,
+     "recall": 0.9501,
+     "pred_vox": 8759.0,
+     "gt_vox": 9018.0,
+     "vol_ratio": 0.9713
+    },
+    "A5E0T8_t8": {
+     "dice": 0.9514,
+     "precision": 0.9376,
+     "recall": 0.9657,
+     "pred_vox": 3301.0,
+     "gt_vox": 3205.0,
+     "vol_ratio": 1.03
+    },
+    "A7E4J0_t1": {
+     "dice": 0.8395,
+     "precision": 0.9656,
+     "recall": 0.7425,
+     "pred_vox": 14830.0,
+     "gt_vox": 19286.0,
+     "vol_ratio": 0.769
+    },
+    "A7E4J0_t12": {
+     "dice": 0.829,
+     "precision": 0.954,
+     "recall": 0.7329,
+     "pred_vox": 13602.0,
+     "gt_vox": 17704.0,
+     "vol_ratio": 0.7683
+    },
+    "A8E1F4_t24": {
+     "dice": 0.9656,
+     "precision": 0.9891,
+     "recall": 0.9431,
+     "pred_vox": 12669.0,
+     "gt_vox": 13287.0,
+     "vol_ratio": 0.9535
+    },
+    "A8E1F4_t9": {
+     "dice": 0.9429,
+     "precision": 0.933,
+     "recall": 0.9529,
+     "pred_vox": 5166.0,
+     "gt_vox": 5058.0,
+     "vol_ratio": 1.0214
+    },
+    "A9E3G9_t23": {
+     "dice": 0.8546,
+     "precision": 0.9993,
+     "recall": 0.7464,
+     "pred_vox": 4410.0,
+     "gt_vox": 5904.0,
+     "vol_ratio": 0.747
+    },
+    "A9E3G9_t8": {
+     "dice": 0.9269,
+     "precision": 0.9264,
+     "recall": 0.9273,
+     "pred_vox": 2079.0,
+     "gt_vox": 2077.0,
+     "vol_ratio": 1.001
+    },
+    "A9J5Q7_t24": {
+     "dice": 0.9157,
+     "precision": 0.9843,
+     "recall": 0.8561,
+     "pred_vox": 5024.0,
+     "gt_vox": 5776.0,
+     "vol_ratio": 0.8698
+    },
+    "A9J5Q7_t7": {
+     "dice": 0.9345,
+     "precision": 0.9473,
+     "recall": 0.9221,
+     "pred_vox": 2336.0,
+     "gt_vox": 2400.0,
+     "vol_ratio": 0.9733
+    },
+    "B3D0N1_t24": {
+     "dice": 0.9552,
+     "precision": 0.9867,
+     "recall": 0.9257,
+     "pred_vox": 9734.0,
+     "gt_vox": 10376.0,
+     "vol_ratio": 0.9381
+    },
+    "B3D0N1_t8": {
+     "dice": 0.9558,
+     "precision": 0.9506,
+     "recall": 0.9612,
+     "pred_vox": 4350.0,
+     "gt_vox": 4302.0,
+     "vol_ratio": 1.0112
+    },
+    "B4E1K1_t0": {
+     "dice": 0.9425,
+     "precision": 0.9847,
+     "recall": 0.9038,
+     "pred_vox": 7457.0,
+     "gt_vox": 8125.0,
+     "vol_ratio": 0.9178
+    },
+    "B4E1K1_t9": {
+     "dice": 0.9527,
+     "precision": 0.9241,
+     "recall": 0.9831,
+     "pred_vox": 4021.0,
+     "gt_vox": 3780.0,
+     "vol_ratio": 1.0638
+    },
+    "B5L5Y4_t10": {
+     "dice": 0.916,
+     "precision": 0.9458,
+     "recall": 0.8879,
+     "pred_vox": 2103.0,
+     "gt_vox": 2240.0,
+     "vol_ratio": 0.9388
+    },
+    "B5L5Y4_t24": {
+     "dice": 0.9298,
+     "precision": 0.999,
+     "recall": 0.8695,
+     "pred_vox": 5023.0,
+     "gt_vox": 5771.0,
+     "vol_ratio": 0.8704
+    },
+    "B5T6V0_t0": {
+     "dice": 0.9448,
+     "precision": 0.9637,
+     "recall": 0.9266,
+     "pred_vox": 8192.0,
+     "gt_vox": 8520.0,
+     "vol_ratio": 0.9615
+    },
+    "B5T6V0_t10": {
+     "dice": 0.8587,
+     "precision": 0.7584,
+     "recall": 0.9896,
+     "pred_vox": 4003.0,
+     "gt_vox": 3068.0,
+     "vol_ratio": 1.3048
+    },
+    "B7F5P0_t12": {
+     "dice": 0.9474,
+     "precision": 0.9751,
+     "recall": 0.9213,
+     "pred_vox": 18977.0,
+     "gt_vox": 20084.0,
+     "vol_ratio": 0.9449
+    },
+    "B7F5P0_t29": {
+     "dice": 0.9093,
+     "precision": 0.991,
+     "recall": 0.84,
+     "pred_vox": 21574.0,
+     "gt_vox": 25451.0,
+     "vol_ratio": 0.8477
+    },
+    "C0S7W0_t24": {
+     "dice": 0.9352,
+     "precision": 0.996,
+     "recall": 0.8813,
+     "pred_vox": 10426.0,
+     "gt_vox": 11782.0,
+     "vol_ratio": 0.8849
+    },
+    "C0S7W0_t7": {
+     "dice": 0.9515,
+     "precision": 0.9335,
+     "recall": 0.9702,
+     "pred_vox": 4422.0,
+     "gt_vox": 4255.0,
+     "vol_ratio": 1.0392
+    },
+    "C1G5Q0_t24": {
+     "dice": 0.9356,
+     "precision": 0.9887,
+     "recall": 0.8879,
+     "pred_vox": 5239.0,
+     "gt_vox": 5834.0,
+     "vol_ratio": 0.898
+    },
+    "C1G5Q0_t8": {
+     "dice": 0.9208,
+     "precision": 0.9425,
+     "recall": 0.9002,
+     "pred_vox": 2277.0,
+     "gt_vox": 2384.0,
+     "vol_ratio": 0.9551
+    },
+    "C2M6P8_t24": {
+     "dice": 0.9324,
+     "precision": 0.9992,
+     "recall": 0.874,
+     "pred_vox": 6382.0,
+     "gt_vox": 7296.0,
+     "vol_ratio": 0.8747
+    },
+    "C2M6P8_t8": {
+     "dice": 0.9567,
+     "precision": 0.9715,
+     "recall": 0.9423,
+     "pred_vox": 2944.0,
+     "gt_vox": 3035.0,
+     "vol_ratio": 0.97
+    },
+    "C4S8W9_t24": {
+     "dice": 0.97,
+     "precision": 0.9864,
+     "recall": 0.9542,
+     "pred_vox": 11447.0,
+     "gt_vox": 11833.0,
+     "vol_ratio": 0.9674
+    },
+    "C4S8W9_t8": {
+     "dice": 0.9516,
+     "precision": 0.9155,
+     "recall": 0.9908,
+     "pred_vox": 5631.0,
+     "gt_vox": 5203.0,
+     "vol_ratio": 1.0823
+    },
+    "D1R0Y5_t24": {
+     "dice": 0.9372,
+     "precision": 0.9972,
+     "recall": 0.884,
+     "pred_vox": 6711.0,
+     "gt_vox": 7570.0,
+     "vol_ratio": 0.8865
+    },
+    "D1R0Y5_t9": {
+     "dice": 0.9554,
+     "precision": 0.941,
+     "recall": 0.9701,
+     "pred_vox": 2831.0,
+     "gt_vox": 2746.0,
+     "vol_ratio": 1.031
+    },
+    "D3Q0W9_t10": {
+     "dice": 0.9329,
+     "precision": 0.9593,
+     "recall": 0.9079,
+     "pred_vox": 3072.0,
+     "gt_vox": 3246.0,
+     "vol_ratio": 0.9464
+    },
+    "D3Q0W9_t24": {
+     "dice": 0.9129,
+     "precision": 0.9865,
+     "recall": 0.8495,
+     "pred_vox": 6303.0,
+     "gt_vox": 7320.0,
+     "vol_ratio": 0.8611
+    },
+    "D8O0W2_t24": {
+     "dice": 0.9452,
+     "precision": 0.9971,
+     "recall": 0.8984,
+     "pred_vox": 5199.0,
+     "gt_vox": 5770.0,
+     "vol_ratio": 0.901
+    },
+    "D8O0W2_t8": {
+     "dice": 0.9294,
+     "precision": 0.9017,
+     "recall": 0.9589,
+     "pred_vox": 2096.0,
+     "gt_vox": 1971.0,
+     "vol_ratio": 1.0634
+    },
+    "D9I8O7_t11": {
+     "dice": 0.922,
+     "precision": 0.8608,
+     "recall": 0.9925,
+     "pred_vox": 5195.0,
+     "gt_vox": 4506.0,
+     "vol_ratio": 1.1529
+    },
+    "D9I8O7_t29": {
+     "dice": 0.9492,
+     "precision": 0.9613,
+     "recall": 0.9374,
+     "pred_vox": 12604.0,
+     "gt_vox": 12925.0,
+     "vol_ratio": 0.9752
+    },
+    "E1L8Y4_t10": {
+     "dice": 0.9534,
+     "precision": 0.94,
+     "recall": 0.9671,
+     "pred_vox": 3035.0,
+     "gt_vox": 2950.0,
+     "vol_ratio": 1.0288
+    },
+    "E1L8Y4_t24": {
+     "dice": 0.9695,
+     "precision": 0.993,
+     "recall": 0.9471,
+     "pred_vox": 6828.0,
+     "gt_vox": 7159.0,
+     "vol_ratio": 0.9538
+    },
+    "E3L8U8_t29": {
+     "dice": 0.9464,
+     "precision": 0.9799,
+     "recall": 0.9151,
+     "pred_vox": 12444.0,
+     "gt_vox": 13325.0,
+     "vol_ratio": 0.9339
+    },
+    "E3L8U8_t9": {
+     "dice": 0.8371,
+     "precision": 0.729,
+     "recall": 0.9828,
+     "pred_vox": 3299.0,
+     "gt_vox": 2447.0,
+     "vol_ratio": 1.3482
+    },
+    "E4I9O7_t10": {
+     "dice": 0.8202,
+     "precision": 0.7091,
+     "recall": 0.9726,
+     "pred_vox": 2650.0,
+     "gt_vox": 1932.0,
+     "vol_ratio": 1.3716
+    },
+    "E4I9O7_t29": {
+     "dice": 0.9514,
+     "precision": 0.9692,
+     "recall": 0.9342,
+     "pred_vox": 7509.0,
+     "gt_vox": 7791.0,
+     "vol_ratio": 0.9638
+    },
+    "E4M2Q7_t0": {
+     "dice": 0.9597,
+     "precision": 0.9939,
+     "recall": 0.9277,
+     "pred_vox": 5581.0,
+     "gt_vox": 5979.0,
+     "vol_ratio": 0.9334
+    },
+    "E4M2Q7_t8": {
+     "dice": 0.9479,
+     "precision": 0.9378,
+     "recall": 0.9583,
+     "pred_vox": 2379.0,
+     "gt_vox": 2328.0,
+     "vol_ratio": 1.0219
+    },
+    "E5F5V7_t0": {
+     "dice": 0.9589,
+     "precision": 0.9948,
+     "recall": 0.9255,
+     "pred_vox": 6923.0,
+     "gt_vox": 7441.0,
+     "vol_ratio": 0.9304
+    },
+    "E5F5V7_t9": {
+     "dice": 0.9524,
+     "precision": 0.9377,
+     "recall": 0.9676,
+     "pred_vox": 2294.0,
+     "gt_vox": 2223.0,
+     "vol_ratio": 1.0319
+    },
+    "E9L1W5_t24": {
+     "dice": 0.9567,
+     "precision": 0.9982,
+     "recall": 0.9185,
+     "pred_vox": 5589.0,
+     "gt_vox": 6074.0,
+     "vol_ratio": 0.9202
+    },
+    "E9L1W5_t9": {
+     "dice": 0.9236,
+     "precision": 0.8982,
+     "recall": 0.9505,
+     "pred_vox": 2200.0,
+     "gt_vox": 2079.0,
+     "vol_ratio": 1.0582
+    },
+    "F4K3S1_t24": {
+     "dice": 0.9511,
+     "precision": 0.9888,
+     "recall": 0.9162,
+     "pred_vox": 12102.0,
+     "gt_vox": 13061.0,
+     "vol_ratio": 0.9266
+    },
+    "F4K3S1_t8": {
+     "dice": 0.9579,
+     "precision": 0.9537,
+     "recall": 0.9622,
+     "pred_vox": 4772.0,
+     "gt_vox": 4730.0,
+     "vol_ratio": 1.0089
+    },
+    "F8N2S1_t24": {
+     "dice": 0.9564,
+     "precision": 0.995,
+     "recall": 0.9207,
+     "pred_vox": 10602.0,
+     "gt_vox": 11458.0,
+     "vol_ratio": 0.9253
+    },
+    "F8N2S1_t8": {
+     "dice": 0.9575,
+     "precision": 0.9234,
+     "recall": 0.9943,
+     "pred_vox": 4371.0,
+     "gt_vox": 4059.0,
+     "vol_ratio": 1.0769
+    },
+    "G0I6P3_t12": {
+     "dice": 0.9402,
+     "precision": 0.9338,
+     "recall": 0.9467,
+     "pred_vox": 3975.0,
+     "gt_vox": 3921.0,
+     "vol_ratio": 1.0138
+    },
+    "G0I6P3_t29": {
+     "dice": 0.9505,
+     "precision": 0.9982,
+     "recall": 0.9071,
+     "pred_vox": 9978.0,
+     "gt_vox": 10980.0,
+     "vol_ratio": 0.9087
+    },
+    "G2M7W4_t24": {
+     "dice": 0.962,
+     "precision": 0.9958,
+     "recall": 0.9305,
+     "pred_vox": 7915.0,
+     "gt_vox": 8471.0,
+     "vol_ratio": 0.9344
+    },
+    "G2M7W4_t9": {
+     "dice": 0.9307,
+     "precision": 0.8976,
+     "recall": 0.9664,
+     "pred_vox": 2657.0,
+     "gt_vox": 2468.0,
+     "vol_ratio": 1.0766
+    },
+    "G3M5S4_t10": {
+     "dice": 0.8183,
+     "precision": 0.6996,
+     "recall": 0.9856,
+     "pred_vox": 3905.0,
+     "gt_vox": 2772.0,
+     "vol_ratio": 1.4087
+    },
+    "G3M5S4_t29": {
+     "dice": 0.9529,
+     "precision": 0.9858,
+     "recall": 0.9221,
+     "pred_vox": 10746.0,
+     "gt_vox": 11488.0,
+     "vol_ratio": 0.9354
+    },
+    "G8N2U5_t23": {
+     "dice": 0.9354,
+     "precision": 0.9951,
+     "recall": 0.8826,
+     "pred_vox": 9304.0,
+     "gt_vox": 10490.0,
+     "vol_ratio": 0.8869
+    },
+    "G8N2U5_t9": {
+     "dice": 0.879,
+     "precision": 0.8879,
+     "recall": 0.8704,
+     "pred_vox": 4567.0,
+     "gt_vox": 4659.0,
+     "vol_ratio": 0.9803
+    },
+    "H0K3Q4_t24": {
+     "dice": 0.965,
+     "precision": 0.9928,
+     "recall": 0.9387,
+     "pred_vox": 9348.0,
+     "gt_vox": 9887.0,
+     "vol_ratio": 0.9455
+    },
+    "H0K3Q4_t9": {
+     "dice": 0.9223,
+     "precision": 0.8683,
+     "recall": 0.9834,
+     "pred_vox": 3205.0,
+     "gt_vox": 2830.0,
+     "vol_ratio": 1.1325
+    },
+    "H3U1Y1_t24": {
+     "dice": 0.9367,
+     "precision": 0.9984,
+     "recall": 0.8822,
+     "pred_vox": 8489.0,
+     "gt_vox": 9607.0,
+     "vol_ratio": 0.8836
+    },
+    "H3U1Y1_t8": {
+     "dice": 0.9366,
+     "precision": 0.9315,
+     "recall": 0.9418,
+     "pred_vox": 3211.0,
+     "gt_vox": 3176.0,
+     "vol_ratio": 1.011
+    },
+    "H4I2T8_t24": {
+     "dice": 0.9578,
+     "precision": 0.9921,
+     "recall": 0.9258,
+     "pred_vox": 5914.0,
+     "gt_vox": 6337.0,
+     "vol_ratio": 0.9332
+    },
+    "H4I2T8_t8": {
+     "dice": 0.9511,
+     "precision": 0.9274,
+     "recall": 0.9761,
+     "pred_vox": 2246.0,
+     "gt_vox": 2134.0,
+     "vol_ratio": 1.0525
+    },
+    "H7I4J3_t24": {
+     "dice": 0.9589,
+     "precision": 0.9944,
+     "recall": 0.9259,
+     "pred_vox": 6783.0,
+     "gt_vox": 7285.0,
+     "vol_ratio": 0.9311
+    },
+    "H7I4J3_t8": {
+     "dice": 0.9307,
+     "precision": 0.8817,
+     "recall": 0.9854,
+     "pred_vox": 2841.0,
+     "gt_vox": 2542.0,
+     "vol_ratio": 1.1176
+    },
+    "H7K5U5_t24": {
+     "dice": 0.9565,
+     "precision": 0.9926,
+     "recall": 0.923,
+     "pred_vox": 9081.0,
+     "gt_vox": 9766.0,
+     "vol_ratio": 0.9299
+    },
+    "H7K5U5_t8": {
+     "dice": 0.9319,
+     "precision": 0.8878,
+     "recall": 0.9807,
+     "pred_vox": 3493.0,
+     "gt_vox": 3162.0,
+     "vol_ratio": 1.1047
+    },
+    "H8K2K7_t23": {
+     "dice": 0.9068,
+     "precision": 0.9981,
+     "recall": 0.8308,
+     "pred_vox": 7413.0,
+     "gt_vox": 8906.0,
+     "vol_ratio": 0.8324
+    },
+    "H8K2K7_t7": {
+     "dice": 0.9253,
+     "precision": 0.9587,
+     "recall": 0.8942,
+     "pred_vox": 3050.0,
+     "gt_vox": 3270.0,
+     "vol_ratio": 0.9327
+    },
+    "J9L4S2_t13": {
+     "dice": 0.9562,
+     "precision": 0.979,
+     "recall": 0.9345,
+     "pred_vox": 17838.0,
+     "gt_vox": 18687.0,
+     "vol_ratio": 0.9546
+    },
+    "J9L4S2_t29": {
+     "dice": 0.9142,
+     "precision": 0.9898,
+     "recall": 0.8494,
+     "pred_vox": 19101.0,
+     "gt_vox": 22260.0,
+     "vol_ratio": 0.8581
+    },
+    "K5K6N1_t24": {
+     "dice": 0.9609,
+     "precision": 0.997,
+     "recall": 0.9272,
+     "pred_vox": 10700.0,
+     "gt_vox": 11505.0,
+     "vol_ratio": 0.93
+    },
+    "K5K6N1_t9": {
+     "dice": 0.9644,
+     "precision": 0.9599,
+     "recall": 0.9689,
+     "pred_vox": 5493.0,
+     "gt_vox": 5442.0,
+     "vol_ratio": 1.0094
+    },
+    "L8N7Z0_t29": {
+     "dice": 0.9355,
+     "precision": 0.9504,
+     "recall": 0.9212,
+     "pred_vox": 16999.0,
+     "gt_vox": 17537.0,
+     "vol_ratio": 0.9693
+    },
+    "L8N7Z0_t9": {
+     "dice": 0.7323,
+     "precision": 0.5851,
+     "recall": 0.9785,
+     "pred_vox": 4358.0,
+     "gt_vox": 2606.0,
+     "vol_ratio": 1.6723
+    },
+    "M0P8U8_t0": {
+     "dice": 0.9342,
+     "precision": 0.9882,
+     "recall": 0.8858,
+     "pred_vox": 5769.0,
+     "gt_vox": 6436.0,
+     "vol_ratio": 0.8964
+    },
+    "M0P8U8_t9": {
+     "dice": 0.9279,
+     "precision": 0.8887,
+     "recall": 0.9707,
+     "pred_vox": 2498.0,
+     "gt_vox": 2287.0,
+     "vol_ratio": 1.0923
+    },
+    "M6V2Y0_t0": {
+     "dice": 0.9579,
+     "precision": 0.9973,
+     "recall": 0.9215,
+     "pred_vox": 6629.0,
+     "gt_vox": 7174.0,
+     "vol_ratio": 0.924
+    },
+    "M6V2Y0_t9": {
+     "dice": 0.9476,
+     "precision": 0.9281,
+     "recall": 0.968,
+     "pred_vox": 3059.0,
+     "gt_vox": 2933.0,
+     "vol_ratio": 1.043
+    },
+    "N7V9W9_t24": {
+     "dice": 0.9664,
+     "precision": 0.9877,
+     "recall": 0.946,
+     "pred_vox": 9555.0,
+     "gt_vox": 9976.0,
+     "vol_ratio": 0.9578
+    },
+    "N7V9W9_t7": {
+     "dice": 0.9561,
+     "precision": 0.9293,
+     "recall": 0.9846,
+     "pred_vox": 3636.0,
+     "gt_vox": 3432.0,
+     "vol_ratio": 1.0594
+    },
+    "N9P5Z0_t0": {
+     "dice": 0.9279,
+     "precision": 0.9824,
+     "recall": 0.8792,
+     "pred_vox": 7995.0,
+     "gt_vox": 8933.0,
+     "vol_ratio": 0.895
+    },
+    "N9P5Z0_t13": {
+     "dice": 0.8925,
+     "precision": 0.8902,
+     "recall": 0.8949,
+     "pred_vox": 2668.0,
+     "gt_vox": 2654.0,
+     "vol_ratio": 1.0053
+    },
+    "P3R6Y5_t24": {
+     "dice": 0.9655,
+     "precision": 0.991,
+     "recall": 0.9413,
+     "pred_vox": 4010.0,
+     "gt_vox": 4222.0,
+     "vol_ratio": 0.9498
+    },
+    "P3R6Y5_t9": {
+     "dice": 0.9291,
+     "precision": 0.8893,
+     "recall": 0.9726,
+     "pred_vox": 1436.0,
+     "gt_vox": 1313.0,
+     "vol_ratio": 1.0937
+    },
+    "P8W4Z0_t0": {
+     "dice": 0.9472,
+     "precision": 0.9917,
+     "recall": 0.9065,
+     "pred_vox": 6255.0,
+     "gt_vox": 6843.0,
+     "vol_ratio": 0.9141
+    },
+    "P8W4Z0_t12": {
+     "dice": 0.9089,
+     "precision": 0.8682,
+     "recall": 0.9538,
+     "pred_vox": 2685.0,
+     "gt_vox": 2444.0,
+     "vol_ratio": 1.0986
+    },
+    "P9S7W2_t10": {
+     "dice": 0.9619,
+     "precision": 0.9712,
+     "recall": 0.9527,
+     "pred_vox": 2363.0,
+     "gt_vox": 2409.0,
+     "vol_ratio": 0.9809
+    },
+    "P9S7W2_t23": {
+     "dice": 0.9559,
+     "precision": 0.9906,
+     "recall": 0.9236,
+     "pred_vox": 5626.0,
+     "gt_vox": 6034.0,
+     "vol_ratio": 0.9324
+    },
+    "Q3Q6R8_t24": {
+     "dice": 0.968,
+     "precision": 0.9847,
+     "recall": 0.9517,
+     "pred_vox": 8912.0,
+     "gt_vox": 9221.0,
+     "vol_ratio": 0.9665
+    },
+    "Q3Q6R8_t9": {
+     "dice": 0.9505,
+     "precision": 0.9786,
+     "recall": 0.9239,
+     "pred_vox": 5431.0,
+     "gt_vox": 5753.0,
+     "vol_ratio": 0.944
+    },
+    "Y6Y9Z2_t29": {
+     "dice": 0.9643,
+     "precision": 0.9946,
+     "recall": 0.9357,
+     "pred_vox": 14314.0,
+     "gt_vox": 15215.0,
+     "vol_ratio": 0.9408
+    },
+    "Y6Y9Z2_t9": {
+     "dice": 0.9537,
+     "precision": 0.9329,
+     "recall": 0.9754,
+     "pred_vox": 10127.0,
+     "gt_vox": 9685.0,
+     "vol_ratio": 1.0456
+    }
+   }
+  },
+  "centre4": {
+   "n": 100,
+   "dice_mean": 0.8704,
+   "dice_std": 0.1298,
+   "precision_mean": 0.9478,
+   "recall_mean": 0.8292,
+   "per_case": {
+    "A3H5R1_t24": {
+     "dice": 0.9399,
+     "precision": 0.961,
+     "recall": 0.9197,
+     "pred_vox": 3278.0,
+     "gt_vox": 3425.0,
+     "vol_ratio": 0.9571
+    },
+    "A3H5R1_t6": {
+     "dice": 0.8989,
+     "precision": 0.8561,
+     "recall": 0.9462,
+     "pred_vox": 987.0,
+     "gt_vox": 893.0,
+     "vol_ratio": 1.1053
+    },
+    "A5H1Q2_t0": {
+     "dice": 0.9707,
+     "precision": 0.9592,
+     "recall": 0.9824,
+     "pred_vox": 11796.0,
+     "gt_vox": 11518.0,
+     "vol_ratio": 1.0241
+    },
+    "A5H1Q2_t9": {
+     "dice": 0.9271,
+     "precision": 0.9021,
+     "recall": 0.9534,
+     "pred_vox": 5354.0,
+     "gt_vox": 5066.0,
+     "vol_ratio": 1.0568
+    },
+    "A8C5E9_t24": {
+     "dice": 0.5389,
+     "precision": 0.9892,
+     "recall": 0.3703,
+     "pred_vox": 1859.0,
+     "gt_vox": 4966.0,
+     "vol_ratio": 0.3743
+    },
+    "A8C5E9_t9": {
+     "dice": 0.8402,
+     "precision": 0.9443,
+     "recall": 0.7567,
+     "pred_vox": 1489.0,
+     "gt_vox": 1858.0,
+     "vol_ratio": 0.8014
+    },
+    "A9F3T5_t24": {
+     "dice": 0.8809,
+     "precision": 0.9756,
+     "recall": 0.8029,
+     "pred_vox": 3203.0,
+     "gt_vox": 3892.0,
+     "vol_ratio": 0.823
+    },
+    "A9F3T5_t8": {
+     "dice": 0.737,
+     "precision": 0.9683,
+     "recall": 0.5949,
+     "pred_vox": 819.0,
+     "gt_vox": 1333.0,
+     "vol_ratio": 0.6144
+    },
+    "A9L7Y7_t24": {
+     "dice": 0.8443,
+     "precision": 0.8744,
+     "recall": 0.8162,
+     "pred_vox": 10432.0,
+     "gt_vox": 11176.0,
+     "vol_ratio": 0.9334
+    },
+    "A9L7Y7_t5": {
+     "dice": 0.8073,
+     "precision": 0.882,
+     "recall": 0.7443,
+     "pred_vox": 3603.0,
+     "gt_vox": 4270.0,
+     "vol_ratio": 0.8438
+    },
+    "B0L3Y2_t10": {
+     "dice": 0.9326,
+     "precision": 0.9672,
+     "recall": 0.9004,
+     "pred_vox": 2345.0,
+     "gt_vox": 2519.0,
+     "vol_ratio": 0.9309
+    },
+    "B0L3Y2_t24": {
+     "dice": 0.9373,
+     "precision": 0.9962,
+     "recall": 0.885,
+     "pred_vox": 5276.0,
+     "gt_vox": 5939.0,
+     "vol_ratio": 0.8884
+    },
+    "B2L0L2_t24": {
+     "dice": 0.7454,
+     "precision": 0.9846,
+     "recall": 0.5997,
+     "pred_vox": 27308.0,
+     "gt_vox": 44837.0,
+     "vol_ratio": 0.6091
+    },
+    "B2L0L2_t8": {
+     "dice": 0.3682,
+     "precision": 0.986,
+     "recall": 0.2264,
+     "pred_vox": 4069.0,
+     "gt_vox": 17724.0,
+     "vol_ratio": 0.2296
+    },
+    "B8P5Q9_t23": {
+     "dice": 0.9056,
+     "precision": 0.9909,
+     "recall": 0.8339,
+     "pred_vox": 23700.0,
+     "gt_vox": 28164.0,
+     "vol_ratio": 0.8415
+    },
+    "B8P5Q9_t9": {
+     "dice": 0.9341,
+     "precision": 0.9737,
+     "recall": 0.8975,
+     "pred_vox": 11731.0,
+     "gt_vox": 12727.0,
+     "vol_ratio": 0.9217
+    },
+    "C0N8P4_t24": {
+     "dice": 0.9535,
+     "precision": 0.9796,
+     "recall": 0.9288,
+     "pred_vox": 6312.0,
+     "gt_vox": 6657.0,
+     "vol_ratio": 0.9482
+    },
+    "C0N8P4_t9": {
+     "dice": 0.9318,
+     "precision": 0.9231,
+     "recall": 0.9407,
+     "pred_vox": 2406.0,
+     "gt_vox": 2361.0,
+     "vol_ratio": 1.0191
+    },
+    "C7M6W0_t24": {
+     "dice": 0.943,
+     "precision": 0.9371,
+     "recall": 0.949,
+     "pred_vox": 7843.0,
+     "gt_vox": 7745.0,
+     "vol_ratio": 1.0127
+    },
+    "C7M6W0_t8": {
+     "dice": 0.9347,
+     "precision": 0.9538,
+     "recall": 0.9164,
+     "pred_vox": 3205.0,
+     "gt_vox": 3336.0,
+     "vol_ratio": 0.9607
+    },
+    "C8J7L5_t24": {
+     "dice": 0.9085,
+     "precision": 0.9637,
+     "recall": 0.8593,
+     "pred_vox": 2648.0,
+     "gt_vox": 2970.0,
+     "vol_ratio": 0.8916
+    },
+    "C8J7L5_t7": {
+     "dice": 0.8222,
+     "precision": 0.879,
+     "recall": 0.7723,
+     "pred_vox": 463.0,
+     "gt_vox": 527.0,
+     "vol_ratio": 0.8786
+    },
+    "C8O0P2_t24": {
+     "dice": 0.89,
+     "precision": 0.9468,
+     "recall": 0.8396,
+     "pred_vox": 2648.0,
+     "gt_vox": 2986.0,
+     "vol_ratio": 0.8868
+    },
+    "C8O0P2_t8": {
+     "dice": 0.828,
+     "precision": 0.8108,
+     "recall": 0.846,
+     "pred_vox": 481.0,
+     "gt_vox": 461.0,
+     "vol_ratio": 1.0434
+    },
+    "D1H2O9_t24": {
+     "dice": 0.9444,
+     "precision": 0.9931,
+     "recall": 0.9003,
+     "pred_vox": 7077.0,
+     "gt_vox": 7806.0,
+     "vol_ratio": 0.9066
+    },
+    "D1H2O9_t8": {
+     "dice": 0.9362,
+     "precision": 0.9827,
+     "recall": 0.894,
+     "pred_vox": 3286.0,
+     "gt_vox": 3612.0,
+     "vol_ratio": 0.9097
+    },
+    "D2U0V0_t10": {
+     "dice": 0.9422,
+     "precision": 0.9619,
+     "recall": 0.9232,
+     "pred_vox": 3151.0,
+     "gt_vox": 3283.0,
+     "vol_ratio": 0.9598
+    },
+    "D2U0V0_t24": {
+     "dice": 0.9728,
+     "precision": 0.9702,
+     "recall": 0.9754,
+     "pred_vox": 7476.0,
+     "gt_vox": 7436.0,
+     "vol_ratio": 1.0054
+    },
+    "D3K5Q2_t0": {
+     "dice": 0.4748,
+     "precision": 1.0,
+     "recall": 0.3113,
+     "pred_vox": 452.0,
+     "gt_vox": 1452.0,
+     "vol_ratio": 0.3113
+    },
+    "D3K5Q2_t11": {
+     "dice": 0.4791,
+     "precision": 0.9121,
+     "recall": 0.3248,
+     "pred_vox": 1160.0,
+     "gt_vox": 3257.0,
+     "vol_ratio": 0.3562
+    },
+    "D5G3W8_t23": {
+     "dice": 0.9539,
+     "precision": 0.981,
+     "recall": 0.9283,
+     "pred_vox": 6423.0,
+     "gt_vox": 6788.0,
+     "vol_ratio": 0.9462
+    },
+    "D5G3W8_t8": {
+     "dice": 0.9111,
+     "precision": 0.8599,
+     "recall": 0.9688,
+     "pred_vox": 2420.0,
+     "gt_vox": 2148.0,
+     "vol_ratio": 1.1266
+    },
+    "D6N7Q8_t24": {
+     "dice": 0.9541,
+     "precision": 0.9771,
+     "recall": 0.9321,
+     "pred_vox": 7423.0,
+     "gt_vox": 7781.0,
+     "vol_ratio": 0.954
+    },
+    "D6N7Q8_t9": {
+     "dice": 0.9036,
+     "precision": 0.9013,
+     "recall": 0.9059,
+     "pred_vox": 2735.0,
+     "gt_vox": 2721.0,
+     "vol_ratio": 1.0051
+    },
+    "D7M8P9_t24": {
+     "dice": 0.9379,
+     "precision": 0.9416,
+     "recall": 0.9342,
+     "pred_vox": 5292.0,
+     "gt_vox": 5334.0,
+     "vol_ratio": 0.9921
+    },
+    "D7M8P9_t8": {
+     "dice": 0.9015,
+     "precision": 0.9498,
+     "recall": 0.8579,
+     "pred_vox": 1633.0,
+     "gt_vox": 1808.0,
+     "vol_ratio": 0.9032
+    },
+    "D7T3V8_t24": {
+     "dice": 0.9394,
+     "precision": 0.9722,
+     "recall": 0.9088,
+     "pred_vox": 8115.0,
+     "gt_vox": 8681.0,
+     "vol_ratio": 0.9348
+    },
+    "D7T3V8_t7": {
+     "dice": 0.915,
+     "precision": 0.9244,
+     "recall": 0.9059,
+     "pred_vox": 3385.0,
+     "gt_vox": 3454.0,
+     "vol_ratio": 0.98
+    },
+    "E3F2U7_t0": {
+     "dice": 0.937,
+     "precision": 0.9731,
+     "recall": 0.9035,
+     "pred_vox": 7743.0,
+     "gt_vox": 8340.0,
+     "vol_ratio": 0.9284
+    },
+    "E3F2U7_t7": {
+     "dice": 0.8917,
+     "precision": 0.8487,
+     "recall": 0.9392,
+     "pred_vox": 3113.0,
+     "gt_vox": 2813.0,
+     "vol_ratio": 1.1066
+    },
+    "E3F5U2_t24": {
+     "dice": 0.964,
+     "precision": 0.9834,
+     "recall": 0.9453,
+     "pred_vox": 7398.0,
+     "gt_vox": 7696.0,
+     "vol_ratio": 0.9613
+    },
+    "E3F5U2_t8": {
+     "dice": 0.9521,
+     "precision": 0.9792,
+     "recall": 0.9264,
+     "pred_vox": 2263.0,
+     "gt_vox": 2392.0,
+     "vol_ratio": 0.9461
+    },
+    "E6M6P2_t24": {
+     "dice": 0.9423,
+     "precision": 0.9508,
+     "recall": 0.934,
+     "pred_vox": 8269.0,
+     "gt_vox": 8418.0,
+     "vol_ratio": 0.9823
+    },
+    "E6M6P2_t7": {
+     "dice": 0.9465,
+     "precision": 0.9835,
+     "recall": 0.9121,
+     "pred_vox": 3704.0,
+     "gt_vox": 3994.0,
+     "vol_ratio": 0.9274
+    },
+    "E7L0N6_t22": {
+     "dice": 0.7842,
+     "precision": 0.9518,
+     "recall": 0.6668,
+     "pred_vox": 3505.0,
+     "gt_vox": 5003.0,
+     "vol_ratio": 0.7006
+    },
+    "E7L0N6_t8": {
+     "dice": 0.8714,
+     "precision": 0.9679,
+     "recall": 0.7924,
+     "pred_vox": 1404.0,
+     "gt_vox": 1715.0,
+     "vol_ratio": 0.8187
+    },
+    "E9V9Z2_t10": {
+     "dice": 0.7962,
+     "precision": 0.9227,
+     "recall": 0.7003,
+     "pred_vox": 3623.0,
+     "gt_vox": 4774.0,
+     "vol_ratio": 0.7589
+    },
+    "E9V9Z2_t28": {
+     "dice": 0.7357,
+     "precision": 0.9888,
+     "recall": 0.5857,
+     "pred_vox": 15513.0,
+     "gt_vox": 26188.0,
+     "vol_ratio": 0.5924
+    },
+    "F0I6U8_t10": {
+     "dice": 0.8964,
+     "precision": 0.8894,
+     "recall": 0.9035,
+     "pred_vox": 3959.0,
+     "gt_vox": 3897.0,
+     "vol_ratio": 1.0159
+    },
+    "F0I6U8_t23": {
+     "dice": 0.8761,
+     "precision": 0.8432,
+     "recall": 0.9116,
+     "pred_vox": 1480.0,
+     "gt_vox": 1369.0,
+     "vol_ratio": 1.0811
+    },
+    "F1K2S9_t23": {
+     "dice": 0.9373,
+     "precision": 0.9835,
+     "recall": 0.8952,
+     "pred_vox": 3889.0,
+     "gt_vox": 4273.0,
+     "vol_ratio": 0.9101
+    },
+    "F1K2S9_t7": {
+     "dice": 0.9435,
+     "precision": 0.9606,
+     "recall": 0.927,
+     "pred_vox": 1903.0,
+     "gt_vox": 1972.0,
+     "vol_ratio": 0.965
+    },
+    "F5I1Z8_t23": {
+     "dice": 0.9224,
+     "precision": 0.9485,
+     "recall": 0.8977,
+     "pred_vox": 5864.0,
+     "gt_vox": 6196.0,
+     "vol_ratio": 0.9464
+    },
+    "F5I1Z8_t8": {
+     "dice": 0.9245,
+     "precision": 0.9191,
+     "recall": 0.93,
+     "pred_vox": 2731.0,
+     "gt_vox": 2699.0,
+     "vol_ratio": 1.0119
+    },
+    "G8R0Z9_t21": {
+     "dice": 0.9682,
+     "precision": 0.9791,
+     "recall": 0.9576,
+     "pred_vox": 6163.0,
+     "gt_vox": 6301.0,
+     "vol_ratio": 0.9781
+    },
+    "G8R0Z9_t8": {
+     "dice": 0.8806,
+     "precision": 0.8568,
+     "recall": 0.9057,
+     "pred_vox": 4475.0,
+     "gt_vox": 4233.0,
+     "vol_ratio": 1.0572
+    },
+    "H2M9S1_t23": {
+     "dice": 0.9404,
+     "precision": 0.972,
+     "recall": 0.9108,
+     "pred_vox": 5505.0,
+     "gt_vox": 5875.0,
+     "vol_ratio": 0.937
+    },
+    "H2M9S1_t8": {
+     "dice": 0.8815,
+     "precision": 0.907,
+     "recall": 0.8574,
+     "pred_vox": 1936.0,
+     "gt_vox": 2048.0,
+     "vol_ratio": 0.9453
+    },
+    "H3R6S9_t24": {
+     "dice": 0.969,
+     "precision": 0.9723,
+     "recall": 0.9657,
+     "pred_vox": 9857.0,
+     "gt_vox": 9924.0,
+     "vol_ratio": 0.9932
+    },
+    "H3R6S9_t9": {
+     "dice": 0.9464,
+     "precision": 0.9727,
+     "recall": 0.9215,
+     "pred_vox": 4320.0,
+     "gt_vox": 4560.0,
+     "vol_ratio": 0.9474
+    },
+    "H7L8R8_t23": {
+     "dice": 0.9207,
+     "precision": 0.9461,
+     "recall": 0.8966,
+     "pred_vox": 6216.0,
+     "gt_vox": 6559.0,
+     "vol_ratio": 0.9477
+    },
+    "H7L8R8_t9": {
+     "dice": 0.855,
+     "precision": 0.8438,
+     "recall": 0.8664,
+     "pred_vox": 1652.0,
+     "gt_vox": 1609.0,
+     "vol_ratio": 1.0267
+    },
+    "H7P5Z4_t24": {
+     "dice": 0.9528,
+     "precision": 0.9928,
+     "recall": 0.9159,
+     "pred_vox": 15913.0,
+     "gt_vox": 17249.0,
+     "vol_ratio": 0.9225
+    },
+    "H7P5Z4_t9": {
+     "dice": 0.9381,
+     "precision": 0.9722,
+     "recall": 0.9063,
+     "pred_vox": 4676.0,
+     "gt_vox": 5016.0,
+     "vol_ratio": 0.9322
+    },
+    "I4R8V6_t24": {
+     "dice": 0.943,
+     "precision": 0.9098,
+     "recall": 0.9787,
+     "pred_vox": 5922.0,
+     "gt_vox": 5505.0,
+     "vol_ratio": 1.0757
+    },
+    "I4R8V6_t8": {
+     "dice": 0.9014,
+     "precision": 0.8846,
+     "recall": 0.9189,
+     "pred_vox": 2625.0,
+     "gt_vox": 2527.0,
+     "vol_ratio": 1.0388
+    },
+    "I6P4R0_t11": {
+     "dice": 0.8863,
+     "precision": 0.9689,
+     "recall": 0.8166,
+     "pred_vox": 15527.0,
+     "gt_vox": 18422.0,
+     "vol_ratio": 0.8429
+    },
+    "I6P4R0_t18": {
+     "dice": 0.8973,
+     "precision": 0.9612,
+     "recall": 0.8414,
+     "pred_vox": 24047.0,
+     "gt_vox": 27471.0,
+     "vol_ratio": 0.8754
+    },
+    "I8Z0Z6_t24": {
+     "dice": 0.9029,
+     "precision": 0.9557,
+     "recall": 0.8556,
+     "pred_vox": 6032.0,
+     "gt_vox": 6738.0,
+     "vol_ratio": 0.8952
+    },
+    "I8Z0Z6_t8": {
+     "dice": 0.894,
+     "precision": 0.9024,
+     "recall": 0.8857,
+     "pred_vox": 2500.0,
+     "gt_vox": 2547.0,
+     "vol_ratio": 0.9815
+    },
+    "J6K4V3_t21": {
+     "dice": 0.8941,
+     "precision": 0.9427,
+     "recall": 0.8503,
+     "pred_vox": 5133.0,
+     "gt_vox": 5691.0,
+     "vol_ratio": 0.902
+    },
+    "J6K4V3_t3": {
+     "dice": 0.9215,
+     "precision": 0.9647,
+     "recall": 0.8819,
+     "pred_vox": 3800.0,
+     "gt_vox": 4157.0,
+     "vol_ratio": 0.9141
+    },
+    "K3R0Y7_t28": {
+     "dice": 0.9656,
+     "precision": 0.9573,
+     "recall": 0.9741,
+     "pred_vox": 11630.0,
+     "gt_vox": 11429.0,
+     "vol_ratio": 1.0176
+    },
+    "K3R0Y7_t9": {
+     "dice": 0.9297,
+     "precision": 0.8952,
+     "recall": 0.9669,
+     "pred_vox": 3723.0,
+     "gt_vox": 3447.0,
+     "vol_ratio": 1.0801
+    },
+    "K7O3Q0_t10": {
+     "dice": 0.8855,
+     "precision": 0.9894,
+     "recall": 0.8013,
+     "pred_vox": 1325.0,
+     "gt_vox": 1636.0,
+     "vol_ratio": 0.8099
+    },
+    "K7O3Q0_t23": {
+     "dice": 0.8697,
+     "precision": 0.9997,
+     "recall": 0.7696,
+     "pred_vox": 2904.0,
+     "gt_vox": 3772.0,
+     "vol_ratio": 0.7699
+    },
+    "L2V5Z0_t17": {
+     "dice": 0.9058,
+     "precision": 0.9315,
+     "recall": 0.8815,
+     "pred_vox": 3912.0,
+     "gt_vox": 4134.0,
+     "vol_ratio": 0.9463
+    },
+    "L2V5Z0_t3": {
+     "dice": 0.921,
+     "precision": 0.971,
+     "recall": 0.8758,
+     "pred_vox": 4729.0,
+     "gt_vox": 5243.0,
+     "vol_ratio": 0.902
+    },
+    "L8N7P0_t23": {
+     "dice": 0.9161,
+     "precision": 0.9241,
+     "recall": 0.9082,
+     "pred_vox": 5320.0,
+     "gt_vox": 5413.0,
+     "vol_ratio": 0.9828
+    },
+    "L8N7P0_t9": {
+     "dice": 0.899,
+     "precision": 0.9387,
+     "recall": 0.8625,
+     "pred_vox": 1925.0,
+     "gt_vox": 2095.0,
+     "vol_ratio": 0.9189
+    },
+    "M6M9N1_t11": {
+     "dice": 0.8994,
+     "precision": 0.9427,
+     "recall": 0.8599,
+     "pred_vox": 1588.0,
+     "gt_vox": 1741.0,
+     "vol_ratio": 0.9121
+    },
+    "M6M9N1_t24": {
+     "dice": 0.9013,
+     "precision": 0.9187,
+     "recall": 0.8846,
+     "pred_vox": 4320.0,
+     "gt_vox": 4487.0,
+     "vol_ratio": 0.9628
+    },
+    "O4O6U5_t24": {
+     "dice": 0.9491,
+     "precision": 0.987,
+     "recall": 0.9139,
+     "pred_vox": 8483.0,
+     "gt_vox": 9162.0,
+     "vol_ratio": 0.9259
+    },
+    "O4O6U5_t8": {
+     "dice": 0.9528,
+     "precision": 0.9813,
+     "recall": 0.9258,
+     "pred_vox": 2837.0,
+     "gt_vox": 3007.0,
+     "vol_ratio": 0.9435
+    },
+    "P3T5U1_t27": {
+     "dice": 0.6459,
+     "precision": 0.9955,
+     "recall": 0.478,
+     "pred_vox": 3361.0,
+     "gt_vox": 7000.0,
+     "vol_ratio": 0.4801
+    },
+    "P3T5U1_t9": {
+     "dice": 0.7021,
+     "precision": 0.9928,
+     "recall": 0.543,
+     "pred_vox": 1818.0,
+     "gt_vox": 3324.0,
+     "vol_ratio": 0.5469
+    },
+    "Q1Q3T1_t10": {
+     "dice": 0.784,
+     "precision": 0.9927,
+     "recall": 0.6478,
+     "pred_vox": 8451.0,
+     "gt_vox": 12949.0,
+     "vol_ratio": 0.6526
+    },
+    "Q1Q3T1_t28": {
+     "dice": 0.6774,
+     "precision": 0.9952,
+     "recall": 0.5134,
+     "pred_vox": 15947.0,
+     "gt_vox": 30912.0,
+     "vol_ratio": 0.5159
+    },
+    "Q5V8W3_t10": {
+     "dice": 0.9149,
+     "precision": 0.8944,
+     "recall": 0.9363,
+     "pred_vox": 3041.0,
+     "gt_vox": 2905.0,
+     "vol_ratio": 1.0468
+    },
+    "Q5V8W3_t24": {
+     "dice": 0.9576,
+     "precision": 0.9695,
+     "recall": 0.946,
+     "pred_vox": 5508.0,
+     "gt_vox": 5645.0,
+     "vol_ratio": 0.9757
+    },
+    "R1R6Y8_t10": {
+     "dice": 0.9223,
+     "precision": 0.9573,
+     "recall": 0.8897,
+     "pred_vox": 5149.0,
+     "gt_vox": 5540.0,
+     "vol_ratio": 0.9294
+    },
+    "R1R6Y8_t23": {
+     "dice": 0.9279,
+     "precision": 0.9724,
+     "recall": 0.8872,
+     "pred_vox": 8524.0,
+     "gt_vox": 9343.0,
+     "vol_ratio": 0.9123
+    },
+    "R2R7Z5_t23": {
+     "dice": 0.9091,
+     "precision": 0.9741,
+     "recall": 0.8522,
+     "pred_vox": 13523.0,
+     "gt_vox": 15458.0,
+     "vol_ratio": 0.8748
+    },
+    "R2R7Z5_t8": {
+     "dice": 0.9193,
+     "precision": 0.9891,
+     "recall": 0.8588,
+     "pred_vox": 9190.0,
+     "gt_vox": 10585.0,
+     "vol_ratio": 0.8682
+    },
+    "R6V5W3_t10": {
+     "dice": 0.843,
+     "precision": 0.9447,
+     "recall": 0.7611,
+     "pred_vox": 1663.0,
+     "gt_vox": 2064.0,
+     "vol_ratio": 0.8057
+    },
+    "R6V5W3_t28": {
+     "dice": 0.8537,
+     "precision": 0.8508,
+     "recall": 0.8566,
+     "pred_vox": 5236.0,
+     "gt_vox": 5201.0,
+     "vol_ratio": 1.0067
+    },
+    "R8V0Y4_t24": {
+     "dice": 0.2788,
+     "precision": 0.9905,
+     "recall": 0.1622,
+     "pred_vox": 1052.0,
+     "gt_vox": 6424.0,
+     "vol_ratio": 0.1638
+    },
+    "R8V0Y4_t7": {
+     "dice": 0.4347,
+     "precision": 0.9723,
+     "recall": 0.2799,
+     "pred_vox": 613.0,
+     "gt_vox": 2129.0,
+     "vol_ratio": 0.2879
+    },
+    "V4W8Z5_t19": {
+     "dice": 0.9403,
+     "precision": 0.983,
+     "recall": 0.9011,
+     "pred_vox": 21583.0,
+     "gt_vox": 23545.0,
+     "vol_ratio": 0.9167
+    },
+    "V4W8Z5_t9": {
+     "dice": 0.9317,
+     "precision": 0.9391,
+     "recall": 0.9244,
+     "pred_vox": 9791.0,
+     "gt_vox": 9947.0,
+     "vol_ratio": 0.9843
+    }
+   }
+  },
+  "centre5": {
+   "n": 100,
+   "dice_mean": 0.7846,
+   "dice_std": 0.1932,
+   "precision_mean": 0.958,
+   "recall_mean": 0.6957,
+   "per_case": {
+    "A1K2P5_t11": {
+     "dice": 0.9159,
+     "precision": 0.9875,
+     "recall": 0.854,
+     "pred_vox": 8566.0,
+     "gt_vox": 9905.0,
+     "vol_ratio": 0.8648
+    },
+    "A1K2P5_t33": {
+     "dice": 0.9134,
+     "precision": 0.9945,
+     "recall": 0.8446,
+     "pred_vox": 22489.0,
+     "gt_vox": 26481.0,
+     "vol_ratio": 0.8493
+    },
+    "A3P9V7_t13": {
+     "dice": 0.8828,
+     "precision": 0.9899,
+     "recall": 0.7965,
+     "pred_vox": 1890.0,
+     "gt_vox": 2349.0,
+     "vol_ratio": 0.8046
+    },
+    "A3P9V7_t27": {
+     "dice": 0.8772,
+     "precision": 0.985,
+     "recall": 0.7906,
+     "pred_vox": 3541.0,
+     "gt_vox": 4412.0,
+     "vol_ratio": 0.8026
+    },
+    "A4B9O6_t0": {
+     "dice": 0.5037,
+     "precision": 0.9433,
+     "recall": 0.3436,
+     "pred_vox": 5415.0,
+     "gt_vox": 14865.0,
+     "vol_ratio": 0.3643
+    },
+    "A4B9O6_t11": {
+     "dice": 0.3027,
+     "precision": 0.8293,
+     "recall": 0.1851,
+     "pred_vox": 1242.0,
+     "gt_vox": 5564.0,
+     "vol_ratio": 0.2232
+    },
+    "A4K8R4_t11": {
+     "dice": 0.7169,
+     "precision": 0.793,
+     "recall": 0.6541,
+     "pred_vox": 14514.0,
+     "gt_vox": 17597.0,
+     "vol_ratio": 0.8248
+    },
+    "A4K8R4_t24": {
+     "dice": 0.7826,
+     "precision": 0.8814,
+     "recall": 0.7037,
+     "pred_vox": 22396.0,
+     "gt_vox": 28053.0,
+     "vol_ratio": 0.7983
+    },
+    "A4R4T0_t21": {
+     "dice": 0.9501,
+     "precision": 0.981,
+     "recall": 0.921,
+     "pred_vox": 12867.0,
+     "gt_vox": 13706.0,
+     "vol_ratio": 0.9388
+    },
+    "A4R4T0_t8": {
+     "dice": 0.9271,
+     "precision": 0.9608,
+     "recall": 0.8957,
+     "pred_vox": 6273.0,
+     "gt_vox": 6729.0,
+     "vol_ratio": 0.9322
+    },
+    "A5P5W0_t10": {
+     "dice": 0.0673,
+     "precision": 0.4298,
+     "recall": 0.0365,
+     "pred_vox": 577.0,
+     "gt_vox": 6798.0,
+     "vol_ratio": 0.0849
+    },
+    "A5P5W0_t33": {
+     "dice": 0.3189,
+     "precision": 0.9981,
+     "recall": 0.1898,
+     "pred_vox": 5754.0,
+     "gt_vox": 30262.0,
+     "vol_ratio": 0.1901
+    },
+    "A5Q1W8_t10": {
+     "dice": 0.9372,
+     "precision": 0.9784,
+     "recall": 0.8993,
+     "pred_vox": 8344.0,
+     "gt_vox": 9078.0,
+     "vol_ratio": 0.9191
+    },
+    "A5Q1W8_t27": {
+     "dice": 0.8912,
+     "precision": 0.978,
+     "recall": 0.8185,
+     "pred_vox": 19382.0,
+     "gt_vox": 23158.0,
+     "vol_ratio": 0.8369
+    },
+    "A6A8H0_t27": {
+     "dice": 0.8816,
+     "precision": 0.9406,
+     "recall": 0.8296,
+     "pred_vox": 21172.0,
+     "gt_vox": 24003.0,
+     "vol_ratio": 0.8821
+    },
+    "A6A8H0_t8": {
+     "dice": 0.6243,
+     "precision": 0.7932,
+     "recall": 0.5147,
+     "pred_vox": 5503.0,
+     "gt_vox": 8480.0,
+     "vol_ratio": 0.6489
+    },
+    "A6B7Y4_t1": {
+     "dice": 0.6795,
+     "precision": 0.9974,
+     "recall": 0.5153,
+     "pred_vox": 10096.0,
+     "gt_vox": 19542.0,
+     "vol_ratio": 0.5166
+    },
+    "A6B7Y4_t10": {
+     "dice": 0.739,
+     "precision": 0.9724,
+     "recall": 0.596,
+     "pred_vox": 5436.0,
+     "gt_vox": 8869.0,
+     "vol_ratio": 0.6129
+    },
+    "A7F4G2_t10": {
+     "dice": 0.4113,
+     "precision": 0.9973,
+     "recall": 0.2591,
+     "pred_vox": 13139.0,
+     "gt_vox": 50578.0,
+     "vol_ratio": 0.2598
+    },
+    "A7F4G2_t25": {
+     "dice": 0.5367,
+     "precision": 0.9981,
+     "recall": 0.3671,
+     "pred_vox": 20498.0,
+     "gt_vox": 55735.0,
+     "vol_ratio": 0.3678
+    },
+    "B3E2W8_t23": {
+     "dice": 0.9109,
+     "precision": 0.9895,
+     "recall": 0.8438,
+     "pred_vox": 12151.0,
+     "gt_vox": 14248.0,
+     "vol_ratio": 0.8528
+    },
+    "B3E2W8_t9": {
+     "dice": 0.8062,
+     "precision": 0.9403,
+     "recall": 0.7056,
+     "pred_vox": 2212.0,
+     "gt_vox": 2948.0,
+     "vol_ratio": 0.7503
+    },
+    "B6I0T4_t10": {
+     "dice": 0.0283,
+     "precision": 1.0,
+     "recall": 0.0143,
+     "pred_vox": 33.0,
+     "gt_vox": 2303.0,
+     "vol_ratio": 0.0143
+    },
+    "B6I0T4_t33": {
+     "dice": 0.6909,
+     "precision": 0.9804,
+     "recall": 0.5334,
+     "pred_vox": 3477.0,
+     "gt_vox": 6391.0,
+     "vol_ratio": 0.544
+    },
+    "B9G4U2_t28": {
+     "dice": 0.8935,
+     "precision": 0.9892,
+     "recall": 0.8147,
+     "pred_vox": 29391.0,
+     "gt_vox": 35685.0,
+     "vol_ratio": 0.8236
+    },
+    "B9G4U2_t8": {
+     "dice": 0.9385,
+     "precision": 0.9843,
+     "recall": 0.8967,
+     "pred_vox": 16034.0,
+     "gt_vox": 17602.0,
+     "vol_ratio": 0.9109
+    },
+    "C0L7V1_t14": {
+     "dice": 0.6974,
+     "precision": 0.9561,
+     "recall": 0.5489,
+     "pred_vox": 3415.0,
+     "gt_vox": 5948.0,
+     "vol_ratio": 0.5741
+    },
+    "C0L7V1_t33": {
+     "dice": 0.9198,
+     "precision": 0.996,
+     "recall": 0.8544,
+     "pred_vox": 15539.0,
+     "gt_vox": 18114.0,
+     "vol_ratio": 0.8578
+    },
+    "C5L0R0_t12": {
+     "dice": 0.8375,
+     "precision": 0.9822,
+     "recall": 0.73,
+     "pred_vox": 12055.0,
+     "gt_vox": 16221.0,
+     "vol_ratio": 0.7432
+    },
+    "C5L0R0_t29": {
+     "dice": 0.7108,
+     "precision": 0.9891,
+     "recall": 0.5547,
+     "pred_vox": 16160.0,
+     "gt_vox": 28817.0,
+     "vol_ratio": 0.5608
+    },
+    "D1L6T4_t10": {
+     "dice": 0.0651,
+     "precision": 0.9884,
+     "recall": 0.0337,
+     "pred_vox": 173.0,
+     "gt_vox": 5079.0,
+     "vol_ratio": 0.0341
+    },
+    "D1L6T4_t27": {
+     "dice": 0.7019,
+     "precision": 0.9975,
+     "recall": 0.5414,
+     "pred_vox": 9795.0,
+     "gt_vox": 18047.0,
+     "vol_ratio": 0.5427
+    },
+    "D1S5T8_t14": {
+     "dice": 0.9566,
+     "precision": 0.9738,
+     "recall": 0.94,
+     "pred_vox": 10157.0,
+     "gt_vox": 10522.0,
+     "vol_ratio": 0.9653
+    },
+    "D1S5T8_t23": {
+     "dice": 0.955,
+     "precision": 0.9755,
+     "recall": 0.9353,
+     "pred_vox": 17041.0,
+     "gt_vox": 17773.0,
+     "vol_ratio": 0.9588
+    },
+    "E0J2Z9_t11": {
+     "dice": 0.8779,
+     "precision": 0.949,
+     "recall": 0.8167,
+     "pred_vox": 9569.0,
+     "gt_vox": 11119.0,
+     "vol_ratio": 0.8606
+    },
+    "E0J2Z9_t25": {
+     "dice": 0.9302,
+     "precision": 0.9829,
+     "recall": 0.8829,
+     "pred_vox": 22018.0,
+     "gt_vox": 24513.0,
+     "vol_ratio": 0.8982
+    },
+    "E1L7M3_t1": {
+     "dice": 0.8924,
+     "precision": 0.9852,
+     "recall": 0.8157,
+     "pred_vox": 17529.0,
+     "gt_vox": 21172.0,
+     "vol_ratio": 0.8279
+    },
+    "E1L7M3_t12": {
+     "dice": 0.9129,
+     "precision": 0.9671,
+     "recall": 0.8645,
+     "pred_vox": 8322.0,
+     "gt_vox": 9309.0,
+     "vol_ratio": 0.894
+    },
+    "E4H7L4_t10": {
+     "dice": 0.4364,
+     "precision": 0.9951,
+     "recall": 0.2795,
+     "pred_vox": 6675.0,
+     "gt_vox": 23765.0,
+     "vol_ratio": 0.2809
+    },
+    "E4H7L4_t28": {
+     "dice": 0.6301,
+     "precision": 0.9928,
+     "recall": 0.4615,
+     "pred_vox": 20855.0,
+     "gt_vox": 44868.0,
+     "vol_ratio": 0.4648
+    },
+    "E5J6L2_t11": {
+     "dice": 0.8883,
+     "precision": 0.9532,
+     "recall": 0.8316,
+     "pred_vox": 4191.0,
+     "gt_vox": 4804.0,
+     "vol_ratio": 0.8724
+    },
+    "E5J6L2_t29": {
+     "dice": 0.9352,
+     "precision": 0.9887,
+     "recall": 0.8873,
+     "pred_vox": 12784.0,
+     "gt_vox": 14245.0,
+     "vol_ratio": 0.8974
+    },
+    "E6H0V9_t12": {
+     "dice": 0.7664,
+     "precision": 0.9845,
+     "recall": 0.6274,
+     "pred_vox": 6692.0,
+     "gt_vox": 10501.0,
+     "vol_ratio": 0.6373
+    },
+    "E6H0V9_t33": {
+     "dice": 0.8412,
+     "precision": 0.9928,
+     "recall": 0.7298,
+     "pred_vox": 15086.0,
+     "gt_vox": 20523.0,
+     "vol_ratio": 0.7351
+    },
+    "F6J9L9_t10": {
+     "dice": 0.9342,
+     "precision": 0.9716,
+     "recall": 0.8996,
+     "pred_vox": 12219.0,
+     "gt_vox": 13197.0,
+     "vol_ratio": 0.9259
+    },
+    "F6J9L9_t29": {
+     "dice": 0.8808,
+     "precision": 0.9935,
+     "recall": 0.7911,
+     "pred_vox": 27325.0,
+     "gt_vox": 34314.0,
+     "vol_ratio": 0.7963
+    },
+    "F9M1R2_t11": {
+     "dice": 0.8718,
+     "precision": 0.9511,
+     "recall": 0.8047,
+     "pred_vox": 7364.0,
+     "gt_vox": 8704.0,
+     "vol_ratio": 0.846
+    },
+    "F9M1R2_t29": {
+     "dice": 0.9249,
+     "precision": 0.9965,
+     "recall": 0.8629,
+     "pred_vox": 20765.0,
+     "gt_vox": 23979.0,
+     "vol_ratio": 0.866
+    },
+    "G1J5K3_t13": {
+     "dice": 0.9025,
+     "precision": 0.9535,
+     "recall": 0.8566,
+     "pred_vox": 9057.0,
+     "gt_vox": 10082.0,
+     "vol_ratio": 0.8983
+    },
+    "G1J5K3_t24": {
+     "dice": 0.9428,
+     "precision": 0.989,
+     "recall": 0.9007,
+     "pred_vox": 20076.0,
+     "gt_vox": 22044.0,
+     "vol_ratio": 0.9107
+    },
+    "G4I7V2_t33": {
+     "dice": 0.6691,
+     "precision": 0.8471,
+     "recall": 0.5529,
+     "pred_vox": 20951.0,
+     "gt_vox": 32096.0,
+     "vol_ratio": 0.6528
+    },
+    "G4I7V2_t9": {
+     "dice": 0.3434,
+     "precision": 0.667,
+     "recall": 0.2312,
+     "pred_vox": 4114.0,
+     "gt_vox": 11866.0,
+     "vol_ratio": 0.3467
+    },
+    "G8K0M3_t10": {
+     "dice": 0.7698,
+     "precision": 0.919,
+     "recall": 0.6623,
+     "pred_vox": 18701.0,
+     "gt_vox": 25952.0,
+     "vol_ratio": 0.7206
+    },
+    "G8K0M3_t25": {
+     "dice": 0.7741,
+     "precision": 0.9114,
+     "recall": 0.6727,
+     "pred_vox": 25561.0,
+     "gt_vox": 34630.0,
+     "vol_ratio": 0.7381
+    },
+    "G8L0Z0_t10": {
+     "dice": 0.7499,
+     "precision": 0.9313,
+     "recall": 0.6277,
+     "pred_vox": 10124.0,
+     "gt_vox": 15020.0,
+     "vol_ratio": 0.674
+    },
+    "G8L0Z0_t3": {
+     "dice": 0.8102,
+     "precision": 0.9887,
+     "recall": 0.6863,
+     "pred_vox": 21239.0,
+     "gt_vox": 30598.0,
+     "vol_ratio": 0.6941
+    },
+    "H6P7T1_t12": {
+     "dice": 0.6923,
+     "precision": 0.9926,
+     "recall": 0.5315,
+     "pred_vox": 5558.0,
+     "gt_vox": 10381.0,
+     "vol_ratio": 0.5354
+    },
+    "H6P7T1_t25": {
+     "dice": 0.7791,
+     "precision": 0.9928,
+     "recall": 0.6411,
+     "pred_vox": 15143.0,
+     "gt_vox": 23451.0,
+     "vol_ratio": 0.6457
+    },
+    "I4L4V7_t22": {
+     "dice": 0.9295,
+     "precision": 0.9937,
+     "recall": 0.8732,
+     "pred_vox": 6173.0,
+     "gt_vox": 7025.0,
+     "vol_ratio": 0.8787
+    },
+    "I4L4V7_t9": {
+     "dice": 0.9076,
+     "precision": 0.984,
+     "recall": 0.8422,
+     "pred_vox": 3185.0,
+     "gt_vox": 3721.0,
+     "vol_ratio": 0.856
+    },
+    "I8N8Y1_t14": {
+     "dice": 0.857,
+     "precision": 0.9831,
+     "recall": 0.7595,
+     "pred_vox": 12019.0,
+     "gt_vox": 15557.0,
+     "vol_ratio": 0.7726
+    },
+    "I8N8Y1_t33": {
+     "dice": 0.8952,
+     "precision": 0.9929,
+     "recall": 0.815,
+     "pred_vox": 28387.0,
+     "gt_vox": 34584.0,
+     "vol_ratio": 0.8208
+    },
+    "J6M5O2_t11": {
+     "dice": 0.9169,
+     "precision": 0.9636,
+     "recall": 0.8745,
+     "pred_vox": 5711.0,
+     "gt_vox": 6293.0,
+     "vol_ratio": 0.9075
+    },
+    "J6M5O2_t33": {
+     "dice": 0.8983,
+     "precision": 0.9427,
+     "recall": 0.8578,
+     "pred_vox": 15668.0,
+     "gt_vox": 17220.0,
+     "vol_ratio": 0.9099
+    },
+    "K3P3Y6_t11": {
+     "dice": 0.8999,
+     "precision": 0.981,
+     "recall": 0.8311,
+     "pred_vox": 8051.0,
+     "gt_vox": 9503.0,
+     "vol_ratio": 0.8472
+    },
+    "K3P3Y6_t32": {
+     "dice": 0.8804,
+     "precision": 0.9897,
+     "recall": 0.7928,
+     "pred_vox": 18681.0,
+     "gt_vox": 23320.0,
+     "vol_ratio": 0.8011
+    },
+    "K5L4S1_t10": {
+     "dice": 0.7594,
+     "precision": 0.9921,
+     "recall": 0.6151,
+     "pred_vox": 5208.0,
+     "gt_vox": 8400.0,
+     "vol_ratio": 0.62
+    },
+    "K5L4S1_t27": {
+     "dice": 0.8478,
+     "precision": 0.9899,
+     "recall": 0.7413,
+     "pred_vox": 19389.0,
+     "gt_vox": 25892.0,
+     "vol_ratio": 0.7488
+    },
+    "K5M7V5_t10": {
+     "dice": 0.7275,
+     "precision": 0.9283,
+     "recall": 0.5981,
+     "pred_vox": 18791.0,
+     "gt_vox": 29166.0,
+     "vol_ratio": 0.6443
+    },
+    "K5M7V5_t23": {
+     "dice": 0.718,
+     "precision": 0.9838,
+     "recall": 0.5653,
+     "pred_vox": 23480.0,
+     "gt_vox": 40861.0,
+     "vol_ratio": 0.5746
+    },
+    "K7N0R7_t29": {
+     "dice": 0.6151,
+     "precision": 0.9993,
+     "recall": 0.4442,
+     "pred_vox": 24683.0,
+     "gt_vox": 55524.0,
+     "vol_ratio": 0.4445
+    },
+    "K7N0R7_t9": {
+     "dice": 0.6722,
+     "precision": 0.9974,
+     "recall": 0.507,
+     "pred_vox": 22329.0,
+     "gt_vox": 43928.0,
+     "vol_ratio": 0.5083
+    },
+    "L5U7Y4_t10": {
+     "dice": 0.9391,
+     "precision": 0.9817,
+     "recall": 0.9,
+     "pred_vox": 7934.0,
+     "gt_vox": 8654.0,
+     "vol_ratio": 0.9168
+    },
+    "L5U7Y4_t33": {
+     "dice": 0.9294,
+     "precision": 0.9904,
+     "recall": 0.8755,
+     "pred_vox": 19504.0,
+     "gt_vox": 22065.0,
+     "vol_ratio": 0.8839
+    },
+    "L6T2T5_t1": {
+     "dice": 0.8704,
+     "precision": 0.989,
+     "recall": 0.7773,
+     "pred_vox": 8539.0,
+     "gt_vox": 10865.0,
+     "vol_ratio": 0.7859
+    },
+    "L6T2T5_t18": {
+     "dice": 0.8355,
+     "precision": 0.9846,
+     "recall": 0.7256,
+     "pred_vox": 2790.0,
+     "gt_vox": 3786.0,
+     "vol_ratio": 0.7369
+    },
+    "L8M2U8_t0": {
+     "dice": 0.8525,
+     "precision": 0.9894,
+     "recall": 0.7489,
+     "pred_vox": 24167.0,
+     "gt_vox": 31931.0,
+     "vol_ratio": 0.7569
+    },
+    "L8M2U8_t11": {
+     "dice": 0.9339,
+     "precision": 0.9785,
+     "recall": 0.8932,
+     "pred_vox": 13866.0,
+     "gt_vox": 15190.0,
+     "vol_ratio": 0.9128
+    },
+    "M2P5T8_t0": {
+     "dice": 0.9445,
+     "precision": 0.9787,
+     "recall": 0.9126,
+     "pred_vox": 17398.0,
+     "gt_vox": 18658.0,
+     "vol_ratio": 0.9325
+    },
+    "M2P5T8_t11": {
+     "dice": 0.9052,
+     "precision": 0.9508,
+     "recall": 0.8638,
+     "pred_vox": 6890.0,
+     "gt_vox": 7584.0,
+     "vol_ratio": 0.9085
+    },
+    "N2O7U5_t18": {
+     "dice": 0.8548,
+     "precision": 0.9872,
+     "recall": 0.7537,
+     "pred_vox": 16582.0,
+     "gt_vox": 21719.0,
+     "vol_ratio": 0.7635
+    },
+    "N2O7U5_t7": {
+     "dice": 0.7539,
+     "precision": 0.9049,
+     "recall": 0.6462,
+     "pred_vox": 4932.0,
+     "gt_vox": 6907.0,
+     "vol_ratio": 0.7141
+    },
+    "N7P3T8_t10": {
+     "dice": 0.7513,
+     "precision": 0.9426,
+     "recall": 0.6246,
+     "pred_vox": 3364.0,
+     "gt_vox": 5077.0,
+     "vol_ratio": 0.6626
+    },
+    "N7P3T8_t25": {
+     "dice": 0.8802,
+     "precision": 0.9947,
+     "recall": 0.7893,
+     "pred_vox": 17889.0,
+     "gt_vox": 22543.0,
+     "vol_ratio": 0.7936
+    },
+    "N7W6Z8_t11": {
+     "dice": 0.9354,
+     "precision": 0.9641,
+     "recall": 0.9083,
+     "pred_vox": 5343.0,
+     "gt_vox": 5671.0,
+     "vol_ratio": 0.9422
+    },
+    "N7W6Z8_t23": {
+     "dice": 0.9393,
+     "precision": 0.993,
+     "recall": 0.8912,
+     "pred_vox": 14702.0,
+     "gt_vox": 16382.0,
+     "vol_ratio": 0.8974
+    },
+    "N9Q4T8_t10": {
+     "dice": 0.7428,
+     "precision": 0.9848,
+     "recall": 0.5963,
+     "pred_vox": 7493.0,
+     "gt_vox": 12375.0,
+     "vol_ratio": 0.6055
+    },
+    "N9Q4T8_t32": {
+     "dice": 0.8051,
+     "precision": 0.9961,
+     "recall": 0.6755,
+     "pred_vox": 21547.0,
+     "gt_vox": 31775.0,
+     "vol_ratio": 0.6781
+    },
+    "O5U2U7_t1": {
+     "dice": 0.8502,
+     "precision": 0.9966,
+     "recall": 0.7412,
+     "pred_vox": 16418.0,
+     "gt_vox": 22074.0,
+     "vol_ratio": 0.7438
+    },
+    "O5U2U7_t9": {
+     "dice": 0.9193,
+     "precision": 0.9799,
+     "recall": 0.8657,
+     "pred_vox": 9012.0,
+     "gt_vox": 10201.0,
+     "vol_ratio": 0.8834
+    },
+    "O7Q7U3_t11": {
+     "dice": 0.8894,
+     "precision": 0.8406,
+     "recall": 0.9443,
+     "pred_vox": 3431.0,
+     "gt_vox": 3054.0,
+     "vol_ratio": 1.1234
+    },
+    "O7Q7U3_t29": {
+     "dice": 0.9235,
+     "precision": 0.9434,
+     "recall": 0.9045,
+     "pred_vox": 11745.0,
+     "gt_vox": 12250.0,
+     "vol_ratio": 0.9588
+    },
+    "P8V0Y7_t27": {
+     "dice": 0.9007,
+     "precision": 0.9472,
+     "recall": 0.8585,
+     "pred_vox": 19880.0,
+     "gt_vox": 21934.0,
+     "vol_ratio": 0.9064
+    },
+    "P8V0Y7_t9": {
+     "dice": 0.8228,
+     "precision": 0.9044,
+     "recall": 0.7546,
+     "pred_vox": 6111.0,
+     "gt_vox": 7324.0,
+     "vol_ratio": 0.8344
+    },
+    "Q4W5Z8_t10": {
+     "dice": 0.9051,
+     "precision": 0.9867,
+     "recall": 0.836,
+     "pred_vox": 11155.0,
+     "gt_vox": 13166.0,
+     "vol_ratio": 0.8473
+    },
+    "Q4W5Z8_t33": {
+     "dice": 0.9052,
+     "precision": 0.9926,
+     "recall": 0.8319,
+     "pred_vox": 27070.0,
+     "gt_vox": 32299.0,
+     "vol_ratio": 0.8381
+    },
+    "R3V5W7_t13": {
+     "dice": 0.7381,
+     "precision": 0.9981,
+     "recall": 0.5856,
+     "pred_vox": 12246.0,
+     "gt_vox": 20872.0,
+     "vol_ratio": 0.5867
+    },
+    "R3V5W7_t27": {
+     "dice": 0.7641,
+     "precision": 0.9913,
+     "recall": 0.6216,
+     "pred_vox": 18826.0,
+     "gt_vox": 30021.0,
+     "vol_ratio": 0.6271
+    },
+    "T2Z1Z9_t29": {
+     "dice": 0.7527,
+     "precision": 0.9382,
+     "recall": 0.6284,
+     "pred_vox": 15172.0,
+     "gt_vox": 22651.0,
+     "vol_ratio": 0.6698
+    },
+    "T2Z1Z9_t9": {
+     "dice": 0.5644,
+     "precision": 0.876,
+     "recall": 0.4163,
+     "pred_vox": 4453.0,
+     "gt_vox": 9371.0,
+     "vol_ratio": 0.4752
+    }
+   }
+  }
+ },
+ "target_mean_dice": 0.8311,
+ "ckpt": "/projectscratch/ckpt_mms/mms_centre2_erm_r1_s2_lv.pt"
+}
