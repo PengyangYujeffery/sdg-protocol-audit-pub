@@ -8,15 +8,15 @@ Study scale, counted from the run records: **4 benchmarks, 8 methods, 3 backbone
 
 | benchmark | ERM | ΔBigAug | ΔRandConv | ΔMaxStyle | ΔADA | n |
 |---|---|---|---|---|---|---|
-| DG Prostate (gland) | 0.3948 | +0.2202 | +0.1270 | +0.0750 | +0.0441 | 228 runs / 6 src, source-clustered |
-| RIGA+ (disc) | 0.9048 | +0.0240 | +0.0352 | +0.0110 | +0.0211 | 190 runs / 5 src, source-clustered |
-| RIGA+ (cup) | 0.7932 | +0.0002 | +0.0498 | +0.0173 | +0.0327 | 190 runs / 5 src, source-clustered |
-| BraTS WT | 0.8408 | -0.0119 | -0.0249 | -0.0019 | -0.0240 | 38 runs / 1 src, pair-level (1 sources) |
-| BraTS TC | 0.7037 | -0.0741 | -0.0246 | +0.0419 | +0.0001 | 38 runs / 1 src, pair-level (1 sources) |
-| BraTS ET | 0.6637 | -0.0995 | +0.0283 | +0.0202 | -0.0927 | 38 runs / 1 src, pair-level (1 sources) |
-| M\&Ms (LV cavity) | 0.8169 | -0.0226 | +0.0415 | +0.0146 | +0.0074 | 105 runs / 5 src, source-clustered |
-| M\&Ms (LV myocardium) | 0.7470 | -0.0157 | +0.0411 | +0.0169 | +0.0108 | 105 runs / 5 src, source-clustered |
-| M\&Ms (RV cavity) | 0.6821 | -0.0361 | +0.0789 | +0.0273 | +0.0331 | 105 runs / 5 src, source-clustered |
+| DG Prostate (gland) | 0.3948 | +0.2202 | +0.1270 | +0.0750 | +0.0441 | 228 / 6$^{c}$ |
+| RIGA+ (disc) | 0.9048 | +0.0240 | +0.0352 | +0.0110 | +0.0211 | 190 / 5$^{c}$ |
+| RIGA+ (cup) | 0.7932 | +0.0002 | +0.0498 | +0.0173 | +0.0327 | 190 / 5$^{c}$ |
+| BraTS WT | 0.8408 | -0.0119 | -0.0249 | -0.0019 | -0.0240 | 38 / 1$^{p}$ |
+| BraTS TC | 0.7037 | -0.0741 | -0.0246 | +0.0419 | +0.0001 | 38 / 1$^{p}$ |
+| BraTS ET | 0.6637 | -0.0995 | +0.0283 | +0.0202 | -0.0927 | 38 / 1$^{p}$ |
+| M\&Ms (LV cavity) | 0.8169 | -0.0226 | +0.0415 | +0.0146 | +0.0074 | 105 / 5$^{c}$ |
+| M\&Ms (LV myocardium) | 0.7470 | -0.0157 | +0.0411 | +0.0169 | +0.0108 | 105 / 5$^{c}$ |
+| M\&Ms (RV cavity) | 0.6821 | -0.0361 | +0.0789 | +0.0273 | +0.0331 | 105 / 5$^{c}$ |
 
 
 ## T2. Model-selection leak (DG Prostate)
@@ -50,7 +50,7 @@ Method-effect spread: scratch [0.0115, 0.2202] -> pretrained [0.0334, 0.1315].
 | DSU | +0.0115 | +0.0334 |
 | MaxStyle-core | +0.0750 | +0.0947 |
 | ADA | +0.0441 | +0.0867 |
-| SLAug (aug. only) | +0.0585 | — |
+| SLAug (aug.) | +0.0585 | — |
 | *ERM absolute* | 0.3948 | 0.5685 |
 
 
@@ -66,14 +66,14 @@ BigAug's measured DG gain moves 21 % between the two policies (+0.2202 under `fg
 
 ## T5. The ranking depends on the metric (boundary metrics, from checkpoints)
 
-| benchmark | best (median HD95) | second | gap px | worst degenerate share |
+| benchmark | best (med. HD95) | second | gap px | worst degen. |
 |---|---|---|---|---|
 | DG Prostate | BigAug 20.1 | RandConv 21.4 | 1.3 | ADA 0.036 |
 | RIGA+ cup | RandConv 38.8 | MixStyle 39.2 | 0.4 | ADA 0.049 |
-| RIGA+ disc | RandConv 1.0 | SLAug (aug. only) 1.0 | 0.0 | ADA 0.049 |
+| RIGA+ disc | RandConv 1.0 | SLAug (aug.) 1.0 | 0.0 | ADA 0.049 |
 | BraTS WT | ERM 9.6 | MaxStyle-core 12.7 | 3.1 | ADA 0.007 |
-| BraTS TC | MixStyle 17.9 | ERM 20.3 | 2.4 | SLAug (aug. only) 0.568 |
-| BraTS ET | MixStyle 11.6 | ADA 12.2 | 0.6 | SLAug (aug. only) 0.986 |
+| BraTS TC | MixStyle 17.9 | ERM 20.3 | 2.4 | SLAug (aug.) 0.568 |
+| BraTS ET | MixStyle 11.6 | ADA 12.2 | 0.6 | SLAug (aug.) 0.986 |
 
 Parsed from the released boundary reports; Dice ranks the same methods differently (see T1).
 
@@ -169,7 +169,7 @@ Pretrained ResNet-34, ERM, prostate, matched cell-for-cell against the unfrozen 
 | DSU | 23.4 | 7.3 | 2900 |
 | MaxStyle-core | 15.7 | 4.1 | 2900 |
 | ADA | 21.0 | 7.7 | 2900 |
-| SLAug (aug. only) | 23.9 | 5.6 | 1740 |
+| SLAug (aug.) | 23.9 | 5.6 | 1740 |
 
 The two are far apart, and that difference is the finding: the model is not silent. Note the third quantity this is NOT: the boundary reports give the EMPTY-prediction share separately, and it is far smaller, so most zero-Dice cases are predictions that missed entirely rather than absent ones. From the fp32 deterministic head-to-head runs.
 

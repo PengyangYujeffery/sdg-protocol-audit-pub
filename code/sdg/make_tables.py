@@ -36,7 +36,7 @@ NICE = {'erm': 'ERM', 'bigaug': 'BigAug', 'randconv': 'RandConv', 'mixstyle': 'M
         # 'aug. only': SLAug's Saliency-Balancing Fusion needs the network gradient, so it is a
         # training-loop change and is excluded from this arm. The label carries that, so no table
         # can present this as the complete published method. See slaug.py.
-        'slaug': 'SLAug (aug. only)'}
+        'slaug': 'SLAug (aug.)'}
 MIN_CLUSTERS = 4
 INC = '— INCOMPLETE —'
 
@@ -84,7 +84,7 @@ def boot(vals, groups, n=10000, seed=0):
         unit = 'source-clustered'
     else:
         d = [v[r.randint(0, len(v), len(v))].mean() for _ in range(n)]
-        unit = 'pair-level (%d sources)' % len(gs)
+        unit = 'pair-level (%d source%s)' % (len(gs), '' if len(gs) == 1 else 's')
     return float(v.mean()), float(np.percentile(d, 2.5)), float(np.percentile(d, 97.5)), unit
 
 
@@ -147,18 +147,30 @@ def md_table(head, rows):
     return '\n'.join(L)
 
 
-def tex_table(head, rows, caption, label):
+def tex_table(head, rows, caption, label, wide=False):
     esc = lambda s: (str(s).replace('%', '\\%').replace('_', '\\_')
                      .replace('Δ', '$\\Delta$').replace('±', '$\\pm$').replace('≈', '$\\approx$'))
-    # Placement stays [t].  Do not "fix" this to [!tb] to save a page: it was tried on 2026-08-24
-    # to pull the bibliography off an eleventh page and it recovered nothing -- the total was
-    # unchanged and it merely redistributed floats (p5 55->78 rows, p6 69->51). The overflow is not
-    # a packing problem; it is that the paper genuinely needs the space. Reverted the same day.
-    L = ['\\begin{table}[t]', '\\centering', '\\caption{%s}' % caption, '\\label{%s}' % label,
+    # Placement stays [t]. Do not "fix" this to [!tb] to save a page: tried 2026-08-24, recovered
+    # nothing, only redistributed floats. The overflow is not a packing problem.
+    #
+    # `wide=True` emits table*, spanning both columns. Several of these tables carry text in their
+    # cells ("SLAug (aug. only) 0.568") and cannot be squeezed into one IEEE column: the 2026-08-24
+    # proof had six of them overfull by up to 199pt against a ~252pt column, printing one table over
+    # its neighbour. \footnotesize and a tighter \tabcolsep are the standard IEEE remedy and are
+    # applied to every table; table* is for the ones that still do not fit.
+    env = 'table*' if wide else 'table'
+    L = ['\\begin{%s}[t]' % env, '\\centering',
+         '\\caption{%s}' % caption, '\\label{%s}' % label,
+         # scriptsize + 2pt gutters is what makes eight of the ten tables fit one IEEE column.
+         # Measured 2026-08-24: footnotesize/6pt left six tables overfull by 56-199pt (one printed
+         # over its neighbour in the proof); scriptsize/3pt cut that to 14-30pt; 2pt clears it.
+         # The two gap-accounting tables carry seven columns and stay table*.
+         '\\scriptsize', '\\setlength{\\tabcolsep}{2pt}',
+         '\\renewcommand{\\arraystretch}{1.05}',
          '\\begin{tabular}{%s}' % ('l' + 'r' * (len(head) - 1)), '\\hline',
          ' & '.join(esc(h) for h in head) + ' \\\\', '\\hline']
     L += [' & '.join(esc(c) for c in r) + ' \\\\' for r in rows]
-    L += ['\\hline', '\\end{tabular}', '\\end{table}']
+    L += ['\\hline', '\\end{tabular}', '\\end{%s}' % env]
     return '\n'.join(L)
 
 
@@ -351,8 +363,14 @@ def main():
         # The bootstrap unit is part of the result, not a footnote: an interval over 2 clusters is
         # not an interval. Carrying it in the table stops the Methods text and the numbers drifting
         # apart when a benchmark gains source domains, which is exactly what happened to RIGA+.
+        #
+        # It is abbreviated to a one-character flag, expanded once in the caption. Spelled out
+        # ("228 runs / 6 src, source-clustered") this single column made the table 199pt wider than
+        # an IEEE column and it printed over its neighbour. The unit is still per-row, and prose
+        # reads it from \nciUnit* rather than from this cell.
         unit = rr[0][5] if rr else 'n/a'
-        line.append('%d runs / %d src, %s' % (n, len(srcs), unit))
+        flag = 'c' if unit.startswith('source-clustered') else 'p'
+        line.append('%d / %d$^{%s}$' % (n, len(srcs), flag))
         rows.append(tuple(line))
         num('ciUnit' + key, unit.split(' ')[0], '%s')
     # Feature-space family (MixStyle, DSU, MaxStyle-core) across EVERY benchmark, so the prose can
@@ -372,7 +390,10 @@ def main():
     md.append(md_table(head, rows))
     tex.append(tex_table(head, rows,
                          'Method effect relative to ERM on each benchmark, from-scratch 2D U-Net, '
-                         'three seeds, strict source-validation model selection.', 'tab:main'))
+                         'three seeds, strict source-validation model selection. The last column is '
+                         'runs / source domains; $^{c}$ marks a source-clustered bootstrap and '
+                         '$^{p}$ a pair-level one, used where there are too few clusters for the '
+                         'former.', 'tab:main'))
 
     # ---------------------------------------------------------------- T2 the leak
     md.append('\n\n## T2. Model-selection leak (DG Prostate)\n')
@@ -527,7 +548,7 @@ def main():
                     num('medianHD' + nm, d[m][0], '%.1f')       # letters only -- see num()
                     num('assdMean' + nm, d[m][3], '%.1f')
                     num('degen' + nm, d[m][4], '%.3f')
-    head = ['benchmark', 'best (median HD95)', 'second', 'gap px', 'worst degenerate share']
+    head = ['benchmark', 'best (med. HD95)', 'second', 'gap px', 'worst degen.']
     md.append(md_table(head, brows))
     md.append('\nParsed from the released boundary reports; Dice ranks the same methods differently '
               '(see T1).%s\n' % ('' if ok else '  **' + INC + '**'))
@@ -930,7 +951,7 @@ def main():
                              'Ceilings on each component of the out-of-domain gap. Only the '
                              'per-source column is attainable without target knowledge; the joint '
                              'columns bound the decision rule and the method choice together, so the '
-                             'components are never summed.', 'tab:gapacct'))
+                             'components are never summed.', 'tab:gapacct', wide=True))
 
     # ---------------------------------------------------------------- T-africa: transfer asymmetry
     #
@@ -986,7 +1007,7 @@ def main():
                              'Transfer in both directions between the Western (BraTS-GLI) and '
                              'Sub-Saharan African (BraTS-Africa) glioma cohorts, with each '
                              'cohort\'s own in-domain reference. The asymmetry is measured, not '
-                             'assumed; its cause is acquisition, not anatomy.', 'tab:africa'))
+                             'assumed; its cause is acquisition, not anatomy.', 'tab:africa', wide=True))
         num('afRows', len(arows), '%d')
 
     # ---------------------------------------------------------------- write

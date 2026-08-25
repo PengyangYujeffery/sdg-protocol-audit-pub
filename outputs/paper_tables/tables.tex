@@ -1,20 +1,23 @@
 \begin{table}[t]
 \centering
-\caption{Method effect relative to ERM on each benchmark, from-scratch 2D U-Net, three seeds, strict source-validation model selection.}
+\caption{Method effect relative to ERM on each benchmark, from-scratch 2D U-Net, three seeds, strict source-validation model selection. The last column is runs / source domains; $^{c}$ marks a source-clustered bootstrap and $^{p}$ a pair-level one, used where there are too few clusters for the former.}
 \label{tab:main}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.05}
 \begin{tabular}{lrrrrrr}
 \hline
 benchmark & ERM & $\Delta$BigAug & $\Delta$RandConv & $\Delta$MaxStyle & $\Delta$ADA & n \\
 \hline
-DG Prostate (gland) & 0.3948 & +0.2202 & +0.1270 & +0.0750 & +0.0441 & 228 runs / 6 src, source-clustered \\
-RIGA+ (disc) & 0.9048 & +0.0240 & +0.0352 & +0.0110 & +0.0211 & 190 runs / 5 src, source-clustered \\
-RIGA+ (cup) & 0.7932 & +0.0002 & +0.0498 & +0.0173 & +0.0327 & 190 runs / 5 src, source-clustered \\
-BraTS WT & 0.8408 & -0.0119 & -0.0249 & -0.0019 & -0.0240 & 38 runs / 1 src, pair-level (1 sources) \\
-BraTS TC & 0.7037 & -0.0741 & -0.0246 & +0.0419 & +0.0001 & 38 runs / 1 src, pair-level (1 sources) \\
-BraTS ET & 0.6637 & -0.0995 & +0.0283 & +0.0202 & -0.0927 & 38 runs / 1 src, pair-level (1 sources) \\
-M\&Ms (LV cavity) & 0.8169 & -0.0226 & +0.0415 & +0.0146 & +0.0074 & 105 runs / 5 src, source-clustered \\
-M\&Ms (LV myocardium) & 0.7470 & -0.0157 & +0.0411 & +0.0169 & +0.0108 & 105 runs / 5 src, source-clustered \\
-M\&Ms (RV cavity) & 0.6821 & -0.0361 & +0.0789 & +0.0273 & +0.0331 & 105 runs / 5 src, source-clustered \\
+DG Prostate (gland) & 0.3948 & +0.2202 & +0.1270 & +0.0750 & +0.0441 & 228 / 6$^{c}$ \\
+RIGA+ (disc) & 0.9048 & +0.0240 & +0.0352 & +0.0110 & +0.0211 & 190 / 5$^{c}$ \\
+RIGA+ (cup) & 0.7932 & +0.0002 & +0.0498 & +0.0173 & +0.0327 & 190 / 5$^{c}$ \\
+BraTS WT & 0.8408 & -0.0119 & -0.0249 & -0.0019 & -0.0240 & 38 / 1$^{p}$ \\
+BraTS TC & 0.7037 & -0.0741 & -0.0246 & +0.0419 & +0.0001 & 38 / 1$^{p}$ \\
+BraTS ET & 0.6637 & -0.0995 & +0.0283 & +0.0202 & -0.0927 & 38 / 1$^{p}$ \\
+M\&Ms (LV cavity) & 0.8169 & -0.0226 & +0.0415 & +0.0146 & +0.0074 & 105 / 5$^{c}$ \\
+M\&Ms (LV myocardium) & 0.7470 & -0.0157 & +0.0411 & +0.0169 & +0.0108 & 105 / 5$^{c}$ \\
+M\&Ms (RV cavity) & 0.6821 & -0.0361 & +0.0789 & +0.0273 & +0.0331 & 105 / 5$^{c}$ \\
 \hline
 \end{tabular}
 \end{table}
@@ -23,6 +26,9 @@ M\&Ms (RV cavity) & 0.6821 & -0.0361 & +0.0789 & +0.0273 & +0.0331 & 105 runs / 
 \centering
 \caption{Effect of the model-selection rule, measured on the same runs: the three rules are applied to one trajectory, so nothing but the rule differs.}
 \label{tab:leak}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.05}
 \begin{tabular}{lrr}
 \hline
 selection rule & target Dice & vs honest \\
@@ -38,6 +44,9 @@ no selection (last) & 0.4992 & -0.0077 \\
 \centering
 \caption{Method effects under two backbones. The ranking is not preserved and the spread compresses.}
 \label{tab:backbone}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.05}
 \begin{tabular}{lrr}
 \hline
 method & $\Delta$ scratch & $\Delta$ pretrained \\
@@ -48,7 +57,7 @@ MixStyle & +0.0142 & +0.0525 \\
 DSU & +0.0115 & +0.0334 \\
 MaxStyle-core & +0.0750 & +0.0947 \\
 ADA & +0.0441 & +0.0867 \\
-SLAug (aug. only) & +0.0585 & — \\
+SLAug (aug.) & +0.0585 & — \\
 *ERM absolute* & 0.3948 & 0.5685 \\
 \hline
 \end{tabular}
@@ -58,6 +67,9 @@ SLAug (aug. only) & +0.0585 & — \\
 \centering
 \caption{The training/evaluation slice policy, held consistent across train, validation and target, changes the size of the measured DG gain.}
 \label{tab:slice}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.05}
 \begin{tabular}{lrrrr}
 \hline
 slice policy & ERM & $\Delta$BigAug & $\Delta$RandConv & n \\
@@ -72,16 +84,19 @@ all & 0.3238 & +0.1740 & +0.1063 & 54 runs / 6 src \\
 \centering
 \caption{Boundary metrics on every benchmark. Methods that Dice separates widely are level on HD95, and the degenerate-prediction share is not visible in Dice at all.}
 \label{tab:boundary}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.05}
 \begin{tabular}{lrrrr}
 \hline
-benchmark & best (median HD95) & second & gap px & worst degenerate share \\
+benchmark & best (med. HD95) & second & gap px & worst degen. \\
 \hline
 DG Prostate & BigAug 20.1 & RandConv 21.4 & 1.3 & ADA 0.036 \\
 RIGA+ cup & RandConv 38.8 & MixStyle 39.2 & 0.4 & ADA 0.049 \\
-RIGA+ disc & RandConv 1.0 & SLAug (aug. only) 1.0 & 0.0 & ADA 0.049 \\
+RIGA+ disc & RandConv 1.0 & SLAug (aug.) 1.0 & 0.0 & ADA 0.049 \\
 BraTS WT & ERM 9.6 & MaxStyle-core 12.7 & 3.1 & ADA 0.007 \\
-BraTS TC & MixStyle 17.9 & ERM 20.3 & 2.4 & SLAug (aug. only) 0.568 \\
-BraTS ET & MixStyle 11.6 & ADA 12.2 & 0.6 & SLAug (aug. only) 0.986 \\
+BraTS TC & MixStyle 17.9 & ERM 20.3 & 2.4 & SLAug (aug.) 0.568 \\
+BraTS ET & MixStyle 11.6 & ADA 12.2 & 0.6 & SLAug (aug.) 0.986 \\
 \hline
 \end{tabular}
 \end{table}
@@ -90,6 +105,9 @@ BraTS ET & MixStyle 11.6 & ADA 12.2 & 0.6 & SLAug (aug. only) 0.986 \\
 \centering
 \caption{Ceilings for adaptive augmentation-policy selection, measured on the head-to-head runs. An always-correct domain-level selector gains almost nothing over the single best fixed policy.}
 \label{tab:oracle}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.05}
 \begin{tabular}{lrrrr}
 \hline
 benchmark & best fixed & $\Delta$ oracle per source & $\Delta$ oracle per pair & $\Delta$ oracle per case \\
@@ -105,6 +123,9 @@ BraTS ET & RandConv 0.6920 & +0.0000 & +0.0044 & +0.0589 \\
 \centering
 \caption{The optic-cup ground-truth convention, a choice papers rarely state, changes both the absolute score and the measured method effect. The two arms differ in numerical precision and are reported separately.}
 \label{tab:rater}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.05}
 \begin{tabular}{lrrrr}
 \hline
 GT convention & ERM cup Dice & $\Delta$BigAug & $\Delta$RandConv & n / precision \\
@@ -119,6 +140,9 @@ majority vote & 0.8108 & -0.0070 & +0.0707 & 18 runs, fp16 AMP (phase 1) \\
 \centering
 \caption{Best measured method against the agreement between the six human raters on the same images. On the optic cup the benchmark is scored past its own annotation noise floor.}
 \label{tab:saturation}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.05}
 \begin{tabular}{lrrr}
 \hline
 structure & best method (unseen domains) & inter-rater Dice & difference \\
@@ -129,10 +153,13 @@ optic disc & RandConv 0.9400 & 0.9556 & -0.0156 \\
 \end{tabular}
 \end{table}
 
-\begin{table}[t]
+\begin{table*}[t]
 \centering
 \caption{Ceilings on each component of the out-of-domain gap. Only the per-source column is attainable without target knowledge; the joint columns bound the decision rule and the method choice together, so the components are never summed.}
 \label{tab:gapacct}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.05}
 \begin{tabular}{lrrrrrr}
 \hline
 benchmark & best fixed & method, per source & threshold, per domain & both, per domain & both, per case & overlap \\
@@ -147,12 +174,15 @@ M\&Ms myo & RandConv & +0.0008 & +0.0050 & +0.0084 & +0.0355 & +0.0034 \\
 M\&Ms RV & RandConv & +0.0033 & +0.0114 & +0.0154 & +0.0498 & +0.0057 \\
 \hline
 \end{tabular}
-\end{table}
+\end{table*}
 
-\begin{table}[t]
+\begin{table*}[t]
 \centering
 \caption{Transfer in both directions between the Western (BraTS-GLI) and Sub-Saharan African (BraTS-Africa) glioma cohorts, with each cohort's own in-domain reference. The asymmetry is measured, not assumed; its cause is acquisition, not anatomy.}
 \label{tab:africa}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.05}
 \begin{tabular}{lrrrrrr}
 \hline
 region & method & Western in-domain & Western to African & African in-domain & African to Western & |asymmetry| \\
@@ -168,4 +198,4 @@ ET & ERM & 0.7206 & 0.6429 & 0.7104 & 0.6322 & +0.0106 \\
 ET & RandConv & 0.7647 & 0.6972 & 0.7694 & 0.6903 & +0.0069 \\
 \hline
 \end{tabular}
-\end{table}
+\end{table*}
