@@ -12,7 +12,7 @@ is generated from the run records in this repository — none is transcribed by 
 No arguments, no configuration, no data download:
 
 ```bash
-python code/sdg/make_tables.py     # -> outputs/paper_tables/{numbers.tex,tables.tex,tables.md}
+python code/sdg/make_tables.py     # -> outputs/paper_tables/{numbers.tex,tables.md}
 python code/sdg/make_fig0.py       # -> outputs/paper_figures/
 python code/sdg/make_figures.py
 ```
@@ -81,4 +81,8 @@ The accompanying paper is under review; citation details will be added here on a
 ## A one-line check that you reproduced it
 
 `outputs/paper_tables/` is committed. After running the three commands above, `git status` should
-report no changes — the regenerated tables are byte-identical to the ones the paper was built from.
+report no changes: the regenerated `numbers.tex` and `tables.md` are byte-identical to the ones the
+paper was built from.
+
+The paper's LaTeX table blocks are deliberately not shipped. They are typesetting for one manuscript,
+not a result, and every value in them is in `numbers.tex` and `tables.md`.
