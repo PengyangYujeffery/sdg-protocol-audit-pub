@@ -3,7 +3,7 @@
 Testbed and run records for a protocol audit of single-source domain generalization (SDG) in medical
 image segmentation.
 
-**1,318 runs** across **4 benchmarks** (DG Prostate, RIGA+, BraTS, M&Ms), **8 methods** and
+**1,340 runs** across **4 benchmarks** (DG Prostate, RIGA+, BraTS, M&Ms), **8 methods** and
 **3 backbones**, all at fp32 with deterministic kernels. Every table, macro and figure in the paper
 is generated from the run records in this repository — none is transcribed by hand.
 
@@ -26,17 +26,19 @@ any arm whose run count is short of its target and refuses to endorse the tables
 ```
 code/sdg/     the testbed: training, data pipeline, the eight method re-implementations,
               the analysis scripts, and the table/figure generators
-outputs/      1,479 run records (one JSON per run) and the analysis reports they are read from
+outputs/      1,475 run records (one JSON per run) and the analysis reports they are read from
 ```
 
 Each run JSON holds the full configuration, the per-domain and per-case Dice, the training history
 and the environment (torch and cuDNN versions).
 
-The two counts differ on purpose. **1,318** is the fp32 deterministic testbed the paper reports and
-is what `\nTotalRuns` resolves to. The extra records are the earlier mixed-precision arm (used only
-where the paper labels it as such), the repeat runs behind the bit-reproducibility check, and the
-BraTS-Africa reverse-direction arm — all shipped so the record is complete, none of them pooled into
-a headline number.
+The two counts differ on purpose. **1,340** is the fp32 deterministic testbed the paper reports, and
+is what the `TotalRuns` macro resolves to. The extra records are the earlier mixed-precision arm
+(used only where the paper labels it as such), the repeat runs behind the bit-reproducibility check,
+a few exploratory probes, and the **C²SDG arm** — which is reported in the paper but excluded from
+that count, because it brings its own network and optimisation and so is not part of the
+backbone-controlled testbed the figure describes. All are shipped so the record is complete; none is
+pooled into a headline number.
 
 ## What is *not* here, and why
 
