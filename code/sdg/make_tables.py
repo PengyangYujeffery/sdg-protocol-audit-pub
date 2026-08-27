@@ -165,7 +165,7 @@ def tex_table(head, rows, caption, label, wide=False):
          # Measured 2026-08-24: footnotesize/6pt left six tables overfull by 56-199pt (one printed
          # over its neighbour in the proof); scriptsize/3pt cut that to 14-30pt; 2pt clears it.
          # The two gap-accounting tables carry seven columns and stay table*.
-         '\\scriptsize', '\\setlength{\\tabcolsep}{2pt}',
+         '\\footnotesize', '\\setlength{\\tabcolsep}{3pt}',
          '\\renewcommand{\\arraystretch}{1.05}',
          '\\begin{tabular}{%s}' % ('l' + 'r' * (len(head) - 1)), '\\hline',
          ' & '.join(esc(h) for h in head) + ' \\\\', '\\hline']
@@ -333,7 +333,9 @@ def main():
     md.append('\n## T1. Method effects vs ERM, scratch 2D U-Net\n')
     h2h_p = load('sdg_h2h', 'prostate_*_fg.json')
     h2h_r = load('sdg_h2h', 'riga_*.json')
-    expect('sdg_h2h', load('sdg_h2h'), 418)   # 168 base +63 E6a +84 E6b +70 E6c +33 E9b slaug
+    # 168 base +63 E6a +84 E6b +70 E6c +33 E9b slaug +22 E17 (seeds 3-4 for the eleven slaug cells
+    # that were still at three; T1 is uniformly five seeds from 2026-08-25).
+    expect('sdg_h2h', load('sdg_h2h'), 440)
     cells = [('DG Prostate (gland)', h2h_p, None),
              ('RIGA+ (disc)', [r for r in h2h_r if r['config'].get('gt') == 'r1'], 'disc'),
              ('RIGA+ (cup)', [r for r in h2h_r if r['config'].get('gt') == 'r1'], 'cup'),
@@ -393,7 +395,7 @@ def main():
                          'three seeds, strict source-validation model selection. The last column is '
                          'runs / source domains; $^{c}$ marks a source-clustered bootstrap and '
                          '$^{p}$ a pair-level one, used where there are too few clusters for the '
-                         'former.', 'tab:main'))
+                         'former.', 'tab:main', wide=True))
 
     # ---------------------------------------------------------------- T2 the leak
     md.append('\n\n## T2. Model-selection leak (DG Prostate)\n')
@@ -555,7 +557,7 @@ def main():
     tex.append(tex_table(head, brows,
                          'Boundary metrics on every benchmark. Methods that Dice separates widely '
                          'are level on HD95, and the degenerate-prediction share is not visible in '
-                         'Dice at all.', 'tab:boundary'))
+                         'Dice at all.', 'tab:boundary', wide=True))
 
     # ---------------------------------------------------------------- T6 oracle ceilings
     md.append('\n\n## T6. Oracle ceilings for adaptive selection\n')
@@ -581,7 +583,7 @@ def main():
     (tex_oracle if a.split_oracle else tex).append(tex_table(head, rows,
                          'Ceilings for adaptive augmentation-policy selection, measured on the '
                          'head-to-head runs. An always-correct domain-level selector gains almost '
-                         'nothing over the single best fixed policy.', 'tab:oracle'))
+                         'nothing over the single best fixed policy.', 'tab:oracle', wide=True))
 
     # ---------------------------------------------------------------- T7 rater convention
     #
@@ -614,7 +616,7 @@ def main():
                              'The optic-cup ground-truth convention, a choice papers rarely state, '
                              'changes both the absolute score and the measured method effect. The '
                              'two arms differ in numerical precision and are reported separately.',
-                             'tab:rater'))
+                             'tab:rater', wide=True))
     else:
         md.append(INC + '  (need RIGA+ runs under both gt conventions)')
         note('T7 incomplete: r1=%d, majority=%d, shared methods=%s' % (len(r1), len(maj), shared))
@@ -1009,6 +1011,53 @@ def main():
                              'cohort\'s own in-domain reference. The asymmetry is measured, not '
                              'assumed; its cause is acquisition, not anatomy.', 'tab:africa', wide=True))
         num('afRows', len(arows), '%d')
+
+    # ---------------------------------------------------------------- T-ccsdg: the one method that
+    # cannot join the controlled comparison
+    #
+    # C2SDG ships its own network, its own loss and two optimizers stepped alternately, so it cannot
+    # be run under the fixed backbone that makes every other column of T1 readable. It is reported
+    # here on its own, under OUR protocol -- our source/target split, our source-validation
+    # selection rule, our metric, computed by the same scorer as everything else.
+    #
+    # Two things this table must never be used for: it is not a row of T1, and it does not enter
+    # `TotalRuns`. See the directory list at the top of main(), which deliberately excludes
+    # sdg_ccsdg for exactly this reason.
+    #
+    # PROVENANCE, stated because it differs from every other arm: ccsdg_run.py sets
+    # torch.backends.cudnn.deterministic = True and benchmark = False (lines 122-124), but it does
+    # NOT record amp/deterministic/cudnn into its result JSONs the way train.py does. The guarantee
+    # therefore rests on the released code rather than on the run records, and the caption says so.
+    md.append('\n\n## T-ccsdg. C2SDG under our protocol, reported separately\n')
+    cc = load('sdg_ccsdg')
+    expect('sdg_ccsdg', cc, 15)   # 5 RIGA+ sources x 3 seeds; E16, 2026-08-25
+    if cc:
+        bys = defaultdict(list)
+        for r in cc:
+            bys[r['config']['source']].append((r['target_mean_disc'], r['target_mean_cup']))
+        crows = []
+        for s in sorted(bys):
+            v = bys[s]
+            crows.append((s, '%.4f' % np.mean([x[0] for x in v]),
+                          '%.4f' % np.mean([x[1] for x in v]), '%d' % len(v)))
+        alld = [x[0] for v in bys.values() for x in v]
+        allc = [x[1] for v in bys.values() for x in v]
+        crows.append(('mean over sources',
+                      num('ccsdgDisc', float(np.mean(alld))),
+                      num('ccsdgCup', float(np.mean(allc))),
+                      num('ccsdgRuns', len(cc), '%d')))
+        head = ['source domain', 'disc Dice', 'cup Dice', 'seeds']
+        md.append(md_table(head, crows))
+        md.append('\nTarget means over the four unseen domains, averaged over seeds. Not '
+                  'backbone-controlled and not part of T1.\n')
+        tex.append(tex_table(
+            head, crows,
+            'C\\textsuperscript{2}SDG evaluated under our protocol and reported on its own. It '
+            'brings its own network, loss and optimisation, so it cannot be placed in '
+            'Table~\\ref{tab:main}, whose columns differ only in augmentation policy; what follows '
+            'is therefore its performance under our evaluation, not an attribution between its '
+            'augmentation and its architecture. Determinism is set in its runner but, unlike every '
+            'other arm, is not recorded in its run files.', 'tab:ccsdg'))
 
     # ---------------------------------------------------------------- write
     txt = '\n'.join(md)

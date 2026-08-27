@@ -82,7 +82,12 @@ The accompanying paper is under review; citation details will be added here on a
 
 `outputs/paper_tables/` is committed. After running the three commands above, `git status` should
 report no changes: the regenerated `numbers.tex` and `tables.md` are byte-identical to the ones the
-paper was built from.
+paper was built from, on a different machine and operating system from the one that produced them.
+
+The figures are deliberately *not* committed and are ignored. They are the one artifact that does
+not reproduce byte-for-byte: matplotlib embeds fonts differently across versions, so a regenerated
+figure is visually identical but not the same file, and committing them would make the check above
+fail for reasons that have nothing to do with the results.
 
 The paper's LaTeX table blocks are deliberately not shipped. They are typesetting for one manuscript,
 not a result, and every value in them is in `numbers.tex` and `tables.md`.

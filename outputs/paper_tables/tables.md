@@ -1,5 +1,5 @@
 
-Study scale, counted from the run records: **4 benchmarks, 8 methods, 3 backbones, 1318 runs** (brats, mms, prostate, riga).
+Study scale, counted from the run records: **4 benchmarks, 8 methods, 3 backbones, 1340 runs** (brats, mms, prostate, riga).
 
 # Paper tables — generated, never hand-copied
 
@@ -8,9 +8,9 @@ Study scale, counted from the run records: **4 benchmarks, 8 methods, 3 backbone
 
 | benchmark | ERM | ΔBigAug | ΔRandConv | ΔMaxStyle | ΔADA | n |
 |---|---|---|---|---|---|---|
-| DG Prostate (gland) | 0.3948 | +0.2202 | +0.1270 | +0.0750 | +0.0441 | 228 / 6$^{c}$ |
-| RIGA+ (disc) | 0.9048 | +0.0240 | +0.0352 | +0.0110 | +0.0211 | 190 / 5$^{c}$ |
-| RIGA+ (cup) | 0.7932 | +0.0002 | +0.0498 | +0.0173 | +0.0327 | 190 / 5$^{c}$ |
+| DG Prostate (gland) | 0.3948 | +0.2202 | +0.1270 | +0.0750 | +0.0441 | 240 / 6$^{c}$ |
+| RIGA+ (disc) | 0.9048 | +0.0240 | +0.0352 | +0.0110 | +0.0211 | 200 / 5$^{c}$ |
+| RIGA+ (cup) | 0.7932 | +0.0002 | +0.0498 | +0.0173 | +0.0327 | 200 / 5$^{c}$ |
 | BraTS WT | 0.8408 | -0.0119 | -0.0249 | -0.0019 | -0.0240 | 38 / 1$^{p}$ |
 | BraTS TC | 0.7037 | -0.0741 | -0.0246 | +0.0419 | +0.0001 | 38 / 1$^{p}$ |
 | BraTS ET | 0.6637 | -0.0995 | +0.0283 | +0.0202 | -0.0927 | 38 / 1$^{p}$ |
@@ -50,7 +50,7 @@ Method-effect spread: scratch [0.0115, 0.2202] -> pretrained [0.0334, 0.1315].
 | DSU | +0.0115 | +0.0334 |
 | MaxStyle-core | +0.0750 | +0.0947 |
 | ADA | +0.0441 | +0.0867 |
-| SLAug (aug.) | +0.0585 | — |
+| SLAug (aug.) | +0.0504 | — |
 | *ERM absolute* | 0.3948 | 0.5685 |
 
 
@@ -60,7 +60,7 @@ BigAug's measured DG gain moves 21 % between the two policies (+0.2202 under `fg
 
 | slice policy | ERM | ΔBigAug | ΔRandConv | n |
 |---|---|---|---|---|
-| fg | 0.3948 | +0.2202 | +0.1270 | 228 runs / 6 src |
+| fg | 0.3948 | +0.2202 | +0.1270 | 240 runs / 6 src |
 | all | 0.3238 | +0.1740 | +0.1063 | 54 runs / 6 src |
 
 
@@ -83,8 +83,8 @@ Parsed from the released boundary reports; Dice ranks the same methods different
 
 | benchmark | best fixed | Δ oracle per source | Δ oracle per pair | Δ oracle per case |
 |---|---|---|---|---|
-| DG Prostate | BigAug 0.6150 | +0.0053 | +0.0513 | +0.0609 |
-| RIGA+ cup | RandConv 0.8430 | +0.0016 | +0.0035 | +0.0319 |
+| DG Prostate | BigAug 0.6150 | +0.0053 | +0.0489 | +0.0571 |
+| RIGA+ cup | RandConv 0.8430 | +0.0018 | +0.0037 | +0.0318 |
 | BraTS ET | RandConv 0.6920 | +0.0000 | +0.0044 | +0.0589 |
 
 The per-source oracle is the ceiling of any method that adapts to the training domain it is handed; the per-pair and per-case oracles require target knowledge and are reported to bound the question rather than as achievable targets.
@@ -169,7 +169,7 @@ Pretrained ResNet-34, ERM, prostate, matched cell-for-cell against the unfrozen 
 | DSU | 23.4 | 7.3 | 2900 |
 | MaxStyle-core | 15.7 | 4.1 | 2900 |
 | ADA | 21.0 | 7.7 | 2900 |
-| SLAug (aug.) | 23.9 | 5.6 | 1740 |
+| SLAug (aug.) | 24.2 | 7.1 | 2900 |
 
 The two are far apart, and that difference is the finding: the model is not silent. Note the third quantity this is NOT: the boundary reports give the EMPTY-prediction share separately, and it is far smaller, so most zero-Dice cases are predictions that missed entirely rather than absent ones. From the fp32 deterministic head-to-head runs.
 
@@ -207,4 +207,19 @@ The only column a deployed method can reach is **method, per source** — it is 
 | ET | RandConv | 0.7647 | 0.6972 | 0.7694 | 0.6903 | +0.0069 |
 
 The two directions are not mirror images. Attribution is **acquisition**, not anatomy: the source literature ascribes the African cohort's difficulty to field strength, motion, resolution and non-standardised protocols.
+
+
+
+## T-ccsdg. C2SDG under our protocol, reported separately
+
+| source domain | disc Dice | cup Dice | seeds |
+|---|---|---|---|
+| BinRushed | 0.9382 | 0.8159 | 3 |
+| MESSIDOR_Base1 | 0.8962 | 0.7980 | 3 |
+| MESSIDOR_Base2 | 0.8783 | 0.7765 | 3 |
+| MESSIDOR_Base3 | 0.8807 | 0.7747 | 3 |
+| Magrabia | 0.9023 | 0.8252 | 3 |
+| mean over sources | 0.8991 | 0.7981 | 15 |
+
+Target means over the four unseen domains, averaged over seeds. Not backbone-controlled and not part of T1.
 

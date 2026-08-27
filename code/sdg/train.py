@@ -45,7 +45,14 @@ EFDR_METHODS = ['efdr', 'efdr_bigaug', 'efdr_randconv']
 # gradient, so it modifies the training loop rather than the augmentation policy. Grouping it with
 # the input-space methods would quietly break the one property that makes this comparison readable
 # (same backbone, same schedule, same loss -- only the augmentation differs).
+# LOOP_METHODS are DECLARED but NOT IMPLEMENTED. `slaug_sbf` has no Saliency-Balancing Fusion code
+# anywhere in this repository: it matches none of the dispatch branches below, so a run would train
+# with no augmentation at all and write an ERM result under the name of the full published method --
+# a plausible number for the wrong thing, which is the failure mode this project keeps catching.
+# main() refuses it explicitly rather than letting argparse wave it through. Remove the guard only
+# together with a real implementation and a correctness gate against the authors' get_SBF_map.
 LOOP_METHODS = ['slaug_sbf']
+UNIMPLEMENTED = set(LOOP_METHODS)
 ALL_METHODS = INPUT_METHODS + STYLE_METHODS + ['ada'] + EFDR_METHODS + LOOP_METHODS
 
 
@@ -142,7 +149,8 @@ def main():
                          'easy one and pooling hides the region that carries the clinical decision')
     ap.add_argument('--brats_slices', default='tumour', choices=['tumour', 'all'])
     ap.add_argument('--source', required=True)
-    ap.add_argument('--method', required=True, choices=ALL_METHODS)
+    ap.add_argument('--method', required=True, choices=ALL_METHODS,
+                    help='see ALL_METHODS; entries in UNIMPLEMENTED are rejected at run time')
     ap.add_argument('--seed', type=int, default=0)
     ap.add_argument('--iters', type=int, default=8000)
     ap.add_argument('--bs', type=int, default=8)
@@ -186,6 +194,11 @@ def main():
     ap.add_argument('--out', default=os.path.join(OUTPUTS, 'sdg'))
     ap.add_argument('--ckpt_dir', default=os.path.join(SCRATCH, 'ckpt'))
     a = ap.parse_args()
+    if a.method in UNIMPLEMENTED:
+        raise SystemExit(
+            '!! --method %s is declared but not implemented. It matches no augmentation dispatch '
+            'branch, so this run would train without augmentation and save the result under that '
+            'name. Refusing.' % a.method)
 
     device = 'cuda'
     torch.manual_seed(a.seed); np.random.seed(a.seed)

@@ -28,8 +28,10 @@ as a baseline** (they also go in METHODS_REIMPLEMENTATION.md):
      the network gradient as an argument, so it is a *training-loop* modification rather than an
      augmentation. Under this project's protocol -- one backbone, one schedule, one loss, only the
      augmentation policy differs -- SBF cannot be folded in without breaking the thing that makes
-     the comparison readable. It is therefore run as a separate, explicitly labelled variant
-     (`--method slaug_sbf`, see train.py) and never silently mixed with the augmentation-only arm.
+     the comparison readable. SBF is therefore NOT IMPLEMENTED anywhere in this repository, and
+     `--method slaug_sbf` is refused by train.py rather than silently training without augmentation.
+     An earlier version of this note claimed the variant "is run as a separate, explicitly labelled
+     variant"; it never was, and the claim was corrected on 2026-08-25.
      **Any number reported for `slaug` is SLAug's location-scale augmentation, not the full method,
      and must say so.**
 """
