@@ -53,6 +53,16 @@ The consequence is worth stating plainly:
 * **retraining** additionally needs the preprocessed 2D corpora, which are derived from the datasets
   above and are not ours to redistribute. `code/sdg/data.py` reads them from `SDG_SCRATCH`.
 
+**C²SDG's network.** That arm runs the authors' released implementation, which is theirs and is not
+redistributed here: clone it yourself and point `CCSDG_SRC` at it. Our wrapper around it,
+`code/sdg/ccsdg_run.py`, is here. It carries our source and target split, our source-validation rule
+and our scorer, and it documents at the call site the two changes needed to run the released code
+under a current torch — the Fourier utility is called on the whole batch rather than per image, and
+the projector's input is made contiguous before its `view`. Neither changes a value, and the
+authors' package is left exactly as published. This file is also where this arm's seeding and
+determinism settings live: unlike `train.py`, it does not write them into its result records, so for
+the C²SDG arm alone they are checkable only here.
+
 ## Paths
 
 Two environment variables, both optional:
